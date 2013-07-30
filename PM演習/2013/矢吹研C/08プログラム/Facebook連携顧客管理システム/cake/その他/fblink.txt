@@ -1,0 +1,6 @@
+http://localhost/facebook_customer/customers/ (基本リンク)
+
+http://localhost/facebook_customer/users/add ユーザ登録
+http://localhost/facebook_customer/users/　　ユーザ認証
+
+http://localhost/phpmyadmin/index.php

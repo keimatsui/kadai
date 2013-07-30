@@ -1,0 +1,6 @@
+c:
+cd /xampp/htdocs/facebook_customer/app/Console
+/xampp/php/php cake.php bake model Sale
+/xampp/php/php cake.php bake model Product
+/xampp/php/php cake.php bake model Customer
+/xampp/php/php cake.php bake model Prefecture
