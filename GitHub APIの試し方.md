@@ -9,7 +9,7 @@ Ubuntuを使う。
 必要なソフトウェアを準備する。
 
 ```
-sudo apt-get install curl nkf
+sudo apt-get install curl
 ```
 
 ### GitHubのログイン情報
