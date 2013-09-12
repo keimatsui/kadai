@@ -1,41 +1,40 @@
 # GitHub APIの試し方
 
-## 準備
-
 Ubuntuを使う。
 
-### 必要なソフトウェア
+`Ctrl + Alt + T`で端末を起動する。
 
-必要なソフトウェアを準備する。
+## 準備（この作業は1回だけやればいい）
+
+curlをインストールする。`curl`については自分で調べること。
 
 ```
 sudo apt-get install curl
 ```
 
-### GitHubのログイン情報
-
-ログイン情報を何度も入力するのは面倒だから、コマンドプロンプトで以下のようなコマンドを実行し、ログイン情報を環境変数に保存する（GitHubのユーザ名とパスワードを半角のコロンで区切って記述する）。
+ログイン情報を何度も入力するのは面倒だから、ユーザ名とパスワードをファイル`github.passwd`に書いておく（ユーザ名とパスワードの間は半角のコロン）。`echo`や`>`については自分で調べること（キーワードに「シェルスクリプト」や「bash」を入れると）探しやすい。
 
 ```
-export GITHUBPASS=ユーザ名:パスワード
+echo 'ユーザ名:パスワード' > github.passwd
+chmod 600 github.passwd
 ```
 
-次のコマンドで、環境変数が正しく設定されていることを確認する。
+正しく書けたことを確認する。`cat`については自分で調べること。
 
 ```
-echo $GITHUBPASS
+cat github.passwd
 ```
 
 ## APIの利用
 
-例として、http://developer.github.com/v3/issues/ で紹介されているAPIを試す。
+例として、http://developer.github.com/v3/issues/ で紹介されているAPIを試す。`$(コマンド)`の部分は、コマンドの実行結果で置き換えられることに注意。
 
 ```
-curl -u $GITHUBPASS https://api.github.com/issues
+curl -u $(cat github.passwd) https://api.github.com/issues
 ```
 
-この結果を処理するためにはプログラムを書かなければならないが、内容を取り出す程度の簡単な処理なら次のようにパイプで実現できる。
+この結果を処理するためにはプログラムを書かなければならないが、内容を取り出す程度の簡単な処理なら次のようにパイプで実現できる。`|`や`grep`については自分で調べること。
 
 ```
-curl -u $GITHUBPASS https://api.github.com/issues | grep title
+curl -u $(cat github.passwd) https://api.github.com/issues | grep title
 ```
