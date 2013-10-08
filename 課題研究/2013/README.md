@@ -5,7 +5,7 @@
 
 * 木下是雄『理科系の作文技術』（中央公論新社, 1981）あるいは木下是雄『レポートの組み立て方』（筑摩書房, 1994）を参考に、自分たちが課題研究の報告書や卒論を書く際に利用する「チェックリスト」を共同で[Wiki](https://github.com/taroyabuki/yabukilab/wiki/%E6%96%87%E6%9B%B8%E4%BD%9C%E6%88%90%E3%81%AE%E9%9A%9B%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88)上で作成する。チェックリストには、50個以上100個以下の項目があること。
 * 自分の担当回に、課題研究あるいは卒論に関連する文献を紹介する。概要を自分の言葉（360字以上400字以内）で書いて、GitHubに事前にアップしておくこと。テーマが決まっていない場合は、テーマの候補を5個発表する。テーマをファイルに書いて、GitHubに事前にアップしておくこと。
-* LPIC『Linux標準教科書』の章末問題をすべて自分で解く。（参考：[CentOS6.3をネットインストールするの巻](http://blog.trippyboy.com/2013/centos/centoscentos6-3%E3%82%92%E3%83%8D%E3%83%83%E3%83%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E3%81%AE%E5%B7%BB/)）
+* LPIC『Linux標準教科書』の章末問題をすべて自分で解く。（参考：[CentOS6.3をネットインストールするの巻](http://blog.trippyboy.com/2013/centos/centoscentos6-3%E3%82%92%E3%83%8D%E3%83%83%E3%83%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E3%81%AE%E5%B7%BB/)。インストールするのは[Minimal Desktop](https://raw.github.com/taroyabuki/yabukilab/master/images/centos63minimaldesktop.png?login=taroyabuki&token=e91c59640e409c3e1f6477e3b852a9f9)でよい。）
 
 ###研究テーマを探す
 
