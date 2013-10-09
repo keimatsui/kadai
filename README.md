@@ -19,3 +19,7 @@ yabukilab
  * Chrome + [その本、図書館にあります。](http://www.kigurumi.asia/imake/1369/)：Amazonで閲覧中の本が図書館にあるかどうかをチェックする。千葉工大津田沼と千葉工大新習志野を登録しておく。
  * Chrome + [amaruzen](https://chrome.google.com/webstore/detail/amaruzen/mebbcheaekaddnilejjllbifehngpcjj?hl=ja)：Amazonで閲覧中の本が丸善にあるかどうかをチェックする。
 * [AutoPagerize](http://autopagerize.net/)
+
+## 資料
+
+* [就活等で使える技術的なキーワードを紹介した動画](http://youtu.be/t3mvWrv62wM)：Googleにログインした状態でないと見られません。
