@@ -9,7 +9,7 @@
 
 ###研究テーマを探す
 
-* 興味のあるキーワードを[Google Alert](http://www.google.com/alerts?hl=ja)に登録してみる。（例：GitHub）
+* 興味のあるキーワードを[Google Alert](http://www.google.com/alerts?hl=ja)に登録してみる。（例：GitHub, プロジェクトマネジメント）
 
 ##スケジュール
 
