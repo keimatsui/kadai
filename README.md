@@ -8,7 +8,7 @@ yabukilab
 * [GitHubからのメールを静かにする方法](https://github.com/taroyabuki/yabukilab/blob/master/GitHub%E3%81%8B%E3%82%89%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E9%9D%99%E3%81%8B%E3%81%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95.md)
 * [文書作成の際のチェックリスト](https://github.com/taroyabuki/yabukilab/wiki/%E6%96%87%E6%9B%B8%E4%BD%9C%E6%88%90%E3%81%AE%E9%9A%9B%E3%81%AE%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88)
 
-## 有用なリンク
+## 有用なウェブサイト
 
 * [カテゴリー別配色アイデア100](http://www.webcreatorbox.com/inspiration/colour-scheme-ideas-100/)
 
