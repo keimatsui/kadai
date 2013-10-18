@@ -10,6 +10,8 @@ yabukilab
 
 ## 有用なリンク
 
+* [Google Scholar（論文検索）](http://scholar.google.co.jp/)
+* [CiNii（論文検索）](http://ci.nii.ac.jp/)
 * [カテゴリー別配色アイデア100](http://www.webcreatorbox.com/inspiration/colour-scheme-ideas-100/)
 
 ## 有用なツール
@@ -18,7 +20,7 @@ yabukilab
  * Chrome + [Libron](http://libron.net/)：Amazonで閲覧中の本が図書館にあるかどうかをチェックする。地元の図書館を登録しておく。
  * Chrome + [その本、図書館にあります。](http://www.kigurumi.asia/imake/1369/)：Amazonで閲覧中の本が図書館にあるかどうかをチェックする。千葉工大津田沼と千葉工大新習志野を登録しておく。
  * Chrome + [amaruzen](https://chrome.google.com/webstore/detail/amaruzen/mebbcheaekaddnilejjllbifehngpcjj?hl=ja)：Amazonで閲覧中の本が丸善にあるかどうかをチェックする。
-* [AutoPagerize](http://autopagerize.net/)
+* [AutoPager](https://www.google.co.jp/search?q=autopager)あるいは[AutoPagerize](http://autopagerize.net/)
 
 ## 資料
 
