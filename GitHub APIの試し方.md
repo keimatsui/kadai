@@ -83,7 +83,7 @@ grep Link: header.txt
 grep title result.txt
 ```
 
-おまけ：issueの件数を調べて、ウェブサイト上の数字と合っていることを確認する。
+おまけ：issueの件数を調べて、ウェブサイト上の数字と合っていることを確認する。`wc`については自分で調べること。
 
 ```
 grep title result.txt | wc -l
