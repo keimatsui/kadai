@@ -17,7 +17,7 @@ sudo apt-get install curl
 例として、http://developer.github.com/v3/issues/ で紹介されているAPIを試す。https://github.com/Diogenesthecynic/FullScreenMario のissuesを取得したいときは、次のようにAPIをたたけばよい。
 
 ```
-curl -s -u ユーザ名:パスワード https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues
+curl -s -u ユーザ名:パスワード "https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues"
 ```
 
 ### ログイン情報入力を省略する方法
@@ -38,7 +38,7 @@ cat github.passwd
 ログイン情報をファイルに書き込んだら、次のように利用する。`$(コマンド)`の部分は、コマンドの実行結果で置き換えられることに注意。
 
 ```
-curl -s -u $(cat github.passwd) https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues
+curl -s -u $(cat github.passwd) "https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues"
 ```
 
 ## API呼び出し結果の処理
@@ -46,7 +46,7 @@ curl -s -u $(cat github.passwd) https://api.github.com/repos/Diogenesthecynic/Fu
 この結果を処理するためにはプログラムを書かなければならないが、内容を取り出す程度の簡単な処理なら次のようにパイプで実現できる。`|`や`grep`については自分で調べること。
 
 ```
-curl -s -u $(cat github.passwd) https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues | grep title
+curl -s -u $(cat github.passwd) "https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues" | grep title
 ```
 
 ### 結果が大量にある場合
@@ -56,7 +56,7 @@ curl -s -u $(cat github.passwd) https://api.github.com/repos/Diogenesthecynic/Fu
 まず、次のように、結果を`result.txt`に、レスポンスヘッダを`header.txt`に書き込む。
 
 ```
-curl -s -u $(cat github.passwd) -D header.txt https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues > result.txt
+curl -s -u $(cat github.passwd) -D header.txt "https://api.github.com/repos/Diogenesthecynic/FullScreenMario/issues" > result.txt
 ```
 
 結果の続きは、`header.txt`の`Link`に書かれている（`cat header.txt`でもよい）。
@@ -65,13 +65,13 @@ curl -s -u $(cat github.passwd) -D header.txt https://api.github.com/repos/Dioge
 grep Link: header.txt
 ```
 
-`rel="next"`のURLを見て、結果の続きを`result.txt`に追記する。
+`rel="next"`のURLを見て、結果の続きを`result.txt`に追記する。この例では次のようになる。
 
 ```
-curl -s -u $(cat github.passwd) -D header.txt https://api.github.com/repositories/7814621/issues?page=2 >> result.txt
+curl -s -u $(cat github.passwd) -D header.txt "https://api.github.com/repositories/7814621/issues?page=2" >> result.txt
 ```
 
-もう一度、header.txtを見て、`rel="next"`のURLがなければ終了である。
+もう一度、header.txtを見て、`rel="next"`のURLがなければ終了である（無くなるまで繰り返す）。
 
 ```
 grep Link: header.txt
