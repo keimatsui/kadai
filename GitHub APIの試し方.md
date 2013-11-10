@@ -140,7 +140,7 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 ./jq '.created_at,.title' openissues.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }' > openissues.csv
 ```
 
-のように結果をawkに渡して処理すれば、UbuntuのLibreOffice Calcで読めるCSV形式になる（読み込むときに、1列目を日時にする）。`awk`については自分で調べること。
+のように結果をawkに渡して処理すれば、ExcelやUbuntuのLibreOffice Calcで読めるCSV形式になる（読み込むときに、1列目を日時にする）。`awk`については自分で調べること。
 
 コミットIDとコミット日時を一覧表示するには`./jq '.commit.committer.date,.sha' commits.txt`。先の例と同様に、結果を整形すると使いやすい。
 
