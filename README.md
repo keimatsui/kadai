@@ -26,6 +26,10 @@ yabukilab
 * [GitHub APIの試し方](https://github.com/taroyabuki/yabukilab/tree/master/library/github)
 * [GitHubからのメールを静かにする方法](https://github.com/taroyabuki/yabukilab/blob/master/library/github/GitHub%E3%81%8B%E3%82%89%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E3%82%92%E9%9D%99%E3%81%8B%E3%81%AB%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95.md)
 
+### [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
+* Ubuntuでは、`sudo apt-get install virtualbox-ose-guest-utils`とすることで、ホストとゲストの間でのクリップボードやファイルの共有が可能になる。
+
 ## 資料
 
 * [就活等で使える技術的なキーワードを紹介した動画](http://youtu.be/t3mvWrv62wM)：矢吹に報告したGoogleにログインした状態でないと見らない。
