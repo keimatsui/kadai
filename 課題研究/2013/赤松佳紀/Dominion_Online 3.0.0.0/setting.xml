@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<clsSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PlayerName>nagi</PlayerName>
+  <ConnectSetting>
+    <clsConnect>
+      <ServerName>WILL鯖 willtestdominion.orz.hm 50000～50003</ServerName>
+      <IPAddress>willtestdominion.orz.hm</IPAddress>
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>フォイ鯖 foifoimaru.orz.hm 50000～50003</ServerName>
+      <IPAddress>foifoimaru.orz.hm</IPAddress>
+      <PortNo>50001</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>&lt;--未設定--&gt;</ServerName>
+      <IPAddress />
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>&lt;--未設定--&gt;</ServerName>
+      <IPAddress />
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>&lt;--未設定--&gt;</ServerName>
+      <IPAddress />
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>&lt;--未設定--&gt;</ServerName>
+      <IPAddress />
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>&lt;--未設定--&gt;</ServerName>
+      <IPAddress />
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>&lt;--未設定--&gt;</ServerName>
+      <IPAddress />
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>&lt;--未設定--&gt;</ServerName>
+      <IPAddress />
+      <PortNo>50000</PortNo>
+    </clsConnect>
+    <clsConnect>
+      <ServerName>Localhost</ServerName>
+      <IPAddress>127.0.0.1</IPAddress>
+      <PortNo>50000</PortNo>
+    </clsConnect>
+  </ConnectSetting>
+  <UseSetting>1</UseSetting>
+  <AutoTreasure>
+    <CardNo>Copper</CardNo>
+    <CardNo>Silver</CardNo>
+    <CardNo>Gold</CardNo>
+    <CardNo>Harem</CardNo>
+    <CardNo>PhilsStone</CardNo>
+    <CardNo>Potion</CardNo>
+    <CardNo>Platinum</CardNo>
+    <CardNo>Quarry</CardNo>
+    <CardNo>RoyalSeal</CardNo>
+    <CardNo>Diadem</CardNo>
+    <CardNo>Cache</CardNo>
+    <CardNo>FoolsGold</CardNo>
+    <CardNo>IllGottenGains</CardNo>
+    <CardNo>Masterpiece</CardNo>
+    <CardNo>Stash</CardNo>
+    <CardNo>EnterPrise_Fund</CardNo>
+  </AutoTreasure>
+  <IsViewImageSettingCard>true</IsViewImageSettingCard>
+  <ServerInitOmit>false</ServerInitOmit>
+  <ServerName>default</ServerName>
+  <ServerPort>50000</ServerPort>
+  <IsChatOK>true</IsChatOK>
+  <IsMoveOK>true</IsMoveOK>
+  <IsChangeSupply>true</IsChangeSupply>
+  <IsUseOriginal>false</IsUseOriginal>
+  <ConnectMessage />
+  <WindowHeight>680</WindowHeight>
+  <GameBoardCount>9</GameBoardCount>
+  <BuyInTreasure>true</BuyInTreasure>
+  <RevealBaron>value4</RevealBaron>
+  <RevealExplorer>value4</RevealExplorer>
+  <RevealMountebank>value4</RevealMountebank>
+  <RevealTournament>value4</RevealTournament>
+  <RevealYoungWitch>value4</RevealYoungWitch>
+  <RevealFoolsGold>value1</RevealFoolsGold>
+  <RevealTunnel>value1</RevealTunnel>
+  <RevealHovel>value1</RevealHovel>
+  <RevealMarketSquare>value1</RevealMarketSquare>
+  <RevealWatermill>value4</RevealWatermill>
+  <RevealWindmill>value4</RevealWindmill>
+</clsSetting>
