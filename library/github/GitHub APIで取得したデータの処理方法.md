@@ -22,7 +22,7 @@ jqの使い方はhttp://stedolan.github.io/jq/tutorial/ で紹介されている
 
 `less openissues.txt`では結果が見にくい（`less`の使い方は自分で調べる。とりあえず`q`で終了。）
 
-`jq`を使って、`jq '.' openissues.txt | less`とすると、整形して表示される。
+`jq`を使って、`./jq '.' openissues.txt | less`とすると、整形して表示される。
 
 さらに`./jq '.' -C openissues.txt | less -R`とすれば、カラーになる。
 
