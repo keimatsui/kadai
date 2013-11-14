@@ -6,6 +6,12 @@
 
 作業ディレクトリに[jqのバイナリ](http://stedolan.github.io/jq/download/linux32/jq)をコピーする。
 
+jqを実行できるようにする。`chmod`については自分で調べること。
+
+```
+chmod +x jq
+```
+
 ## jqの利用
 
 jqの使い方はhttp://stedolan.github.io/jq/tutorial/ で紹介されているが、わかりにくければ日本語の記事を探してみてもよいだろう。
@@ -44,5 +50,6 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 
 ## 自分で調べること
 
+* `chmod`
 * `less`
 * `awk`：テキスト処理の伝統的なツール。研究室にある雑誌「Software Design」の2013年9月号に「UNIXエンジニアのたしなみ 今からはじめるsed/AWK再入門 ワンライナー vs. スクリプティング」という特集がある。ちなみに、矢吹がはじめて買ったプログラミングの本が、Ahoほか『プログラミング言語AWK』（トッパン, 1989）である。
