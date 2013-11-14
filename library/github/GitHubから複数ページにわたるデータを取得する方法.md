@@ -44,3 +44,11 @@ http://developer.github.com/v3/repos/commits/#list-commits-on-a-repository で�
 ```
 python api.py "https://api.github.com/repos/jquery/jquery/commits?per_page=100" > commits.txt
 ```
+
+例4：ユーザGenki966の活動履歴を取得する。
+
+http://developer.github.com/v3/activity/events/#list-events-performed-by-a-user で紹介されている`GET /users/:user/events`を使う。
+
+```
+python api.py "https://api.github.com/users/Genki966/events?per_page=100" > events.txt
+```
