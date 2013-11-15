@@ -30,7 +30,7 @@ jqの使い方はhttp://stedolan.github.io/jq/tutorial/ やhttp://stedolan.githu
 
 コミットIDとコミット日時を一覧表示するには`./jq '.commit.committer.date,.sha' commits.txt`。
 
-この結果の偶数行目の時だけ改行するように整形すると、Excelなどで処理しやすくなる。そのためには、行数を2で割ったあまりがゼロ、つまり偶数行なら改行、奇数行ならカンマを付ければよい。`|`（パイプ）で`awk`に渡して処理する。結果を整形すると使いやすい。うまくできるようになったら、`> commits.csv`などを付けてファイルに保存する。`awk`については自分で調べること。
+この結果の偶数行目の時だけ改行するように整形すると、Excelなどで処理しやすくなる。そのためには、`|`（パイプ）で`awk`に渡して、行数を2で割ったあまりがゼロ、つまり偶数行なら改行、奇数行ならカンマを付ければよい。うまくできるようになったら、`> commits.csv`などを付けてファイルに保存する。`awk`については自分で調べること。
 
 ```.
 /jq '.commit.committer.date,.sha' commits.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
@@ -42,7 +42,7 @@ Issueのタイトルだけを一覧表示するには`./jq '.title' openissues.t
 
 Issueの作成日時だけを一覧表示するには`./jq '.created_at' openissues.txt`。
 
-タイトルは重複する可能性があるから、`./jq '.id,.title,.created_at' openissues.txt`のように、IDをつけておくといい。この結果は、行数を3で割ったあまりが0のときは改行を、1か2のときはカンマを付けて整形すればよい。
+タイトルは重複する可能性があるから、`./jq '.id,.title,.created_at' openissues.txt`のように、IDをつけておくといい。この結果は、行数を3で割ったあまりが0のときは改行を、それ以外（つまり1か2）のときはカンマを付けて整形すればよい。
 
 ```
 ./jq '.id,.created_at,.title' openissues.txt | awk '{ printf($0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
