@@ -26,32 +26,46 @@ jqの使い方はhttp://stedolan.github.io/jq/tutorial/ で紹介されている
 
 さらに`./jq '.' -C openissues.txt | less -R`とすれば、カラーになる。
 
+### コミット履歴
+
+コミットIDとコミット日時を一覧表示するには`./jq '.commit.committer.date,.sha' commits.txt`。
+
+この結果の偶数行目の時だけ改行するように整形すると、Excelなどで処理しやすくなる。そのためには、行数を2で割ったあまりがゼロ、つまり偶数行なら改行、奇数行ならカンマを付ければよい。`|`（パイプ）で`awk`に渡して処理する。結果を整形すると使いやすい。うまくできるようになったら、`> commits.csv`などを付けてファイルに保存する。`awk`については自分で調べること。
+
+```.
+/jq '.commit.committer.date,.sha' commits.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
+```
+
 ### Issues
 
 Issueのタイトルだけを一覧表示するには`./jq '.title' openissues.txt`。結果を別ファイルに保存したければ`>`を使えばよい。
 
-Issueの作成日時だけを一覧表示するには`./jq '.created_at' openissues.txt`。これもファイルに保存し、Excel上で上述のタイトル一覧と合わせてもよいが、`./jq '.created_at,.title' openissues.txt`の結果の偶数行目の時だけ改行するようにするのが簡単（行数を2で割ったあまりがゼロ、つまり偶数行なら改行、奇数行ならカンマを付ける）。`|`（パイプ）で`awk`に渡して処理する。`awk`については自分で調べること。うまくできるようになったら、`> openissues.csv`などを付けてファイルに保存する。
+Issueの作成日時だけを一覧表示するには`./jq '.created_at' openissues.txt`。
+
+タイトルは重複する可能性があるから、`./jq '.id,.title,.created_at' openissues.txt`のように、IDをつけておくといい。この結果は、行数を3で割ったあまりが0のときは改行を、1か2のときはカンマを付けて整形すればよい。
 
 ```
-./jq '.created_at,.title' openissues.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
+./jq '.id,.created_at,.title' openissues.txt | awk '{ printf($0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
 ```
 
-のように結果をawkに渡して処理すれば、ExcelやUbuntuのLibreOffice Calcで読めるCSV形式になる（読み込むときに、1列目を日時にする）。
+うまくできるようになったら、`> openissues.csv`などを付けてファイルに保存し、ExcelやUbuntuのLibreOffice Calcで読み込む。その際、2列目を「日時」として読み込むようにする。
 
 `closedissues.txt`から、オープン日時とクローズ日時、タイトルの一覧を作るには、次のようにすればよい。うまくできるようになったら、`> closedissues.csv`などを付けてファイルに保存する。
 
 ```
-./jq '.created_at,.closed_at,.title' closedissues.txt | awk '{printf($0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
+./jq '.id,.created_at,.closed_at,.title' closedissues.txt | awk '{printf($0); if (NR % 4 == 0) printf("\n"); else printf(","); }'
 ```
 
-この結果をCalcで読み込んで、C1に`=(B1-A1)*86400`などと入力してC列全体にコピーすれば、issueがオープンしてからクローズするまでの時間を求められる。
+この結果をCalcで読み込んで、D1に`=(C1-B1)*86400`などと入力してD列全体にコピーすれば、issueがオープンしてからクローズするまでの時間を求められる。
 
-### コミット履歴
+#### ラベルを取得する
 
-コミットIDとコミット日時を一覧表示するには`./jq '.commit.committer.date,.sha' commits.txt`。先の例と同様に、結果を整形すると使いやすい。うまくできるようになったら、`> commits.csv`などを付けてファイルに保存する。
+ラベルは配列になっているため、取得する時には、`./jq '.id,.created_at,.labels[].name' closedissues.txt`のように、`[]`という記法を用いる。ただ、付いているラベルの数によって形式が変わってしまうため、これでは結果を次の処理に回しにくい。`./jq '.id,.created_at,[.labels[].name]' closedissues.txt`なら形式は揃うが、使いにくいことには変わりがない。
 
-```.
-/jq '.commit.committer.date,.sha' commits.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
+`./jq -c '{id,created_at,label:.labels[].name}' closedissues.txt`とすれば、ラベルの分だけオブジェクトができる（ラベルがないと出てこない）。これにもう一度フィルタをかけてもいいだろう。もっといい方法がありそう。
+
+```
+./jq -c '{id,created_at,label:.labels[].name}' closedissues.txt | ./jq '.id,.created_at,.label' | awk '{ printf($0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
 ```
 
 ### 個人の活動
