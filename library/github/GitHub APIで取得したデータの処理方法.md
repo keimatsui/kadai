@@ -14,7 +14,7 @@ chmod +x jq
 
 ## jqの利用
 
-jqの使い方はhttp://stedolan.github.io/jq/tutorial/ で紹介されているが、わかりにくければ日本語の記事を探してみてもよいだろう。
+jqの使い方はhttp://stedolan.github.io/jq/tutorial/ やhttp://stedolan.github.io/jq/manual/ で紹介されているが、わかりにくければ日本語の記事を探してみてもよいだろう。
 
 「GitHubから複数ページにわたるデータを取得する方法」の作業でできたファイル、`openissues.txt`と`closedissues.txt`、`commits.txt`、`events.txt`を例に使い方を紹介する。
 
@@ -60,7 +60,7 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 
 #### ラベルを取得する
 
-ラベルは配列になっているため、取得する時には、`./jq '.id,.created_at,.labels[].name' closedissues.txt`のように、`[]`という記法を用いる。ただ、付いているラベルの数によって形式が変わってしまうため、これでは結果を次の処理に回しにくい。`./jq '.id,.created_at,[.labels[].name]' closedissues.txt`なら形式は揃うが、使いにくいことには変わりがない。
+ラベルは配列になっているため、取得する時には、`./jq '.id,.created_at,.labels[].name' closedissues.txt`のように、`[]`という記法を用いる。ただ、付いているラベルの数によって形式が変わってしまうため、これでは結果を次の処理に回しにくい。`./jq '.id,.created_at,[.labels[].name]' closedissues.txt`なら形式は揃うが、使いにくいことには変わりがない（`-c`は1行1オブジェクトにするオプション）。
 
 `./jq -c '{id,created_at,label:.labels[].name}' closedissues.txt`とすれば、ラベルの分だけオブジェクトができる（ラベルがないと出てこない）。これにもう一度フィルタをかけてもいいだろう。もっといい方法がありそう。
 
