@@ -72,8 +72,9 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 
 個人の活動の日時とタイプを一覧表示するには`./jq '.created_at,.type' events.txt`。先の例と同様に、結果を整形すると使いやすい。うまくできるようになったら、`> events.csv`などを付けてファイルに保存する。
 
+```
 ./jq '.created_at,.type' events.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
-
+```
 
 ## 自分で調べること
 

@@ -31,6 +31,8 @@ python api.py "https://api.github.com/repos/Diogenesthecynic/FullScreenMario/iss
 
 `?per_page=100`は無くても動くが、一度に取得するデータを最大にしておくことで、API利用可能回数の消費を抑えたほうがよい。
 
+`>`はリダイレクト（すでに自分で調べているはず）。ここではファイル`openissues.txt`に結果を保存している。APIでデータを取得するのには時間がかかるため、このように、一度ファイルに保存して置くのがいいだろう（つまり、`python api.py URI | ./jq...`のように、次の処理に直接渡さない。）
+
 例2：https://github.com/Diogenesthecynic/FullScreenMario のクローズドなissuesをすべて取得する。
 
 ```
@@ -47,8 +49,10 @@ python api.py "https://api.github.com/repos/jquery/jquery/commits?per_page=100" 
 
 例4：ユーザGenki966の活動履歴を取得する。
 
-http://developer.github.com/v3/activity/events/#list-events-performed-by-a-user で紹介されている`GET /users/:user/events`を使う。
+http://developer.github.com/v3/activity/events/ によれば、eventsは`per_page=30`固定、トータル300件しか取れない。http://developer.github.com/v3/activity/events/#list-events-performed-by-a-user で紹介されている`GET /users/:user/events`を使う。
 
 ```
-python api.py "https://api.github.com/users/Genki966/events?per_page=100" > events.txt
+python api.py "https://api.github.com/users/Genki966/events" > events.txt
 ```
+
+例として、taroyabukiの活動履歴を2013/11/19の18時に取得した結果`events-yabuki-20131119.txt`を置いておく。
