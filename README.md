@@ -9,6 +9,7 @@ yabukilab
 
 ## 有用なリンク
 
+* [矢吹のブログ](http://blog.unfindable.net/)
 * [Google Scholar（論文検索）](http://scholar.google.co.jp/)
 * [CiNii（論文検索）](http://ci.nii.ac.jp/)
 * [カテゴリー別配色アイデア100](http://www.webcreatorbox.com/inspiration/colour-scheme-ideas-100/)
