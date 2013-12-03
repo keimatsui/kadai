@@ -18,4 +18,6 @@ http://localhost/twitter/myoauth.html にアクセスする（ブラウザでポ
 
 ##検索APIの確認
 
+https://dev.twitter.com/docs/api/1.1/get/search/tweets に掲載されているAPIを利用する（卒論で利用する場合、このページに書いてあることを、卒論本文に書いておくといいだろう）。mysearch.htmlでは何を検索しているかわかる程度の説明があるとよい。
+
 http://localhost/twitter/mysearch.html にアクセスする。
