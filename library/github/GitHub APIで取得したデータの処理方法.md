@@ -33,7 +33,7 @@ jqの使い方はhttp://stedolan.github.io/jq/tutorial/ やhttp://stedolan.githu
 この結果の偶数行目の時だけ改行するように整形すると、Excelなどで処理しやすくなる。そのためには、`|`（パイプ）で`awk`に渡して、行数を2で割ったあまりがゼロ、つまり偶数行なら改行、奇数行ならカンマを付ければよい。うまくできるようになったら、`> commits.csv`などを付けてファイルに保存する。`awk`については自分で調べること。
 
 ```.
-/jq '.commit.committer.date,.sha' commits.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
+./jq '.commit.committer.date,.sha' commits.txt | awk '{ printf("%s", $0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
 ```
 
 ### Issues
@@ -45,7 +45,7 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 タイトルは重複する可能性があるから、`./jq '.id,.title,.created_at' openissues.txt`のように、IDをつけておくといい。この結果は、行数を3で割ったあまりが0のときは改行を、それ以外（つまり1か2）のときはカンマを付けて整形すればよい。
 
 ```
-./jq '.id,.created_at,.title' openissues.txt | awk '{ printf($0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
+./jq '.id,.created_at,.title' openissues.txt | awk '{ printf("%s", $0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
 ```
 
 うまくできるようになったら、`> openissues.csv`などを付けてファイルに保存し、ExcelやUbuntuのLibreOffice Calcで読み込む。その際、2列目を「日時」として読み込むようにする。
@@ -53,7 +53,7 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 `closedissues.txt`から、オープン日時とクローズ日時、タイトルの一覧を作るには、次のようにすればよい。うまくできるようになったら、`> closedissues.csv`などを付けてファイルに保存する。
 
 ```
-./jq '.id,.created_at,.closed_at,.title' closedissues.txt | awk '{printf($0); if (NR % 4 == 0) printf("\n"); else printf(","); }'
+./jq '.id,.created_at,.closed_at,.title' closedissues.txt | awk '{printf("%s", $0); if (NR % 4 == 0) printf("\n"); else printf(","); }'
 ```
 
 この結果をCalcで読み込んで、D1に`=(C1-B1)*86400`などと入力してD列全体にコピーすれば、issueがオープンしてからクローズするまでの時間を求められる。
@@ -65,7 +65,7 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 `./jq -c '{id,created_at,label:.labels[].name}' closedissues.txt`とすれば、ラベルの分だけオブジェクトができる（ラベルがないと出てこない）。これにもう一度フィルタをかけてもいいだろう。もっといい方法がありそう。
 
 ```
-./jq -c '{id,created_at,label:.labels[].name}' closedissues.txt | ./jq '.id,.created_at,.label' | awk '{ printf($0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
+./jq -c '{id,created_at,label:.labels[].name}' closedissues.txt | ./jq '.id,.created_at,.label' | awk '{ printf("%s", $0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
 ```
 
 ### 個人の活動
@@ -73,7 +73,7 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 個人の活動の日時とタイプを一覧表示するには`./jq '.created_at,.type' events.txt`。先の例と同様に、結果を整形すると使いやすい。うまくできるようになったら、`> events.csv`などを付けてファイルに保存する。
 
 ```
-./jq '.created_at,.type' events.txt | awk '{ printf($0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
+./jq '.created_at,.type' events.txt | awk '{ printf("%s", $0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
 ```
 
 ## 自分で調べること
