@@ -19,6 +19,8 @@ sudo apt-get install apache2 mysql-server mysql-client php5
 1. ウェブアプリのファイルの展開
 1. データベースのアクセス権のデータベースへの登録
 
+##Moodleのインストール
+
 ```
 mysql -uroot -ppass
 ```
@@ -28,6 +30,8 @@ CREATE DATABASE moodle;
 GRANT ALL ON moodle.* to moodleuser@localhost IDENTIFIED BY 'passwd';
 EXIT
 ```
+
+SQLの`CREATE DATABASE`や`GRANT`については自分で勉強すること。
 
 http://download.moodle.org/ からMoodleをダウンロードする。そのディレクトリにApacheが書き込めるようにしておく。
 
@@ -39,14 +43,14 @@ sudo chown www-data:www-data moodle
 
 http://localhost/moodle/install.php にアクセスするとセットアップが始まる。
 
-「cURL PHP拡張モジュールが必要」とか言われるから、`apt-cache search curl | grep php`などとして探し、インストールする。
+「cURL PHP拡張モジュールが必要」とか言われるから、`apt-cache search curl | grep php`などとして探し、インストールする。`grep`については自分で勉強すること。
 
 ```
 sudo apt-get install php5-curl
 sudo service apache2 restart
 ```
 
-必要なものを確認しながら進める。
+必要なものを確認しながら進める。`chown`については自分で勉強すること。
 
 ```
 sudo mkdir /var/moodledata
@@ -64,3 +68,9 @@ cURLと同様に、必要なものを確認してインストールする。
 sudo apt-get install php5-gd php5-xmlrpc php5-intl
 sudo service apache2 restart
 ```
+
+##自分で勉強すること
+
+* SQLの`CREATE DATABASE`や`GRANT`
+* `grep`
+* `chown`
