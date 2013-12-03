@@ -58,6 +58,8 @@ sudo apt-get install php5-mysqlnd
 sudo service apache2 restart
 ```
 
+cURLと同様に、必要なものを確認してインストールする。
+
 ```
 sudo apt-get install php5-gd php5-xmlrpc php5-intl
 sudo service apache2 restart
