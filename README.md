@@ -9,6 +9,7 @@ yabukilab
 
 ## 有用なリンク
 
+* [矢吹のブログ](http://blog.unfindable.net/)
 * [Google Scholar（論文検索）](http://scholar.google.co.jp/)
 * [CiNii（論文検索）](http://ci.nii.ac.jp/)
 * [カテゴリー別配色アイデア100](http://www.webcreatorbox.com/inspiration/colour-scheme-ideas-100/)
@@ -28,8 +29,13 @@ yabukilab
 
 ### [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-* Ubuntuでは、`sudo apt-get install virtualbox-ose-guest-utils`とすることで、ホストとゲストの間でのクリップボードやファイルの共有が可能になる。
+* Ubuntuでは、`sudo apt-get install virtualbox-ose-guest-utils`とすることで、ホストとゲストの間でのクリップボードやファイルの共有が可能になる。ファイルの共有は、デバイス→共有フォルダで共有したいホストのフォルダを選択し（Desktopだとする）、Ubuntuのコンソールで`mkdir share`などとして共有用のフォルダを作り、`sudo mount -t vboxsf Desktop share`などとしてマウントすればよい。フォルダ`share`がホストのDesktopと同じになる。
 
 ## 資料
 
 * [就活等で使える技術的なキーワードを紹介した動画](http://youtu.be/t3mvWrv62wM)：矢吹に報告したGoogleにログインした状態でないと見らない。
+
+## 注意
+
+* 退室するときにはPCをスタンバイあるいは休止状態にすること。
+

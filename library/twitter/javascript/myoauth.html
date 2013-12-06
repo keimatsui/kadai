@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title><OAuth.ioを利用したTwitter OAuth</title>
+</head>
+<body>
+<p>ChromeでCtrl+Shifft+Iとしてデベロッパーツールを起動し、Consoleタブで動作を確認する。{oauth_token:...というObjectが表示されればよい。</p>
+
+<script src="OAuth.js"></script>
+<script>
+OAuth.initialize('Bz8CDnCTD_xzz2EUyJ3bww4RMow');
+
+OAuth.popup('twitter', function(err, result) {
+  console.log(result);
+});
+</script>
+</body>
+</html>
