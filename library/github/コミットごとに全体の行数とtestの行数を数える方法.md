@@ -6,7 +6,8 @@ https://github.com/jquery/jquery を例に説明する。
 
 Pythonを使えるようにする。
 
-```sudo apt-get install python
+```
+sudo apt-get install python
 ```
 
 ##リポジトリのクローンをローカルに作る
