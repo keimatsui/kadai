@@ -1,0 +1,71 @@
+#コミットごとに全体の行数とtestの行数を数える方法
+
+https://github.com/jquery/jquery を例に説明する。
+
+##準備
+
+Pythonを使えるようにする。
+
+```sudo apt-get install python
+```
+
+##リポジトリのクローンをローカルに作る
+
+```
+git clone https://github.com/jquery/jquery.git
+```
+
+この操作は時間がかかるから、`cp -r jquery jquery.original`などとして、バックアップを取っておくとよい。
+
+##コミット一覧の取得
+
+クローンがあれば、コミット一覧を作るのにAPIを使う必要は無い。（この結果中の日時は、タイムゾーンがばらばらで面倒くさい。）
+
+```
+cd jquery
+git log --pretty=format:"%H,%cd" --date=iso > ../jquery-commits.csv
+cd ..
+```
+
+##練習
+
+例えば、コミット`372e04e78e81cc8eb868c5fc97f271a695569aa5`について、全体の行数とディレクトリ`test`以下の行数を数えたければ、次のようにすればよい。
+
+```
+#!/bin/sh
+project='jquery'
+hash="372e04e78e81cc8eb868c5fc97f271a695569aa5"
+cd $project
+git checkout $hash 2> /dev/null
+cd ..
+echo $hash \
+$(cat $(find $project -type f) | wc -l) \
+$(cat $(find $project/test -type f) | wc -l)
+```
+
+##自動化
+
+コミット一覧に載っているコミットすべてについて、練習で行った処理を繰り返すスクリプトを、`lineCountScriptCreator.py`を使って作る。コマンド`python`の2番目の引数（この例では`jquery`）は、リポジトリのディレクトリである。
+
+```
+cat jquery-commits.csv | python lineCountScriptCreator.py jquery
+```
+
+うまく行きそうだったら、`> jquery-count.sh`などとして保存して実行する。
+
+```
+sh jquery-count.sh > jquery-count-result.csv
+```
+
+##うまくいかないときは
+
+最初からやり直す。
+
+```
+rm -rf jquery
+mv jquery.original jquery
+```
+
+##課題
+
+[Git: How to list commits on this branch but not from merged branches](http://stackoverflow.com/questions/10248137/git-how-to-list-commits-on-this-branch-but-not-from-merged-branches)に書かれているようなことをすべきかもしれない。
