@@ -10,6 +10,13 @@ Pythonを使えるようにする。
 sudo apt-get install python
 ```
 
+
+Gitを使えるようにする。
+
+```
+sudo apt-get install git-core
+```
+
 ##リポジトリのクローンをローカルに作る
 
 ```
