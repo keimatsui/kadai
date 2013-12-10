@@ -90,4 +90,4 @@ cp -r jquery.original jquery
 
 ##自分で調べること
 
-* `jquery`
+* `grep`
