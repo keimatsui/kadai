@@ -20,13 +20,17 @@ git clone https://github.com/jquery/jquery.git
 
 ##コミット一覧の取得
 
-クローンがあれば、コミット一覧を作るのにAPIを使う必要は無い。（この結果中の日時は、タイムゾーンがばらばらで面倒くさい。）
+クローンがあれば、コミット一覧を作るのにAPIを使う必要は無い。
 
 ```
 cd jquery
-git log --pretty=format:"%H,%cd" --date=iso > ../jquery-commits.csv
+git log --pretty=format:"%H,%cd" --date=iso --first-parent --no-merges > ../jquery-commits.csv
 cd ..
 ```
+
+[Git: How to list commits on this branch but not from merged branches](http://stackoverflow.com/questions/10248137/git-how-to-list-commits-on-this-branch-but-not-from-merged-branches)を参考に，masterのfirst-parentだけのリストを作っている。
+
+この結果中の日時は、タイムゾーンがばらばらで面倒くさい。
 
 ##練習
 
@@ -66,7 +70,3 @@ sh jquery-count.sh > jquery-count-result.csv
 rm -rf jquery
 mv jquery.original jquery
 ```
-
-##課題
-
-[Git: How to list commits on this branch but not from merged branches](http://stackoverflow.com/questions/10248137/git-how-to-list-commits-on-this-branch-but-not-from-merged-branches)に書かれているようなことをすべきかもしれない。
