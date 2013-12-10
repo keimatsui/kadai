@@ -1,0 +1,3 @@
+Junaio: https://dev.metaio.com/junaio/quickstarts/location-based-quickstarts/hello-world/
+
+URLを書くためだけにWordファイルを作ってはいけません．ファイルサイズを比較してみてください．
