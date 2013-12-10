@@ -45,9 +45,9 @@ cd $project
 git checkout -f $hash
 cd ..
 if [ -e $project/test ]; then
-  echo $hash $(cat $(find $project -type f) | wc -l) $(cat $(find $project/test -type f) | wc -l)
+  echo $hash $(cat $(find $project -type f | grep -v /.git/) | wc -l) $(cat $(find $project/test -type f) | wc -l)
 else
-  echo $hash $(cat $(find $project -type f) | wc -l) 0
+  echo $hash $(cat $(find $project -type f | grep -v /.git/) | wc -l) 0
 fi
 ```
 
