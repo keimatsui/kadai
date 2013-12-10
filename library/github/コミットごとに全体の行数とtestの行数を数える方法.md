@@ -4,10 +4,11 @@ https://github.com/jquery/jquery を例に説明する。
 
 ##準備
 
-PythonとGitを使えるようにする。
+PythonとGit、Pythonで日付を操作するモジュールpython-dateutilを使えるようにする。
 
 ```
-sudo apt-get install python git
+sudo apt-get install python python-setuptools git
+sudo easy_install python-dateutil
 ```
 
 ##リポジトリのクローンをローカルに作る
