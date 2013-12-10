@@ -42,11 +42,13 @@ cd ..
 project='jquery'
 hash="372e04e78e81cc8eb868c5fc97f271a695569aa5"
 cd $project
-git checkout $hash
+git checkout -f $hash
 cd ..
-echo $hash \
-$(cat $(find $project -type f) | wc -l) \
-$(cat $(find $project/test -type f) | wc -l)
+if [ -e $project/test ]; then
+  echo $hash $(cat $(find $project -type f) | wc -l) $(cat $(find $project/test -type f) | wc -l)
+else
+  echo $hash $(cat $(find $project -type f) | wc -l) 0
+fi
 ```
 
 ##自動化
@@ -69,5 +71,5 @@ sh jquery-count.sh > jquery-count-result.csv
 
 ```
 rm -rf jquery
-mv jquery.original jquery
+cp -r jquery.original jquery
 ```
