@@ -43,7 +43,7 @@ cd ..
 
 `find ディレクトリ -type f`でファイルを列挙し、そのファイルを`cat`で表示、`wc -l`で行数を数える。jquery/test以下のファイルの行数は`cat $(find jquery -type f) | wc -l`で数えられるが、jquery以下のファイルの行数を数えるときは、`cat $(find jquery -type f | grep -v /.git/) | wc -l`などとして、列挙したファイルから`.git`にあるものを削除する。
 
-ただしこの方法には、バイナリファイルも対象にしてしまうという欠点があるため、ここでは使わない。
+ただしこの方法には、バイナリファイルも対象にしてしまうという欠点があるため、ここでは使わない。（バイナリファイルも評価した方がいいかもしれないが、そうだとしても評価基準は行数ではない。）
 
 ##練習
 
@@ -74,8 +74,10 @@ cat jquery-commits.csv | python lineCountScriptCreator.py jquery
 うまく行きそうだったら、`> jquery-count.sh`などとして保存して実行する。
 
 ```
-sh jquery-count.sh > jquery-count-result.csv
+sh jquery-count.sh > jquery-count-result.csv 2> error.log
 ```
+
+終わったら`error.log`を見て問題が無いか確認する。（`git checkout`のエラーは、別ファイル`jquery-error.log`に記録している。）
 
 ##うまくいかないときは
 
