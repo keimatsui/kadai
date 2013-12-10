@@ -4,17 +4,10 @@ https://github.com/jquery/jquery を例に説明する。
 
 ##準備
 
-Pythonを使えるようにする。
+PythonとGitを使えるようにする。
 
 ```
-sudo apt-get install python
-```
-
-
-Gitを使えるようにする。
-
-```
-sudo apt-get install git-core
+sudo apt-get install python git
 ```
 
 ##リポジトリのクローンをローカルに作る
@@ -44,7 +37,7 @@ cd ..
 project='jquery'
 hash="372e04e78e81cc8eb868c5fc97f271a695569aa5"
 cd $project
-git checkout $hash 2> /dev/null
+git checkout $hash
 cd ..
 echo $hash \
 $(cat $(find $project -type f) | wc -l) \
