@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results trackingurl="GPS">
+	<object id="1">
+		<title><![CDATA[junko suzuki]]></title>
+		<thumbnail><![CDATA[http://dev.junaio.com/publisherDownload/thumb_a1.png]]></thumbnail>
+		<icon><![CDATA[http://dev.junaio.com/publisherDownload/icon_a1.png]]></icon>
+		<location>
+			<lat>35.6894151</lat>
+			<lon>140.020734</lon>
+			<alt>0</alt>
+		</location>
+		<popup>
+			<description><![CDATA[鈴木淳子
+AB型
+19931月19日]]></description>
+			<buttons>
+				<button id="url" name="Website"><![CDATA[http://www.junaio.com]]></button>
+			</buttons>
+		</popup>
+	</object>
+</results>
