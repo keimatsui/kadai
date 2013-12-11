@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <results trackingurl="GPS">
 	<object id="1">
-		<title><![CDATA[junko suzuki]]></title>
+		<title><![CDATA[背景]]></title>
 		<thumbnail><![CDATA[http://dev.junaio.com/publisherDownload/thumb_a1.png]]></thumbnail>
 		<icon><![CDATA[http://dev.junaio.com/publisherDownload/icon_a1.png]]></icon>
 		<location>
@@ -10,9 +10,8 @@
 			<alt>0</alt>
 		</location>
 		<popup>
-			<description><![CDATA[鈴木淳子
-AB型
-19931月19日]]></description>
+			<description><![CDATA[拡張現実感（AR）を利用するさまざまな試みが行われている．たとえば・・・．
+「ARを実現するための技術」に続く]]></description>
 			<buttons>
 				<button id="url" name="Website"><![CDATA[http://www.junaio.com]]></button>
 			</buttons>
