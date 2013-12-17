@@ -76,6 +76,14 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 ./jq '.created_at,.type' events.txt | awk '{ printf("%s", $0); if (NR % 2 == 0) printf("\n"); else printf(","); }'
 ```
 
+#### リポジトリ名も取得する場合
+
+まず、events.txtをjqで整形して、リポジトリ名が.repo.nameであることを突き止め、スクリプトを修正する。
+
+```
+./jq '.created_at,.repo.name,.type' events.txt | awk '{ printf("%s", $0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
+‘‘‘
+
 ## 自分で調べること
 
 * `chmod`
