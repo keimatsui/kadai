@@ -77,10 +77,12 @@ plot 'issues.csv' using 1:2 with lines lw 3 title 'open issues', 'issues.csv' u 
 
 ### ファイルへの出力
 
+```
 set terminal png
 set out "issues.png"
 replot
 set terminal wxt
+```
 
 ## 自動化
 
@@ -96,7 +98,7 @@ bash getIssues.sh Diogenesthecynic FullScreenMario
 
 ### グラフの描画
 
-下のように、所有者とレポジトリ名を指定してグラフを描く。グラフのスタイルを修正したいときは、`issuesCountChart.pl`を編集する。
+下のように、所有者とレポジトリ名を指定してグラフを描く（`Diogenesthecynic-FullScreenMario-issuesCountChart.png`のようなファイルができる）。グラフのスタイルを修正したいときは、`issuesCountChart.pl`を編集する。
 
 ```
 bash issuesCountChart.sh Diogenesthecynic FullScreenMario
