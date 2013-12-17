@@ -82,7 +82,7 @@ Issueの作成日時だけを一覧表示するには`./jq '.created_at' openiss
 
 ```
 ./jq '.created_at,.repo.name,.type' events.txt | awk '{ printf("%s", $0); if (NR % 3 == 0) printf("\n"); else printf(","); }'
-‘‘‘
+```
 
 ## 自分で調べること
 
