@@ -4,7 +4,7 @@ from dateutil.parser import parse
 from dateutil import tz
 import sys
 
-myProject = sys.argv[1]
+myProject = sys.argv[1].replace("'", "\\'")
 print("rm %s-error.log") % (myProject)
 
 for line in sys.stdin:
@@ -17,8 +17,7 @@ for line in sys.stdin:
   print("git checkout -f %s 2>> ../%s-error.log") % (myHash, myProject)
   print("cd ..")
   print("if [ -e %s/test ]; then") % (myProject)
-  print(" echo %s,%s,$(grep -I '' -r '%s/'* | wc -l),$(grep -I '' -r '%s/test/'* | wc -l)") % (myHash, myDate, myProject, myProject)
+  print(" echo %s,%s,$(grep -rI '' '%s' | grep -v '^%s/\.git/' | wc -l),$(grep -rI '' '%s/test' | wc -l)") % (myHash, myDate, myProject, myProject, myProject)
   print("else")
-  print(" echo %s,%s,$(grep -I '' -r '%s/'* | wc -l),0") % (myHash, myDate, myProject)
+  print(" echo %s,%s,$(grep -rI '' '%s' | grep -v '^%s/\.git/' | wc -l),0") % (myHash, myDate, myProject, myProject)
   print("fi")
-  
