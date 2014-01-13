@@ -14,7 +14,7 @@ for line in sys.stdin:
   myDate = datetime.strftime(parse(x[1]).astimezone(tz.gettz('UTC')), '%Y-%m-%d %H:%M:%S')
   print("echo %s >&2") % (myHash)
   print("cd %s") % (myProject)
-  print("git checkout -f %s 2>> ../%s-error.log") % (myHash, myProject)
+  print("git checkout -f %s 2>> ../%s-checkout-error.log") % (myHash, myProject)
   print("cd ..")
   print("if [ -e %s/test ]; then") % (myProject)
   print(" echo %s,%s,$(grep -rI '' '%s' | grep -v '^%s/\.git/' | wc -l),$(grep -rI '' '%s/test' | wc -l)") % (myHash, myDate, myProject, myProject, myProject)

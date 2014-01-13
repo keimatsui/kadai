@@ -67,10 +67,10 @@ cat jquery-commits.csv | python lineCountScriptCreator.py jquery
 うまく行きそうだったら、`> jquery-count.sh`などとして保存して実行する。
 
 ```
-bash jquery-count.sh > jquery-count-result.csv 2> error.log
+bash jquery-count.sh > jquery-count-result.csv 2> jquery-error.log
 ```
 
-終わったら`error.log`を見て問題が無いか確認する。（`git checkout`のエラーは、別ファイル`jquery-error.log`に記録している。）
+終わったら`jquery-error.log`を見て問題が無いか確認する。（`git checkout`のエラーは、別ファイル`jquery-checkout-error.log`に記録している。）
 
 ##うまくいかないときは
 
@@ -80,7 +80,86 @@ bash jquery-count.sh > jquery-count-result.csv 2> error.log
 rm -rf jquery
 cp -r jquery.original jquery
 ```
+## グラフ表示
+
+コマンドでグラフを描くための定番ツール、Gnuplotを使う。（詳しい使い方は自分で調べること。）
+
+### 準備
+
+```
+sudo apt-get install gnuplot-x11
+```
+
+### 実験
+
+Gnuplotでいつも同じデータファイルを使うように、ファイルをコピーしておく。
+
+```
+rm -f count-result.csv
+cp jquery-count-result.csv count-result.csv
+```
+
+`gnuplot`としてGnuplotを起動し、以下のコマンドを試す。（本質は最後だけなのだが、ファイルがカンマ区切りである、横軸が時間である、日時の形式を指定しなければならないといったことへの対応が必要。）
+
+```
+set datafile separator ","
+set xdata time
+set timefmt "%Y-%m-%d %H:%M:%S"
+plot 'count-result.csv' using 2:3 with lines, 'count-result.csv' using 2:4 with lines
+```
+
+### 形式
+
+#### 線の太さ
+
+```
+plot 'count-result.csv' using 2:3 with lines lw 3, 'count-result.csv' using 2:4 with lines lw 3
+```
+
+#### 軸ラベル
+
+```
+set xl "date time"
+set yl "lines"
+replot
+```
+
+#### 凡例
+
+```
+plot 'count-result.csv' using 2:3 with lines lw 3 title 'total', 'count-result.csv' using 2:4 with lines lw 3 title 'test'
+```
+
+### ファイルへの出力
+
+```
+set terminal png
+set out "lines.png"
+replot
+set terminal wxt
+```
+
+### Gnuplotの自動化
+
+`lineCounter.pl`のようなファイルを作って、次のように自動化できる。
+
+```
+gnuplot lineCounter.pl
+```
+
+## さらに自動化
+
+`lineCounter.sh`と`lineCounter.pl`で自動化する。リポジトリをクローンしてから、次のコマンドを入力するとグラフが描かれる。（クローンの部分はあえて分けている。）
+
+```
+bash lineCounter.sh リポジトリ名
+```
+
+## さらにさらに自動化
+
+対象プロジェクトのリストを与えたら、そのすべてのグラフを描くようにすることもできる。
 
 ##自分で調べること
 
 * `grep`
+* `Gnuplot
