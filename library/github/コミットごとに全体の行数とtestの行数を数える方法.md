@@ -88,6 +88,7 @@ cp -r jquery.original jquery
 
 ```
 sudo apt-get install gnuplot-x11
+sudo apt-get install plotutils
 ```
 
 ### 実験
