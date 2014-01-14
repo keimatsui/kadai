@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title><OAuth.ioを利用したTwitter検索</title>
+<title>OAuth.ioを利用したTwitter検索</title>
 </head>
 <body>
 <p>ChromeでCtrl+Shifft+Iとしてデベロッパーツールを起動し、Consoleタブで動作を確認する。場所とつぶやきが表示されればよい。</p>
@@ -13,11 +13,11 @@ OAuth.initialize('Bz8CDnCTD_xzz2EUyJ3bww4RMow');
 
 OAuth.popup('twitter', function(err, result) {
   result.get('1.1/search/tweets.json?q=&geocode=35.6840281,139.7744635,1km').done(function(data) {
-    console.log(data);
     for (var i = 0; i < data.statuses.length; ++i) {
       var s = data.statuses[i];
-      console.log(s.geo.coordinates[0]);
-      console.log(s.geo.coordinates[1]);
+      if (s.coordinates) {
+        console.log(s.coordinates.coordinates);
+      }
       console.log(s.text);
     }
   });
