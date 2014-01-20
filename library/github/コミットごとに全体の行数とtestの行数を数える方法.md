@@ -72,6 +72,12 @@ bash jquery-count.sh > jquery-count-result.csv 2> jquery-error.log
 
 終わったら`jquery-error.log`を見て問題が無いか確認する。（`git checkout`のエラーは、別ファイル`jquery-checkout-error.log`に記録している。）
 
+テスト以外の行数を計算しておきたいなら、次のようなフィルタを通せばよい。
+
+```
+awk -F ',' 'BEGIN{OFS=","} {print $1,$2,$3,$3-$4,$4;}' jquery-count-result.csv
+```
+
 ##うまくいかないときは
 
 最初からやり直す。
