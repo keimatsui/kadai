@@ -54,7 +54,7 @@ sudo service apache2 restart
 
 ```
 sudo mkdir /var/moodledata
-sudo chown www-data:www-data moodledata
+sudo chown www-data:www-data /var/moodledata
 ```
 
 ```
