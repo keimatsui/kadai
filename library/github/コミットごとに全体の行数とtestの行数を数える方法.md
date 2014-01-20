@@ -75,7 +75,7 @@ bash jquery-count.sh > jquery-count-result.csv 2> jquery-error.log
 テスト以外の行数を計算しておきたいなら、次のようなフィルタを通せばよい。
 
 ```
-awk -F ',' 'BEGIN{OFS=","} {print $1,$2,$3,$3-$4,$4;}' jquery-count-result.csv
+awk -F ',' 'BEGIN{OFS=","} {print $0,$3-$4;}' jquery-count-result.csv
 ```
 
 ##うまくいかないときは
