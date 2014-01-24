@@ -50,7 +50,7 @@ sudo apt-get install gnuplot-x11
 set datafile separator ","
 set xdata time
 set timefmt "%Y-%m-%d %H:%M:%S"
-plot 'issues.csv' using 1:2 with lines, 'issues.csv' u 1:3 with lines
+plot 'issues.csv' using 1:2 with lines, 'issues.csv' using 1:3 with lines
 ```
 
 ### 形式
@@ -58,7 +58,7 @@ plot 'issues.csv' using 1:2 with lines, 'issues.csv' u 1:3 with lines
 #### 線の太さ
 
 ```
-plot 'issues.csv' using 1:2 with lines lw 3, 'issues.csv' u 1:3 with lines lw 3
+plot 'issues.csv' using 1:2 with lines lw 3, 'issues.csv' using 1:3 with lines lw 3
 ```
 
 #### 軸ラベル
@@ -72,7 +72,7 @@ replot
 #### 凡例
 
 ```
-plot 'issues.csv' using 1:2 with lines lw 3 title 'open issues', 'issues.csv' u 1:3 with lines lw 3 title 'closed issues'
+plot 'issues.csv' using 1:2 with lines lw 3 title 'open issues', 'issues.csv' using 1:3 with lines lw 3 title 'closed issues'
 ```
 
 ### ファイルへの出力

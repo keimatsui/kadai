@@ -1,7 +1,0 @@
-name,CommitCommentEvent,CreateEvent,DeleteEvent,IssueCommentEvent,IssuesEvent,PullRequestEvent,PullRequestReviewCommentEvent,PushEvent,WatchEvent,ForkEvent,GollumEvent
-guille,2,12,5,97,17,48,5,39,0,0,0
-retrofox,0,6,2,0,0,5,0,10,0,0,0
-TooTallNate,0,0,0,2,1,1,1,1,0,0,0
-Matthew Mueller,0,0,0,0,0,0,0,0,0,0,0
-stambizzle,0,0,0,0,0,0,0,0,0,0,0
-visionmedia,0,0,0,0,0,0,0,0,0,0,0
