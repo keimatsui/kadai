@@ -41,4 +41,4 @@ javascript:(function() {
 
 ##TODO
 
-上のsrc属性のURLを、issueに書かれた情報から作ること。
+上のsrc属性のURLを、issuesに書かれた情報から作ること。
