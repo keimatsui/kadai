@@ -1,0 +1,6 @@
+11/06チュートリアルとガイド画像すべてのOmniGraffleを追加
+https://github.com/angular/angular.js/commit/bd9a7b9fd71147113a08d8e5736024a8cd6f1979
+
+13/04datetimesymbolsext.jsを取り込んだ
+chore($ngLocale): generate ngLocale files from the Closure code (includes datetimesymbolsext.js)
+https://github.com/angular/angular.js/commit/0c72708a2bb123d2772f5c6b8cb6adc61f197a72

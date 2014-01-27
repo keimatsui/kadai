@@ -1,0 +1,8 @@
+11/02 sizzleサポート
+https://github.com/mbostock/d3/commit/8da80dcc994ef660198b5cf2b88343c429296847
+
+11/03lib/env-js追加
+https://github.com/mbostock/d3/commit/1fe1b466d9f6722e1682e4f093e376f0c9158823
+
+12/12いらないもの削除
+https://github.com/mbostock/d3/commit/8728e24e4dff535fb726f9841817cc3f6edff9c7

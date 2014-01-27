@@ -1,0 +1,5 @@
+11/11
+https://github.com/moment/moment/commit/a4b65712e291d59d6f637e992036edcb8fab280e
+
+12/02構造の再編成し、ビルドとテストプロセスの分割
+https://github.com/moment/moment/commit/4f9ec97b17fdbf0167f2e058090d6cf05a35b846
