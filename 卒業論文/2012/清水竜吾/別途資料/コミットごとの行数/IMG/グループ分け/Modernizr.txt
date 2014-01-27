@@ -1,5 +1,0 @@
-12/01頃　グラフでは0だが、正式にはtestディレクトリをSpecディレクトリーに移動させたため、0とカウントされている。
-https://github.com/janl/mustache.js/commit/f127f48bf4adb5b159d5c36ee6079d2dd8a1fd57
-
-12/07頃 コード間の負荷を分散し、スキャン、構文解析、コンパイル、および関数をレンダリングする。 
-https://github.com/janl/mustache.js/commit/fbc66a81400418983c2d7ccf0457aeea7af0fb1a
