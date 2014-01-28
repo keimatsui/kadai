@@ -1,0 +1,9 @@
+12/02qunitをローカル環境へ
+https://github.com/scottjehl/Respond/commit/67f8cc33f1104bb3becb5e5d126ff204c6bfe7a2
+
+13/11
+ビルド中にMatchMediaのaddListenerのPOLYFILL機能の追加
+https://github.com/scottjehl/Respond/commit/4e998882ec49ed6b07f4205f179f763f2610349a
+
+13/11クロスドメインの対応
+https://github.com/scottjehl/Respond/commit/01769e58dafcc44da863785ed4532face3bad933
