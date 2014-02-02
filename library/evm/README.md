@@ -6,7 +6,7 @@
 
 ##EVMを描くページ
 
-https://github.com/taroyabuki/yabukilab/blob/master/library/evm/index.html
+https://github.com/taroyabuki/yabukilab/blob/master/library/evm/evm.html
 
 このファイルは`?user=kudo9160&repo=normal`のようなパラメータを付けると、対応するGitHubリポジトリのEVMを描く。
 
