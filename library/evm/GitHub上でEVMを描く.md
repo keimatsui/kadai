@@ -4,41 +4,48 @@
 
 （略）
 
-##実験
+##EVMを描くページ
 
-Chromeで`Shift + Ctrl + I`としてデベロッパーツールを起動し、そのConsoleタブで以下のコードを実行する。
+https://github.com/taroyabuki/yabukilab/blob/master/library/evm/index.html
+
+このファイルは`?user=kudo9160&repo=normal`のようなパラメータを付けると、対応するGitHubリポジトリのEVMを描く。
+
+##ウェブサーバでの配信
+
+https://localhost/evm.html で開けるようにする。SSLのエラーが出るが、ここでは無視する。
+
+動作確認：https://localhost/evm.html?user=kudo9160&repo=normal
+
+##GitHubのページに埋め込む
+
+GitHubのページ（例：https://github.com/kudo9160/normal ）で、Chromeで`Ctrl+Shift+I`として、以下のスクリプトを実行する。
 
 ```
-//img要素の生成
-var myEvm = document.createElement("img");
-
-//img要素のsrc属性の設定
-myEvm.setAttribute("src", "http://chart.apis.google.com/chart?chs=640x240&chd=t:-1,8000,14000,20000,-1|-1,8200,14500,20700,-1|-1,6000,14000,20000,-1&cht=lc&chco=0000ff,ff0000,00ff00&chxt=x,y&chxl=0:|0|20140110|20140111|20140112||1:|0|5000|10000|15000|20000|25000|2:&chg=5000,-1,1,5&chm=d,0000ff,0,-1,10|s,ff0000,1,-1,10|x,00ff00,2,-1,10&chdl=PV|AC|EV&chds=0,25000");
-
-//img要素のstyle属性の設定（必須ではない）
-myEvm.setAttribute("style", "border:solid gray 1px; padding:10px;");
-
-//EVMの挿入場所
-var myContainer = document.getElementById("js-repo-pjax-container");
-
-//EVMの挿入
-myContainer.parentNode.insertBefore(myEvm, myContainer);
+(function() {
+    var user = location.href.replace(/.*github\.com\/(.*)\/.*/, '$1');
+    var repo = location.href.replace(/.*github\.com\/.*\/(.*)/, '$1');
+    var myEvm = document.createElement("iframe");
+    var url = 'https://localhost/evm.html?user=' + user + '&repo=' + repo;
+    myEvm.setAttribute('src', url);
+    myEvm.setAttribute('style', 'width:700px; height:500px; border-style:none;');
+    var myContainer = document.getElementById("js-repo-pjax-container");
+    myContainer.parentNode.insertBefore(myEvm, myContainer);
+})();
 ```
 
 ##ブックマークレット
 
-上のコードをブックマークレットにする。
+以下のブックマークレットを登録する。
 
-```
-javascript:(function() {
-	var myEvm = document.createElement("img");
-	myEvm.setAttribute("src", "http://chart.apis.google.com/chart?chs=640x240&chd=t:-1,8000,14000,20000,-1|-1,8200,14500,20700,-1|-1,6000,14000,20000,-1&cht=lc&chco=0000ff,ff0000,00ff00&chxt=x,y&chxl=0:|0|20140110|20140111|20140112||1:|0|5000|10000|15000|20000|25000|2:&chg=5000,-1,1,5&chm=d,0000ff,0,-1,10|s,ff0000,1,-1,10|x,00ff00,2,-1,10&chdl=PV|AC|EV&chds=0,25000");
-	myEvm.setAttribute("style", "border:solid gray 1px; padding:10px;");
-	var myContainer = document.getElementById("js-repo-pjax-container");
-	myContainer.parentNode.insertBefore(myEvm, myContainer);
-})();
-```
+#動作確認
+
+* https://github.com/kudo9160/normal
+* https://github.com/kudo9160/excess
 
 ##TODO
 
-上のsrc属性のURLを、issuesに書かれた情報から作ること。
+* まだ終わっていない例が用意して、open issuesも取得するようにする。
+* 最終日を求める（最終日は、オープンなものがあるなら今日。無いなら、endの最大値。）
+* 順番をちゃんと調べる（ここでは単純に、逆順で処理している）
+* タイムゾーンをブラウザのロケールに合わせる
+* 開始日を登録するようにする（ここでは、normalとexcessだけ、開始日を設定している）

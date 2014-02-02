@@ -3,6 +3,7 @@
   <head>
     <meta charset='utf-8' />
     <title>EVM</title>
+    <style>th,td {border:solid black 1px;}</style>
   </head>
   <body>
     <img id='evm' src='' />
@@ -125,7 +126,7 @@
         var days = '';
         var table = '<table><tr><th></th><th>PV</th><th>AC</th><th>EV</th></tr>';
         for (var i in pv) {
-          table += '<tr><td>' + i + '</td><td>' + cpv[i] + '</td><td>' + cac[i] + '</td><td>' + cev[i] + '</td><td></tr>';
+          table += '<tr><td>' + i + '</td><td>' + cpv[i] + '</td><td>' + cac[i] + '</td><td>' + cev[i] + '</td></tr>';
           days += '|' + i,
                   urlpv += cpv[i] + ',';
           urlac += cac[i] + ',';
