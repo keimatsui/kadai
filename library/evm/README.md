@@ -37,6 +37,19 @@ GitHubのページ（例：https://github.com/kudo9160/normal ）で、Chromeで
 
 以下のブックマークレットを登録する。
 
+```
+javascript:(function() {
+    var user = location.href.replace(/.*github\.com\/(.*)\/.*/, '$1');
+    var repo = location.href.replace(/.*github\.com\/.*\/(.*)/, '$1');
+    var myEvm = document.createElement("iframe");
+    var url = 'https://localhost/evm.html?user=' + user + '&repo=' + repo;
+    myEvm.setAttribute('src', url);
+    myEvm.setAttribute('style', 'width:700px; height:500px; border-style:none;');
+    var myContainer = document.getElementById("js-repo-pjax-container");
+    myContainer.parentNode.insertBefore(myEvm, myContainer);
+})();
+```
+
 #動作確認
 
 * https://github.com/kudo9160/normal
