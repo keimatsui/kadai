@@ -28,7 +28,7 @@
         xhr.open('GET', url);
         xhr.onreadystatechange = function() {
           if (xhr.readyState === 4 && xhr.status === 200) {
-            var issues = eval(xhr.responseText);
+            var issues = JSON.parse(xhr.responseText);
             console.log(issues);
             for (var i = issues.length - 1; 0 <= i; --i) {
               var issue = issues[i];
@@ -71,7 +71,7 @@
         xhr.open('GET', url);
         xhr.onreadystatechange = function() {
           if (xhr.readyState === 4 && xhr.status === 200) {
-            var comments = eval(xhr.responseText);
+            var comments = JSON.parse(xhr.responseText);
             console.log(comments);
             var pre = 0;
             for (var i = 0; i < comments.length; ++i) {
