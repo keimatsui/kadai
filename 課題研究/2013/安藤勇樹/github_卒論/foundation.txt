@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/zurb/foundation/issues?per_page=100" > foundation-openissues.txt
+python api.py "https://api.github.com/repos/zurb/foundation/issues?per_page=100&state=closed" > foundation-closedissues.txt
+./jq '.created_at' foundation-openissues.txt | awk '{ printf("%s open\n", $0); }' > foundation-issues.tmp
+./jq '.created_at,.closed_at' foundation-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> foundation-issues.tmp
+sort foundation-issues.tmp > foundation-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' foundation-issues.txt > foundation-issues.csv
+bash getIssues.sh zurb foundation
+bash issuesCountChart.sh zurb foundation

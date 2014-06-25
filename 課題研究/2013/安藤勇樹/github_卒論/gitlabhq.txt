@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/gitlabhq/gitlabhq/issues?per_page=100" > gitlabhq-openissues.txt
+python api.py "https://api.github.com/repos/gitlabhq/gitlabhq/issues?per_page=100&state=closed" > gitlabhq-closedissues.txt
+./jq '.created_at' gitlabhq-openissues.txt | awk '{ printf("%s open\n", $0); }' > gitlabhq-issues.tmp
+./jq '.created_at,.closed_at' gitlabhq-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> gitlabhq-issues.tmp
+sort gitlabhq-issues.tmp > gitlabhq-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' gitlabhq-issues.txt > gitlabhq-issues.csv
+bash getIssues.sh gitlabhq gitlabhq
+bash issuesCountChart.sh gitlabhq gitlabhq

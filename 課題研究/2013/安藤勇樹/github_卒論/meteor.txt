@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/meteor/meteor/issues?per_page=100" > meteor-openissues.txt
+python api.py "https://api.github.com/repos/meteor/meteor/issues?per_page=100&state=closed" > meteor-closedissues.txt
+./jq '.created_at' meteor-openissues.txt | awk '{ printf("%s open\n", $0); }' > meteor-issues.tmp
+./jq '.created_at,.closed_at' meteor-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> meteor-issues.tmp
+sort meteor-issues.tmp > meteor-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' meteor-issues.txt > meteor-issues.csv
+bash getIssues.sh meteor meteor
+bash issuesCountChart.sh meteor meteor

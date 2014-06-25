@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/diaspora/diaspora/issues?per_page=100" > diaspora-openissues.txt
+python api.py "https://api.github.com/repos/diaspora/diaspora/issues?per_page=100&state=closed" > diaspora-closedissues.txt
+./jq '.created_at' diaspora-openissues.txt | awk '{ printf("%s open\n", $0); }' > diaspora-issues.tmp
+./jq '.created_at,.closed_at' diaspora-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> diaspora-issues.tmp
+sort diaspora-issues.tmp > diaspora-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' diaspora-issues.txt > diaspora-issues.csv
+bash getIssues.sh diaspora diaspora
+bash issuesCountChart.sh diaspora diaspora

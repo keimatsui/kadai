@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/textmate/textmate/issues?per_page=100" > textmate-openissues.txt
+python api.py "https://api.github.com/repos/textmate/textmate/issues?per_page=100&state=closed" > textmate-closedissues.txt
+./jq '.created_at' textmate-openissues.txt | awk '{ printf("%s open\n", $0); }' > textmate-issues.tmp
+./jq '.created_at,.closed_at' textmate-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> textmate-issues.tmp
+sort textmate-issues.tmp > textmate-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' textmate-issues.txt > textmate-issues.csv
+bash getIssues.sh textmate textmate
+bash issuesCountChart.sh textmate textmate

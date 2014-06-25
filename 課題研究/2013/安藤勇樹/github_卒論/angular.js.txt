@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/angular/angular.js/issues?per_page=100" > angular.js-openissues.txt
+python api.py "https://api.github.com/repos/angular/angular.js/issues?per_page=100&state=closed" > angular.js-closedissues.txt
+./jq '.created_at' angular.js-openissues.txt | awk '{ printf("%s open\n", $0); }' > angular.js-issues.tmp
+./jq '.created_at,.closed_at' angular.js-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> angular.js-issues.tmp
+sort angular.js-issues.tmp > angular.js-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' angular.js-issues.txt > angular.js-issues.csv
+bash getIssues.sh angular angular.js
+bash issuesCountChart.sh angular angular.js

@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/ivaynberg/select2/issues?per_page=100" > select2-openissues.txt
+python api.py "https://api.github.com/repos/ivaynberg/select2/issues?per_page=100&state=closed" > select2-closedissues.txt
+./jq '.created_at' select2-openissues.txt | awk '{ printf("%s open\n", $0); }' > select2-issues.tmp
+./jq '.created_at,.closed_at' select2-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> select2-issues.tmp
+sort select2-issues.tmp > select2-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' select2-issues.txt > select2-issues.csv
+bash getIssues.sh ivaynberg select2
+bash issuesCountChart.sh ivaynberg select2

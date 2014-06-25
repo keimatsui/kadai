@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/mrdoob/three.js/issues?per_page=100" > three.js-openissues.txt
+python api.py "https://api.github.com/repos/mrdoob/three.js/issues?per_page=100&state=closed" > three.js-closedissues.txt
+./jq '.created_at' three.js-openissues.txt | awk '{ printf("%s open\n", $0); }' > three.js-issues.tmp
+./jq '.created_at,.closed_at' three.js-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> three.js-issues.tmp
+sort three.js-issues.tmp > three.js-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' three.js-issues.txt > three.js-issues.csv
+bash getIssues.sh mrdoob three.js
+bash issuesCountChart.sh mrdoob three.js

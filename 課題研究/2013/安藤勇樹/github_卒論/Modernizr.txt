@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/Modernizr/Modernizr/issues?per_page=100" > Modernizr-openissues.txt
+python api.py "https://api.github.com/repos/Modernizr/Modernizr/issues?per_page=100&state=closed" > Modernizr-closedissues.txt
+./jq '.created_at' Modernizr-openissues.txt | awk '{ printf("%s open\n", $0); }' > Modernizr-issues.tmp
+./jq '.created_at,.closed_at' Modernizr-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> Modernizr-issues.tmp
+sort Modernizr-issues.tmp > Modernizr-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' Modernizr-issues.txt > Modernizr-issues.csv
+bash getIssues.sh Modernizr Modernizr
+bash issuesCountChart.sh Modernizr Modernizr

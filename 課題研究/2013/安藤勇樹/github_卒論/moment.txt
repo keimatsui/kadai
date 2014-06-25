@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/moment/moment/issues?per_page=100" > moment-openissues.txt
+python api.py "https://api.github.com/repos/moment/moment/issues?per_page=100&state=closed" > moment-closedissues.txt
+./jq '.created_at' moment-openissues.txt | awk '{ printf("%s open\n", $0); }' > moment-issues.tmp
+./jq '.created_at,.closed_at' moment-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> moment-issues.tmp
+sort moment-issues.tmp > moment-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' moment-issues.txt > moment-issues.csv
+bash getIssues.sh moment moment
+bash issuesCountChart.sh moment moment

@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/bartaz/impress.js/issues?per_page=100" > impress.js-openissues.txt
+python api.py "https://api.github.com/repos/bartaz/impress.js/issues?per_page=100&state=closed" > impress.js-closedissues.txt
+./jq '.created_at' impress.js-openissues.txt | awk '{ printf("%s open\n", $0); }' > impress.js-issues.tmp
+./jq '.created_at,.closed_at' impress.js-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> impress.js-issues.tmp
+sort impress.js-issues.tmp > impress.js-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' impress.js-issues.txt > impress.js-issues.csv
+bash getIssues.sh bartaz impress.js
+bash issuesCountChart.sh bartaz impress.js

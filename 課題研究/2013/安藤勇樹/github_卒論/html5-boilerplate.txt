@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/h5bp/html5-boilerplate/issues?per_page=100" > html5-boilerplate-openissues.txt
+python api.py "https://api.github.com/repos/h5bp/html5-boilerplate/issues?per_page=100&state=closed" > html5-boilerplate-closedissues.txt
+./jq '.created_at' html5-boilerplate-openissues.txt | awk '{ printf("%s open\n", $0); }' > html5-boilerplate-issues.tmp
+./jq '.created_at,.closed_at' html5-boilerplate-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> html5-boilerplate-issues.tmp
+sort html5-boilerplate-issues.tmp > html5-boilerplate-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' html5-boilerplate-issues.txt > html5-boilerplate-issues.csv
+bash getIssues.sh h5bp html5-boilerplate
+bash issuesCountChart.sh h5bp html5-boilerplate

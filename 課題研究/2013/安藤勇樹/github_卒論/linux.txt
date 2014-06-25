@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/torvalds/linux/issues?per_page=100" > linux-openissues.txt
+python api.py "https://api.github.com/repos/torvalds/linux/issues?per_page=100&state=closed" > linux-closedissues.txt
+./jq '.created_at' linux-openissues.txt | awk '{ printf("%s open\n", $0); }' > linux-issues.tmp
+./jq '.created_at,.closed_at' linux-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> linux-issues.tmp
+sort linux-issues.tmp > linux-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' linux-issues.txt > linux-issues.csv
+bash getIssues.sh torvalds linux
+bash issuesCountChart.sh torvalds linux

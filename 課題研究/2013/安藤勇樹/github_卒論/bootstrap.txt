@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/twbs/bootstrap/issues?per_page=100" > bootstrap-openissues.txt
+python api.py "https://api.github.com/repos/twbs/bootstrap/issues?per_page=100&state=closed" > bootstrap-closedissues.txt
+./jq '.created_at' bootstrap-openissues.txt | awk '{ printf("%s open\n", $0); }' > bootstrap-issues.tmp
+./jq '.created_at,.closed_at' bootstrap-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> bootstrap-issues.tmp
+sort bootstrap-issues.tmp > bootstrap-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' bootstrap-issues.txt > bootstrap-issues.csv
+bash getIssues.sh twbs bootstrap
+bash issuesCountChart.sh twbs bootstrap

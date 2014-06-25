@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/FortAwesome/Font-Awesome/issues?per_page=100" > Font-Awesome-openissues.txt
+python api.py "https://api.github.com/repos/FortAwesome/Font-Awesome/issues?per_page=100&state=closed" > Font-Awesome-closedissues.txt
+./jq '.created_at' Font-Awesome-openissues.txt | awk '{ printf("%s open\n", $0); }' > Font-Awesome-issues.tmp
+./jq '.created_at,.closed_at' Font-Awesome-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> Font-Awesome-issues.tmp
+sort Font-Awesome-issues.tmp > Font-Awesome-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' Font-Awesome-issues.txt > Font-Awesome-issues.csv
+bash getIssues.sh FortAwesome Font-Awesome
+bash issuesCountChart.sh FortAwesome Font-Awesome

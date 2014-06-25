@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/jashkenas/backbone/issues?per_page=100" > backbone-openissues.txt
+python api.py "https://api.github.com/repos/jashkenas/backbone/issues?per_page=100&state=closed" > backbone-closedissues.txt
+./jq '.created_at' backbone-openissues.txt | awk '{ printf("%s open\n", $0); }' > backbone-issues.tmp
+./jq '.created_at,.closed_at' backbone-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> backbone-issues.tmp
+sort backbone-issues.tmp > backbone-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' backbone-issues.txt > backbone-issues.csv
+bash getIssues.sh jashkenas backbone
+bash issuesCountChart.sh jashkenas backbone

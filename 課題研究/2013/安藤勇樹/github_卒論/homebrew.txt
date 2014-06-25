@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/Homebrew/homebrew/issues?per_page=100" > homebrew-openissues.txt
+python api.py "https://api.github.com/repos/Homebrew/homebrew/issues?per_page=100&state=closed" > homebrew-closedissues.txt
+./jq '.created_at' homebrew-openissues.txt | awk '{ printf("%s open\n", $0); }' > homebrew-issues.tmp
+./jq '.created_at,.closed_at' homebrew-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> homebrew-issues.tmp
+sort homebrew-issues.tmp > homebrew-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' homebrew-issues.txt > homebrew-issues.csv
+bash getIssues.sh Homebrew homebrew
+bash issuesCountChart.sh Homebrew homebrew

@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/mbostock/d3/issues?per_page=100" > d3-openissues.txt
+python api.py "https://api.github.com/repos/mbostock/d3/issues?per_page=100&state=closed" > d3-closedissues.txt
+./jq '.created_at' d3-openissues.txt | awk '{ printf("%s open\n", $0); }' > d3-issues.tmp
+./jq '.created_at,.closed_at' d3-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> d3-issues.tmp
+sort d3-issues.tmp > d3-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' d3-issues.txt > d3-issues.csv
+bash getIssues.sh mbostock d3
+bash issuesCountChart.sh mbostock d3

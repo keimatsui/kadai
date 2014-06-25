@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/adobe/brackets/issues?per_page=100" > brackets-openissues.txt
+python api.py "https://api.github.com/repos/adobe/brackets/issues?per_page=100&state=closed" > brackets-closedissues.txt
+./jq '.created_at' brackets-openissues.txt | awk '{ printf("%s open\n", $0); }' > brackets-issues.tmp
+./jq '.created_at,.closed_at' brackets-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> brackets-issues.tmp
+sort brackets-issues.tmp > brackets-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' brackets-issues.txt > brackets-issues.csv
+bash getIssues.sh adobe brackets
+bash issuesCountChart.sh adobe brackets

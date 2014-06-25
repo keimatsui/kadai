@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/LearnBoost/socket.io/issues?per_page=100" > socket.io-openissues.txt
+python api.py "https://api.github.com/repos/LearnBoost/socket.io/issues?per_page=100&state=closed" > socket.io-closedissues.txt
+./jq '.created_at' socket.io-openissues.txt | awk '{ printf("%s open\n", $0); }' > socket.io-issues.tmp
+./jq '.created_at,.closed_at' socket.io-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> socket.io-issues.tmp
+sort socket.io-issues.tmp > socket.io-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' socket.io-issues.txt > socket.io-issues.csv
+bash getIssues.sh LearnBoost socket.io
+bash issuesCountChart.sh LearnBoost socket.io

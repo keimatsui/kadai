@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/hakimel/reveal.js/issues?per_page=100" > reveal.js-openissues.txt
+python api.py "https://api.github.com/repos/hakimel/reveal.js/issues?per_page=100&state=closed" > reveal.js-closedissues.txt
+./jq '.created_at' reveal.js-openissues.txt | awk '{ printf("%s open\n", $0); }' > reveal.js-issues.tmp
+./jq '.created_at,.closed_at' reveal.js-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> reveal.js-issues.tmp
+sort reveal.js-issues.tmp > reveal.js-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' reveal.js-issues.txt > reveal.js-issues.csv
+bash getIssues.sh hakimel reveal.js
+bash issuesCountChart.sh hakimel reveal.js

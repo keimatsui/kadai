@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/jquery/jquery/issues?per_page=100" > jquery-openissues.txt
+python api.py "https://api.github.com/repos/jquery/jquery/issues?per_page=100&state=closed" > jquery-closedissues.txt
+./jq '.created_at' jquery-openissues.txt | awk '{ printf("%s open\n", $0); }' > jquery-issues.tmp
+./jq '.created_at,.closed_at' jquery-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> jquery-issues.tmp
+sort jquery-issues.tmp > jquery-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' jquery-issues.txt > jquery-issues.csv
+bash getIssues.sh jquery jquery
+bash issuesCountChart.sh jquery jquery

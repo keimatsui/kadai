@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/jashkenas/underscore/issues?per_page=100" > underscore-openissues.txt
+python api.py "https://api.github.com/repos/jashkenas/underscore/issues?per_page=100&state=closed" > underscore-closedissues.txt
+./jq '.created_at' underscore-openissues.txt | awk '{ printf("%s open\n", $0); }' > underscore-issues.tmp
+./jq '.created_at,.closed_at' underscore-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> underscore-issues.tmp
+sort underscore-issues.tmp > underscore-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' underscore-issues.txt > underscore-issues.csv
+bash getIssues.sh jashkenas underscore
+bash issuesCountChart.sh jashkenas underscore

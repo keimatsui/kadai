@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/blueimp/jQuery-File-Upload/issues?per_page=100" > jQuery-File-Upload-openissues.txt
+python api.py "https://api.github.com/repos/blueimp/jQuery-File-Upload/issues?per_page=100&state=closed" > jQuery-File-Upload-closedissues.txt
+./jq '.created_at' jQuery-File-Upload-openissues.txt | awk '{ printf("%s open\n", $0); }' > jQuery-File-Upload-issues.tmp
+./jq '.created_at,.closed_at' jQuery-File-Upload-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> jQuery-File-Upload-issues.tmp
+sort jQuery-File-Upload-issues.tmp > jQuery-File-Upload-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' jQuery-File-Upload-issues.txt > jQuery-File-Upload-issues.csv
+bash getIssues.sh blueimp jQuery-File-Upload
+bash issuesCountChart.sh blueimp jQuery-File-Upload

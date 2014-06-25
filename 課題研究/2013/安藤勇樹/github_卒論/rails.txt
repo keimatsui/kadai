@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/rails/rails/issues?per_page=100" > rails-openissues.txt
+python api.py "https://api.github.com/repos/rails/rails/issues?per_page=100&state=closed" > rails-closedissues.txt
+./jq '.created_at' rails-openissues.txt | awk '{ printf("%s open\n", $0); }' > rails-issues.tmp
+./jq '.created_at,.closed_at' rails-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> rails-issues.tmp
+sort rails-issues.tmp > rails-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' rails-issues.txt > rails-issues.csv
+bash getIssues.sh rails rails
+bash issuesCountChart.sh rails rails
