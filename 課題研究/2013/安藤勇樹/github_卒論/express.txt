@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/visionmedia/express/issues?per_page=100" > express-openissues.txt
-python api.py "https://api.github.com/repos/visionmedia/express/issues?per_page=100&state=closed" > express-closedissues.txt
-./jq '.created_at' express-openissues.txt | awk '{ printf("%s open\n", $0); }' > express-issues.tmp
-./jq '.created_at,.closed_at' express-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> express-issues.tmp
-sort express-issues.tmp > express-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' express-issues.txt > express-issues.csv
-bash getIssues.sh visionmedia express
-bash issuesCountChart.sh visionmedia express

@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/jekyll/jekyll/issues?per_page=100" > jekyll-openissues.txt
-python api.py "https://api.github.com/repos/jekyll/jekyll/issues?per_page=100&state=closed" > jekyll-closedissues.txt
-./jq '.created_at' jekyll-openissues.txt | awk '{ printf("%s open\n", $0); }' > jekyll-issues.tmp
-./jq '.created_at,.closed_at' jekyll-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> jekyll-issues.tmp
-sort jekyll-issues.tmp > jekyll-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' jekyll-issues.txt > jekyll-issues.csv
-bash getIssues.sh jekyll jekyll
-bash issuesCountChart.sh jekyll jekyll

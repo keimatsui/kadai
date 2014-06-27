@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/joyent/node/issues?per_page=100" > node-openissues.txt
-python api.py "https://api.github.com/repos/joyent/node/issues?per_page=100&state=closed" > node-closedissues.txt
-./jq '.created_at' node-openissues.txt | awk '{ printf("%s open\n", $0); }' > node-issues.tmp
-./jq '.created_at,.closed_at' node-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> node-issues.tmp
-sort node-issues.tmp > node-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' node-issues.txt > node-issues.csv
-bash getIssues.sh joyent node
-bash issuesCountChart.sh joyent node

@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/harvesthq/chosen/issues?per_page=100" > chosen-openissues.txt
-python api.py "https://api.github.com/repos/harvesthq/chosen/issues?per_page=100&state=closed" > chosen-closedissues.txt
-./jq '.created_at' chosen-openissues.txt | awk '{ printf("%s open\n", $0); }' > chosen-issues.tmp
-./jq '.created_at,.closed_at' chosen-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> chosen-issues.tmp
-sort chosen-issues.tmp > chosen-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' chosen-issues.txt > chosen-issues.csv
-bash getIssues.sh harvesthq chosen
-bash issuesCountChart.sh harvesthq chosen

@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/ariya/phantomjs/issues?per_page=100" > phantomjs-openissues.txt
-python api.py "https://api.github.com/repos/ariya/phantomjs/issues?per_page=100&state=closed" > phantomjs-closedissues.txt
-./jq '.created_at' phantomjs-openissues.txt | awk '{ printf("%s open\n", $0); }' > phantomjs-issues.tmp
-./jq '.created_at,.closed_at' phantomjs-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> phantomjs-issues.tmp
-sort phantomjs-issues.tmp > phantomjs-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' phantomjs-issues.txt > phantomjs-issues.csv
-bash getIssues.sh ariya phantomjs
-bash issuesCountChart.sh ariya phantomjs

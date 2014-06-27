@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/vhf/free-programming-books/issues?per_page=100" > free-programming-books-openissues.txt
-python api.py "https://api.github.com/repos/vhf/free-programming-books/issues?per_page=100&state=closed" > free-programming-books-closedissues.txt
-./jq '.created_at' free-programming-books-openissues.txt | awk '{ printf("%s open\n", $0); }' > free-programming-books-issues.tmp
-./jq '.created_at,.closed_at' free-programming-books-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> free-programming-books-issues.tmp
-sort free-programming-books-issues.tmp > free-programming-books-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' free-programming-books-issues.txt > free-programming-books-issues.csv
-bash getIssues.sh vhf free-programming-books
-bash issuesCountChart.sh vhf free-programming-books

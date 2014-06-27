@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/emberjs/ember.js/issues?per_page=100" > ember.js-openissues.txt
-python api.py "https://api.github.com/repos/emberjs/ember.js/issues?per_page=100&state=closed" > ember.js-closedissues.txt
-./jq '.created_at' ember.js-openissues.txt | awk '{ printf("%s open\n", $0); }' > ember.js-issues.tmp
-./jq '.created_at,.closed_at' ember.js-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> ember.js-issues.tmp
-sort ember.js-issues.tmp > ember.js-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' ember.js-issues.txt > ember.js-issues.csv
-bash getIssues.sh emberjs ember.js
-bash issuesCountChart.sh emberjs ember.js

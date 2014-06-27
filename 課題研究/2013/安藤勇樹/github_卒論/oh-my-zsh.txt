@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/robbyrussell/oh-my-zsh/issues?per_page=100" > oh-my-zsh-openissues.txt
-python api.py "https://api.github.com/repos/robbyrussell/oh-my-zsh/issues?per_page=100&state=closed" > oh-my-zsh-closedissues.txt
-./jq '.created_at' oh-my-zsh-openissues.txt | awk '{ printf("%s open\n", $0); }' > oh-my-zsh-issues.tmp
-./jq '.created_at,.closed_at' oh-my-zsh-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> oh-my-zsh-issues.tmp
-sort oh-my-zsh-issues.tmp > oh-my-zsh-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' oh-my-zsh-issues.txt > oh-my-zsh-issues.csv
-bash getIssues.sh robbyrussell oh-my-zsh
-bash issuesCountChart.sh robbyrussell oh-my-zsh
