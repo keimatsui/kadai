@@ -177,7 +177,7 @@ function searchTweets(path) {
         strokeOpacity: 1,       // 外周透過度（0: 透明 ⇔ 1:不透明）
         strokeWeight: 1         // 外周太さ（ピクセル）
       });
-      var api = '1.1/search/tweets.json?q=&geocode='+path[idx].d+','+path[idx].e+','+(distance/1000)+'km';
+      var api = '1.1/search/tweets.json?q=&geocode='+path[idx].k+','+path[idx].B+','+(distance/1000)+'km';
       twitter.get(api).done(function(data) {
         for (var i = 0; i < data.statuses.length; ++i) {
           var s = data.statuses[i];
