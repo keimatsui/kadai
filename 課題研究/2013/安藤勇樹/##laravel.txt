@@ -1,8 +1,0 @@
-python api.py "https://api.github.com/repos/laravel/laravel/issues?per_page=100" > laravel-openissues.txt
-python api.py "https://api.github.com/repos/laravel/laravel/issues?per_page=100&state=closed" > laravel-closedissues.txt
-./jq '.created_at' laravel-openissues.txt | awk '{ printf("%s open\n", $0); }' > laravel-issues.tmp
-./jq '.created_at,.closed_at' laravel-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> laravel-issues.tmp
-sort laravel-issues.tmp > laravel-issues.txt
-awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' laravel-issues.txt > laravel-issues.csv
-bash getIssues.sh laravel laravel
-bash issuesCountChart.sh laravel laravel
