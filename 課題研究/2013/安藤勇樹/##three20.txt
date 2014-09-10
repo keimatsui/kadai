@@ -1,0 +1,8 @@
+python api.py "https://api.github.com/repos/facebookarchive/three20/issues?per_page=100" > three20-openissues.txt
+python api.py "https://api.github.com/repos/facebookarchive/three20/issues?per_page=100&state=closed" > three20-closedissues.txt
+./jq '.created_at' three20-openissues.txt | awk '{ printf("%s open\n", $0); }' > three20-issues.tmp
+./jq '.created_at,.closed_at' three20-closedissues.txt | awk '{ if (NR % 2 == 1) printf("%s open\n", $0); else printf("%s close\n", $0); }' >> three20-issues.tmp
+sort three20-issues.tmp > three20-issues.txt
+awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="close" { closedissues++; } { printf("%s,%d,%d\n", $1, openissues, closedissues) }' three20-issues.txt > three20-issues.csv
+bash getIssues.sh facebookarchive three20
+bash issuesCountChart.sh facebookarchive three20
