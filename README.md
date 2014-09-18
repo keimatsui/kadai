@@ -3,7 +3,6 @@ yabukilab
 
 矢吹研究室の非公開リポジトリ
 
-* 課題研究や卒業論文の参考文献は、[http://sti.jst.go.jp/sist/menu_purpose/](https://web.archive.org/web/20130624120655/http://sti.jst.go.jp/sist/menu_purpose/index.html)で規定されている形式で書くこと（[参考文献の役割と書き方](http://sti.jst.go.jp/sist/pdf/SIST_booklet2011.pdf)を読んでおくといい）。
 * [ドキュメント作法](https://github.com/taroyabuki/yabukilab/wiki/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E4%BD%9C%E6%B3%95)
 
 ## 有用なリンク
