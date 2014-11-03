@@ -4,7 +4,7 @@
 
 ## 準備
 
-作業ディレクトリに[jqのバイナリ](http://stedolan.github.io/jq/download/linux32/jq)をコピーする。
+作業ディレクトリに[jqのバイナリ](http://stedolan.github.io/jq/download/)をダウンロードする。
 
 jqを実行できるようにする。`chmod`については自分で調べること。
 
