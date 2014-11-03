@@ -5,7 +5,7 @@
 
 上記サイトではリツィートを除外する例を紹介しているが、リツィートされたものだけを処理するなら、`parse.py`は次のようになる。
 
-```python:parse.py
+```python
 #!/usr/bin/env python
 import sys, json
  
