@@ -142,7 +142,7 @@
 \item SumatraPDFをインストールする（Acrobatはファイルをロックするから使いにくい）．
 \item 原稿（\verb|draft.tex|や\verb|.bib|，\verb|.pdf|など）を用意する．（ここでは，作業ディレクトリを「\verb|C:/work|」とする．）
 \item コマンドプロンプトで「\verb|C:|\UTF{23CE}\verb|cd /work|\UTF{23CE}」などとして作業ディレクトリに移動する．
-\item 「\verb|uplatex -shell-escape draft|」，「\verb|upbibtex draft|」，「\verb|uplatex draft|」（2回），「\verb|dvipdfmx draft|」（途中でエラーで止まったら，「\verb|q|\UTF{23CE}」やCtrl-Cで終了する）．次のように1行で実行してもよい．\\\verb|uplatex -shell-escape draft && upbibtex draft && uplatex draft && uplatex draft &&|\\\verb|dvipdfmx draft|
+\item 「\verb|uplatex -shell-escape draft|」で\LaTeX 処理，「\verb|dvipdfmx draft|」でPDF作成をするのが基本．参考文献リストが変わったときは「\verb|upbibtex draft|」を1回，参照情報が変わったときは「\verb|uplatex -shell-escape draft|」を2回実行する．\verb|build.bat|を使ってもよい．途中でエラーで止まったら，「\verb|q|\UTF{23CE}」やCtrl-Cで終了する．
 \item \verb|draft.pdf|をSumatraPDFで開いて結果を確認する．
 \end{enumerate}
 
