@@ -15,14 +15,15 @@ url = sys.argv[1]
 
 count = 0
 while (url is not None):
-  #print url
+  print >> sys.stderr, url
   r = requests.get(url, auth=(username, password))
   print >> sys.stderr, r.headers['status'],
-  for item in r.json():
-    count = count + 1
-    print json.dumps(item)
+  items = r.json()['items'] if 'items' in r.json() else r.json()
+  for item in items:
+      count = count + 1
+      print json.dumps(item)
   if (r.links.has_key('next')):
     url = r.links['next']['url']
   else:
     url = None
-  print >> sys.stderr, count
+  print >> sys.stderr, count, 'items'
