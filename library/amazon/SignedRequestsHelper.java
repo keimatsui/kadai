@@ -25,27 +25,22 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Base64;
 
 public class SignedRequestsHelper {
-
   private static final String UTF8_CHARSET = "UTF-8";
   private static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
   private static final String REQUEST_URI = "/onca/xml";
   private static final String REQUEST_METHOD = "GET";
 
-  private String endpoint = "ecs.amazonaws.com"; // must be lowercase
+  private String endpoint = "ecs.amazonaws.jp"; // must be lowercase
   private String awsAccessKeyId = "YOUR AWS ACCESS KEY";
   private String awsSecretKey = "YOUR AWS SECRET KEY";
 
   private SecretKeySpec secretKeySpec = null;
   private Mac mac = null;
 
-  public SignedRequestsHelper(String endpoint, String awsAccessKeyId, String awsSecretKey) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
-    this.endpoint = endpoint;
-    this.awsAccessKeyId = awsAccessKeyId;
-    this.awsSecretKey = awsSecretKey;
-    
+  public SignedRequestsHelper() throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
     byte[] secretyKeyBytes = awsSecretKey.getBytes(UTF8_CHARSET);
-    secretKeySpec
-            = new SecretKeySpec(secretyKeyBytes, HMAC_SHA256_ALGORITHM);
+    secretKeySpec =
+      new SecretKeySpec(secretyKeyBytes, HMAC_SHA256_ALGORITHM);
     mac = Mac.getInstance(HMAC_SHA256_ALGORITHM);
     mac.init(secretKeySpec);
   }
@@ -54,19 +49,19 @@ public class SignedRequestsHelper {
     params.put("AWSAccessKeyId", awsAccessKeyId);
     params.put("Timestamp", timestamp());
 
-    SortedMap<String, String> sortedParamMap
-            = new TreeMap<String, String>(params);
+    SortedMap<String, String> sortedParamMap =
+      new TreeMap<String, String>(params);
     String canonicalQS = canonicalize(sortedParamMap);
-    String toSign
-            = REQUEST_METHOD + "\n"
-            + endpoint + "\n"
-            + REQUEST_URI + "\n"
-            + canonicalQS;
+    String toSign =
+      REQUEST_METHOD + "\n"
+      + endpoint + "\n"
+      + REQUEST_URI + "\n"
+      + canonicalQS;
 
     String hmac = hmac(toSign);
     String sig = percentEncodeRfc3986(hmac);
-    String url = "http://" + endpoint + REQUEST_URI + "?"
-            + canonicalQS + "&Signature=" + sig;
+    String url = "http://" + endpoint + REQUEST_URI + "?" +
+    canonicalQS + "&Signature=" + sig;
 
     return url;
   }
@@ -95,14 +90,15 @@ public class SignedRequestsHelper {
     return timestamp;
   }
 
-  private String canonicalize(SortedMap<String, String> sortedParamMap) {
+  private String canonicalize(SortedMap<String, String> sortedParamMap)
+{
     if (sortedParamMap.isEmpty()) {
       return "";
     }
 
     StringBuffer buffer = new StringBuffer();
-    Iterator<Map.Entry<String, String>> iter
-            = sortedParamMap.entrySet().iterator();
+    Iterator<Map.Entry<String, String>> iter =
+      sortedParamMap.entrySet().iterator();
 
     while (iter.hasNext()) {
       Map.Entry<String, String> kvpair = iter.next();
@@ -121,9 +117,9 @@ public class SignedRequestsHelper {
     String out;
     try {
       out = URLEncoder.encode(s, UTF8_CHARSET)
-              .replace("+", "%20")
-              .replace("*", "%2A")
-              .replace("%7E", "~");
+      .replace("+", "%20")
+      .replace("*", "%2A")
+      .replace("%7E", "~");
     } catch (UnsupportedEncodingException e) {
       out = s;
     }
