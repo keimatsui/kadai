@@ -17,7 +17,7 @@ APIの最新版：http://aws.amazon.com/archives/Product-Advertising-API
 
 Ubuntu上で開発する。
 
-1. NetBeansのインストール（矢吹の本の2.4.2項）
+1. NetBeansのインストール（矢吹の本の2.4.2項を参照）
 1. NetBeansでMaven Javaアプリケーションのプロジェクトを作る。プロジェクト名は`amazon`、パッケージは`com.amazon.associates.sample`とする。
 1. `pom.xml`を修正する。
 1. パッケージ`com.amazon.associates.sample`の中にクラス`SignedRequestsHelper`を作る。これは上記サンプルコードを少し修正したものである。
@@ -36,7 +36,7 @@ Title要素の中にタイトルが書かれていることを確認する。
 
 ### サンプル2
 
-ASINで指定したアイテムの商品名をAPIで取得する。
+ASINで指定したアイテムの商品名をAPIで取得する。（矢吹の本の5.3.1項を参照）
 
 1. パッケージ`com.amazon.associates.sample`の中にクラス`Sample2`を作る。
 1. AssociateTagを設定する。
@@ -54,7 +54,7 @@ APIで取得できるのはレビューのページのURLであり、レビュ�
 
 ### サンプル3
 
-ASINで指定したアイテムのレビューを取得する。
+ASINで指定したアイテムのレビューを取得する。（矢吹の本の5.2.2項を参照）
 
 1. パッケージ`com.amazon.associates.sample`の中にクラス`Sample3`を作り、実行する。
 
