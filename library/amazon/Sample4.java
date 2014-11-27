@@ -13,6 +13,9 @@ public class Sample4 {
 
   public static void main(String[] args) throws Exception {
     String asin = "400339481X";
+    if (args.length != 0) {
+      asin = args[0];
+    }
     String charset = "Shift_JIS"; //驚くところ！
     String urlStr = "http://www.amazon.co.jp/product-reviews/" + asin + "/";
     URL url = new URL(urlStr);

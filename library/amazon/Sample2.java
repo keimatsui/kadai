@@ -16,6 +16,9 @@ public class Sample2 {
   public static void main(String[] args) throws Exception {
     String AssociateTag = "inquisitor-22";
     String asin = "400339481X";
+    if (args.length != 0) {
+      asin = args[0];
+    }
     String Version = "2013-08-01";
 
     Map<String, String> params = new HashMap<>();

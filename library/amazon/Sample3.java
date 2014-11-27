@@ -12,6 +12,9 @@ public class Sample3 {
 
   public static void main(String[] args) throws Exception {
     String asin = "400339481X";
+    if (args.length != 0) {
+      asin = args[0];
+    }
     String charset = "Shift_JIS"; //驚くところ！
     String urlStr = "http://www.amazon.co.jp/product-reviews/" + asin + "/";
     URL url = new URL(urlStr);
@@ -25,7 +28,7 @@ public class Sample3 {
       int people = Integer.parseInt(matcher.group(1));
       int helpful = Integer.parseInt(matcher.group(2));
       double star = Double.parseDouble(matcher.group(3));
-      System.out.printf("星%f。%d人中$d人が参考になった。\n", star, people, helpful);
+      System.out.printf("星%f。%d人中%d人が参考になった。\n", star, people, helpful);
     }
   }
 }

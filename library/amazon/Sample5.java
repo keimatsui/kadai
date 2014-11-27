@@ -57,7 +57,10 @@ public class Sample5 {
 
   public static void main(String[] args) throws Exception {
     String asin = "4274065979";//ハッカーと画家 コンピュータ時代の創造者たち
-    //String asin = "B00IFTTOAK";//マリオカート8（456件のはずが452件しか取れていない）
+    //String asin = "B00IFTTOAK";//マリオカート8
+    if (args.length != 0) {
+      asin = args[0];
+    }
     String urlStr = "http://www.amazon.co.jp/product-reviews/" + asin + "/";
     List<Review> reviews = new LinkedList<>();
     reviews.addAll(extractReviews(urlStr, 1));
