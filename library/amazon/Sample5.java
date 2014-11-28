@@ -75,8 +75,8 @@ public class Sample5 {
   }
 
   public static void main(String[] args) throws Exception {
-    //String asin = "4274065979";//ハッカーと画家 コンピュータ時代の創造者たち
-    String asin = "B00IFTTOAK";
+    String asin = "4274065979";//ハッカーと画家 コンピュータ時代の創造者たち
+    //String asin = "B00IFTTOAK";//マリオカート8
     if (args.length != 0) {
       asin = args[0];
     }
