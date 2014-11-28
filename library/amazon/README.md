@@ -20,7 +20,7 @@ Ubuntu上で開発する。
 1. `sudo apt-get install maven`
 1. NetBeansのインストール（矢吹の本の2.4.2項を参照）
 1. NetBeansでMaven Javaアプリケーションのプロジェクトを作る。プロジェクト名は`amazon`、パッケージは`com.amazon.associates.sample`とする。
-1. `pom.xml`を修正する。
+1. `pom.xml`をここにあるファイルの通りに修正する。
 1. パッケージ`com.amazon.associates.sample`の中にクラス`SignedRequestsHelper`を作る。これは上記サンプルコードを少し修正したものである。
 1. `awsAccessKeyId`と`awsSecretKey`を設定する。
 
@@ -73,13 +73,11 @@ APIで取得できるのはレビューのページのURLであり、レビュ�
 
 レビューのURLは、APIで取得してもいいが、少し試してみれば、http://www.amazon.co.jp/product-reviews/400339481X/ のようなURLを作ればよいことがわかる。そこで、HTTPクライアントを書いてレビューを取得することにする。
 
-●人中、●人の方が・・・という記述がないレビューは取っていない。
-
 ## Java
 
 ### サンプル3
 
-ASINで指定したアイテムのレビューを取得する。（矢吹の本の5.2.2項を参照）
+ASINで指定したアイテムのレビューを取得する。（1ページ限定）（矢吹の本の5.2.2項を参照）
 
 1. パッケージ`com.amazon.associates.sample`の中にクラス`Sample3`を作り、実行する。
 
