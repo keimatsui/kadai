@@ -18,7 +18,7 @@ for line in sys.stdin:
           retweetedStatus = tweet['retweeted_status']
           retweetedUser = retweetedStatus['user']['screen_name']
           tweetId = retweetedStatus['id_str']
-          print retweetUser+','+retweetedUser+','+'https://twitter.com/'+retweetedUser+'/'+tweetId
+          print retweetUser+','+retweetedUser+','+'https://twitter.com/'+retweetedUser+'/status/'+tweetId
     except ValueError:
         pass
 ```
