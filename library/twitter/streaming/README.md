@@ -124,7 +124,7 @@ echo "select retweet,retweeted from retweets where checked=FALSE limit 10;" | my
 python checkfriendships.py
 ```
 
-この結果を実行すれば、APIの限界（10sの余裕あり）まで調べられる。
+この結果を実行すれば、APIの限界（若干の余裕あり）まで調べられる。
 
 ### まとめ
 
