@@ -3,5 +3,5 @@
 while :
 do
   python stream.py | python retweets.py | mysql -utest -ppass --force twitter
-  sleep $s
+  sleep 300
 done

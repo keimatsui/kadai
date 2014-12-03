@@ -13,7 +13,8 @@ for line in sys.stdin:
   users = line.split()
   user1 = escape(users[0])
   user2 = escape(users[1])
-  sys.stderr.write("[%s],[%s]\n" % (user1, user2))
+  #sys.stderr.write("[%s],[%s]\n" % (user1, user2))
+  sys.stderr.write(".")
   try:
     friendships = api.show_friendship(source_screen_name=user1, target_screen_name=user2)
     #print(friendships)#これで状況がわかる
@@ -25,3 +26,4 @@ for line in sys.stdin:
     sys.stdout.flush()
   except:
     pass
+sys.stderr.write("\n")
