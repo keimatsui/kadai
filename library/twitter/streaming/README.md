@@ -41,7 +41,7 @@ python stream.py
 
 このようなコードを書くためには、結果のJSONに何が書かれているかを確認しなければならない。その際には、[GitHub APIで取得したデータの処理方法](https://github.com/taroyabuki/yabukilab/blob/master/library/github/GitHub%20API%E3%81%A7%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%87%A6%E7%90%86%E6%96%B9%E6%B3%95.md)で紹介している`jq`が役立つだろう。
 
-### `retweets.sql.py`
+### `retweets.py`
 
 試してみる。
 
@@ -74,7 +74,7 @@ sh retweets.sh
 1. API呼び出し回数がリセットされるまでの時間を調べる(`timetoreset.py`)
 1. API呼び出し回数がリセットされるまで待つ
 
-### 'remainingapi.py'
+### `remainingapi.py`
 
 試してみる。
 
@@ -113,9 +113,9 @@ insert into retweets (retweet,retweeted) values ('yabuki','y5w11'),('yabuki','Ni
 ```
 
 ```bash
-echo "yabuki y5w11" | python friendship.py | mysql -utest -ppass --skip-column-names --force twitter
-echo "yabuki y5w11" | python friendship.py | mysql -utest -ppass --skip-column-names --force twitter
-echo "yabuki Nintendo" | python friendship.py | mysql -utest -ppass --skip-column-names --force twitter
+echo "yabuki y5w11" | python friendship.py | mysql -utest -ppass --force twitter
+echo "yabuki y5w11" | python friendship.py | mysql -utest -ppass --force twitter
+echo "yabuki Nintendo" | python friendship.py | mysql -utest -ppass --force twitter
 ```
 
 ```sql
@@ -138,6 +138,7 @@ python timetoreset.py
 ```bash
 s=`python timetoreset.py`
 sleep $s
+```
 
 ### まとめ
 
