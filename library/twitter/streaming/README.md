@@ -65,36 +65,15 @@ sh retweets.sh
 
 ## フォロー関係の調査
 
+APIは15分に180回しか呼び出せない。複数のアカウントを使えば速くなるのだが、以下の方法はそのような並列処理には対応していない。
+
 手順
 
-1. API呼び出しの可能回数を調べる(`remainingapi.py`)
+1. API呼び出しの可能回数を調べる(`checkfriendships.py`)
 1. テーブル`retweets`から、まだフォロー関係を調べていないユーザを、可能回数分だけ取得する
 1. フォロー関係を調べ、データベースに記録するためのSQL文を生成する(`friendship.py`)
 1. データベースに記録する
-1. API呼び出し回数がリセットされるまでの時間を調べる(`timetoreset.py`)
 1. API呼び出し回数がリセットされるまで待つ
-
-### `remainingapi.py`
-
-試してみる。
-
-```bash
-python remainingapi.py
-```
-
-### フォロー関係を調べていないユーザ
-
-10件なら以下の通り（カラム名は不要だから、オプション`--skip-column-names`をつけておく）
-
-```bash
-echo "select retweet,retweeted from retweets where checked=FALSE limit 10;" | mysql -utest -ppass --skip-column-names twitter 
-```
-
-APIで試せる回数分だけなら、
-
-```bash
-echo "select retweet,retweeted from retweets where checked=FALSE limit `python remainingapi.py`;" | mysql -utest -ppass --skip-column-names twitter 
-```
 
 ### `friendship.py`
 
@@ -125,24 +104,31 @@ delete from follows where follow='yabuki' or followed='yabuki';
 delete from retweets where retweet='yabuki';
 ```
 
-### `timetoreset.py`
+### `checkfriendships.py`
 
-試してみる。
+フォロー関係を調べていないユーザのペアを10件取得するなら、
 
-```bash
-python timetoreset.py
+```sql
+select retweet,retweeted from retweets where checked=FALSE limit 10;
 ```
 
-この時間だけ待機させるには、次のようにすればよい。
+シェルから実行するなら（カラム名は不要だから、オプション`--skip-column-names`をつけておく）、
 
 ```bash
-s=`python timetoreset.py`
-sleep $s
+echo "select retweet,retweeted from retweets where checked=FALSE limit 10;" | mysql -utest -ppass --skip-column-names twitter 
 ```
+
+実際の数は、Twitterに問い合わせて確認する。問い合わせると、回数がリセットされる時刻も教えてくれるから、そこから現在時刻を引き、結果の分だけ待機する。
+
+```bash
+python checkfriendships.py
+```
+
+この結果を実行すれば、APIの限界まで調べられる。
 
 ### まとめ
 
-以上を`friendship.sh`にまとめ、実行する。
+以上を繰り返すのが`friendship.sh`である。
 
 ```bash
 sh friendship.sh
