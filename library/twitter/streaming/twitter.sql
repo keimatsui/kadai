@@ -12,6 +12,7 @@ grant all on twitter.* to test@localhost identified by 'pass';
 
 use twitter;
 
+-- リツイートを記録するテーブル
 drop table if exists retweets;
 create table retweets (
   id int auto_increment primary key,
@@ -27,6 +28,7 @@ create table retweets (
 
 desc retweets;
 
+-- フォロー関係を記録するテーブル
 drop table if exists follows;
 create table follows (
   id int auto_increment primary key,
@@ -38,6 +40,18 @@ create table follows (
 );
 
 desc follows;
+
+-- ユーザを記録するテーブル
+drop table if exists users;
+create table users (
+  id bigint auto_increment primary key,
+  screenName varchar(100) not null,
+  profileImageUrl varchar(1000),
+  rekognition text,
+  unique index(screenName)
+);
+
+desc users;
 
 -- 練習
 
