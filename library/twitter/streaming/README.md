@@ -70,10 +70,13 @@ APIは15分に180回しか呼び出せない。複数のアカウントを使え
 手順
 
 1. API呼び出しの可能回数を調べる(`checkfriendships.py`)
+1. テーブル`retweets`で、フォロー関係を調べたかどうかの情報を更新する
 1. テーブル`retweets`から、まだフォロー関係を調べていないユーザを、可能回数分だけ取得する
 1. フォロー関係を調べ、データベースに記録するためのSQL文を生成する(`friendship.py`)
 1. データベースに記録する
 1. API呼び出し回数がリセットされるまで待つ
+
+以上の手順は、1つのPythonプログラムで実行することもできる。しかしここでは、1つの仕事しかしないツールを複数作り、それらを組み合わせて実現する。
 
 ### `friendship.py`
 
@@ -91,6 +94,8 @@ echo "yabuki y5w11" | python friendship.py
 insert into retweets (retweet,retweeted) values ('yabuki','y5w11'),('yabuki','Nintendo');
 ```
 
+重複時にエラーで止まらないように、`--force`を付けておく。
+
 ```bash
 echo "yabuki y5w11" | python friendship.py | mysql -utest -ppass --force twitter
 echo "yabuki y5w11" | python friendship.py | mysql -utest -ppass --force twitter
@@ -102,6 +107,14 @@ select * from retweets where retweet='yabuki';
 select * from follows where follow='yabuki' or followed='yabuki';
 delete from follows where follow='yabuki' or followed='yabuki';
 delete from retweets where retweet='yabuki';
+```
+
+### テーブル`retweets`の更新
+
+followsに関係が記録されているなら、retweetsのcheckedはTRUEということにする。この作業が意味を持つのは、retweetsに既存のペアとは逆のペアが登録されたときである。そのペアのフォロー関係は、調べる必要はない（フォロー関係が変わらないような短期の調査を仮定している）。
+
+```sql
+update retweets set checked=TRUE where checked=FALSE and exists (select * from follows where ((follow=retweet) and (followed=retweeted)) or ((follow=retweeted) and (followed=retweet)));
 ```
 
 ### `checkfriendships.py`
