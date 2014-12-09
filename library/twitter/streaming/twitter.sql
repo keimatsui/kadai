@@ -26,6 +26,10 @@ create table retweets (
   unique index(retweet,retweeted)-- 重複排除のため
 );
 
+-- 仕様変更
+ALTER TABLE `retweets` ADD `rcount` INT;
+ALTER TABLE `retweets` ADD `fcount` INT;
+
 desc retweets;
 
 -- フォロー関係を記録するテーブル
@@ -46,6 +50,9 @@ drop table if exists users;
 create table users (
   id bigint auto_increment primary key,
   screenName varchar(100) not null,
+  statuses int,
+  friends int,
+  followers int,
   profileImageUrl varchar(1000),
   rekognition text,
   unique index(screenName)
