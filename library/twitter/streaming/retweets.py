@@ -28,7 +28,8 @@ for line in sys.stdin:
 
       #sys.stderr.write("https://twitter.com/%s/status/%s\n" % (retweeted, tweet))#参考
       #新たに挿入する（すでに挿入されていれば弾かれるから問題ない）
-      sys.stdout.write("insert into retweets (retweet,retweeted,tweet,rcount,fcount) values ('%s','%s','%s',%d,%d);\n" % (escape(retweet), escape(retweeted), tweet, rcount, fcount));
-      sys.stdout.write("insert into users (id,screenName,statuses,friends,followers,profileImageUrl) values ('%s','%s',%d,%d,%d,'%s');\n" % (idStr, escape(retweeted), statuses, friends, followers, profileImage));
+      sys.stdout.write("insert into retweets (retweet,retweeted,tweet,rcount,fcount) values ('%s','%s','%s',%d,%d);\n" % (escape(retweet), escape(retweeted), tweet, rcount, fcount))
+      sys.stdout.write("insert into users (id,screenName,statuses,friends,followers,profileImageUrl) values ('%s','%s',%d,%d,%d,'%s');\n" % (idStr, escape(retweeted), statuses, friends, followers, profileImage))
+      sys.stdout.flush()
   except ValueError:
     pass
