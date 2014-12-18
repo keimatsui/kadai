@@ -1,4 +1,4 @@
-%課題研究レジュメテンプレート ver. 1.0
+%課題研究レジュメテンプレート ver. 1.1
 
 \documentclass[uplatex]{jsarticle}
 \usepackage[top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
@@ -7,6 +7,8 @@
 \usepackage{wrapfig}
 \usepackage[expert,deluxe]{otf}
 \usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
 
 \makeatletter
   \renewcommand{\section}{%
@@ -86,7 +88,7 @@
 
 \subsection{\LaTeX 原稿の書き方}
 
-研究室専用のテンプレートファイル（\verb|draft.tex|と\verb|biblio.bib|）を用意する．課題研究のレジュメを作成する際は，この2つのファイルをコピーし，編集すればよい．いずれもテキストファイルだから，テキストエディタで編集すればよいが，文献ファイルはJabRefで編集する方が簡単だろう（JabRefを利用するためにはJavaの実行環境が必要である）．
+研究室専用のテンプレートファイル（\verb|draft.tex|と\verb|biblio.bib|）を用意する．課題研究のレジュメを作成する際は，この2つのファイルをコピーし，編集すればよい．いずれもテキストファイルだから，テキストエディタで編集すればよいが，文献ファイルはJabRefで編集する方が簡単だろう（JabRefを利用するためにはJavaの実行環境が必要である．Options, Preferences, Appearance, Set table fontでフォントを変更する必要もある）．
 
 
 
@@ -118,7 +120,7 @@
 
 \subsubsection{参考文献の参照方法}
 
-参考文献は文献ファイル（この文書では\verb|biblio.bib|）に記述し，\verb|\cite|で参照する．例：データベースのための問い合わせ言語SQLで数独を解く方法が提案されている\cite{yabuki2011}．このように参照すると，参考文献リストに自動的に登録される．文献の種類には，雑誌論文\cite{yabuki2011}や会議録論文\cite{yabuki2013}，卒業論文\cite{kubo2014}，書籍\cite{okumura2013}などがある．文献の種類によって必要な項目が異なるため，\verb|biblio.bib|を見て確認すること．
+参考文献は文献ファイル（この文書では\verb|biblio.bib|）に記述し，\verb|\cite|で参照する．例：データベースのための問い合わせ言語SQLで数独を解く方法が提案されている\cite{yabuki2011}．このように参照すると，参考文献リストに自動的に登録される．文献の種類には，雑誌論文\cite{yabuki2011}や会議録論文\cite{yabuki2013}，卒業論文\cite{kubo2014}，書籍\cite{okumura2013}，ウェブサイト\cite{self}などがある．文献の種類によって必要な項目が異なるため，\verb|biblio.bib|を見て確認すること．
 
 細かい注意：\LaTeX の命令の先頭は「\UTF{005C}\hspace{-0.5zw}」だが，Webなどの資料ではそれが「\UTF{00A5}\hspace{-0.5zw}」になっていることがある．テキストエディタでは，VLゴシックのような「\UTF{005C}\hspace{-0.5zw}」と「\UTF{00A5}\hspace{-0.5zw}」を区別できるフォントを使うといい．
 
