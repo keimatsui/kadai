@@ -71,3 +71,12 @@ select lang, VAR_POP(forks) as VAR_POPfork from projects where not(lang = "") gr
 
 
 create table project2 (select url,count(distinct lang) as num from projects group by url);
+
+ファイルのエクスポート（全体）
+select distinct url,forks into outfile 'c:/work/test.csv' from project3;
+
+ファイルのエクスポート（言語別）
+select distinct  url,forks into outfile 'c:/work/JavaScript.csv' from project3 where lang='JavaScript';
+
+全部まとめて表にする
+select lang, count(distinct url) as n, avg(forks),stddev_pop(forks) from project3 group by lang order by n desc;
