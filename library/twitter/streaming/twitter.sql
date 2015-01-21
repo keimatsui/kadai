@@ -4,6 +4,7 @@
 
 -- mysql -uroot -ppass
 
+drop database if exists twitter;
 create database twitter default charset=utf8;
 
 -- ユーザtest、パスワードpassでアクセスできるようにする。
@@ -12,66 +13,56 @@ grant all on twitter.* to test@localhost identified by 'pass';
 
 use twitter;
 
--- リツイートを記録するテーブル
-drop table if exists retweets;
-create table retweets (
-  id int auto_increment primary key,
-  retweet varchar(100) not null,-- 見やすさのため（IDのほうが効率はいい）
-  retweeted varchar(100) not null,
-  tweet varchar(50),-- 参考に、Tweetを1件だけ記録しておく
-  checked boolean not null default FALSE,-- フォロー関係をチェックしたかどうか
-  index(retweet),
-  index(retweeted),
-  index(checked),
-  unique index(retweet,retweeted)-- 重複排除のため
-);
-
--- 仕様変更
-ALTER TABLE `retweets` ADD `rcount` INT;
-ALTER TABLE `retweets` ADD `fcount` INT;
-
-desc retweets;
-
--- フォロー関係を記録するテーブル
-drop table if exists follows;
-create table follows (
-  id int auto_increment primary key,
-  follow varchar(100) not null,
-  followed varchar(100) not null,
-  index(follow),
-  index(followed),
-  unique index(follow,followed)-- 重複排除のため
-);
-
-desc follows;
-
 -- ユーザを記録するテーブル
 drop table if exists users;
 create table users (
-  id bigint auto_increment primary key,
+  id bigint primary key,
   screenName varchar(100) not null,
   statuses int,
   friends int,
   followers int,
   profileImageUrl varchar(1000),
-  rekognition text,
+  rekognition text,-- 画像認識結果のため
   unique index(screenName)
 );
 
 desc users;
 
--- 練習
+-- リツイートを記録するテーブル
+drop table if exists retweets;
+create table retweets (
+  id bigint primary key,-- ツイートID。同じツイートを2回処理しない（最初に観測されたリツイートだけ調べる）
+  retweet bigint not null,-- リツイートした人のID（最初に観測されたリツイートだけ調べる）
+  retweeted bigint not null,-- リツイートされた人のID
+  rcount int not null,-- リツイートされた回数
+  fcount int not null,-- お気に入りに登録された回数
+  foreign key (retweet) references users (id),
+  foreign key (retweeted) references users (id),
+  unique index(retweet,retweeted)-- 同じ人間関係を2回調べない
+);
 
-insert into retweets (retweet,retweeted,tweet) values ('a','b','3');
-insert into follows (follow,followed) values ('a','b');
+desc retweets;
 
-select * from retweets;
-select * from follows;
+-- リツイートした人のリストを記録するテーブル
+drop table if exists retweeters;
+create table retweeters (
+  id int auto_increment primary key,
+  tweetId bigint not null,
+  retweet bigint not null,-- リツイートした人のID
+  foreign key (tweetId) references retweets (id),
+  foreign key (retweet) references users (id)
+);
 
--- 同じ組を入れようとするとエラーになる。
-insert into retweets (retweet,retweeted,tweet) values ('a','b','4');
-insert into follows (follow,followed) values ('a','b');
+desc retweeters;
 
--- 空にしておく
-truncate retweets;
-truncate follows;
+-- （リツイートした人が）誰をフォローしているかを記録するテーブル
+drop table if exists friends;
+create table friends (
+  id int auto_increment primary key,
+  user bigint not null,
+  friend bigint not null,
+  foreign key (user) references users (id),
+  index(friend)-- これは外部キーにしない（usersに無くてもよい）
+);
+
+desc friends;

@@ -57,11 +57,157 @@ python stream.py | python retweets.py
 python stream.py | python retweets.py | mysql -utest -ppass --force twitter
 ```
 
-これを動かしっぱなしにすればリツイートのデータは集められるが、プロセス自体が落ちた時のために、`retweets.sh`の形にしておくといいだろう（もっとちゃんとしたければ、プロセスを監視して・・・）
+これを動かしっぱなしにすればリツイートのデータは集められるが、プロセス自体が落ちた時のために、`retweets.sh`の形にしておくといいだろう。
 
 ```bash
 sh retweets.sh
 ```
+
+## リツイートに関する調査
+
+### リツイートした人がフォローしている人の取得（`friends.py`）
+
+指定したIDのユーザがフォローしている人を取得する（最大で5000人、APIの上限）。
+
+#### テスト1
+
+```bash
+echo 5739562 | python friends.py
+```
+
+#### テスト2
+
+```bash
+echo 5739562 | python friends.py | mysql -utest -ppass --force twitter
+```
+
+usersに実在するIDを使わないと外部キーエラーになることに注意。
+
+#### テスト3
+
+データベースから、未調査のリツイートを取得する。（誰もフォローしていないユーザで止まらないように、ランダムに取り出している。）
+
+```bash
+echo "select retweet from retweets where not exists (select * from friends where friends.user=retweets.retweet) order by rand() limit 1;" | mysql -utest -ppass --skip-column-names twitter
+```
+
+#### 本番
+
+以上をつなげて実行する。
+
+```bash
+echo "select retweet from retweets where not exists (select * from friends where friends.user=retweets.retweet) order by rand() limit 1;" | mysql -utest -ppass --skip-column-names twitter | python friends.py | mysql -utest -ppass --force twitter
+```
+
+あとはこれを1回/1分実行すればよい（APIは15分に15回）。API呼び出し可能回数を確認しながら調べてもよいが、`friends.sh`のように、1回実行したら1分休む程度で十分だろう。
+
+```bash
+sh friends.sh
+```
+
+### リツイートした人のリストの取得（`retweeters.py`）
+
+指定したIDのツイートをリツイートした人を取得する（最大で100人、APIの上限）。
+
+#### テスト1
+
+```bash
+echo 557560378758942720 | python retweeters.py
+```
+
+#### テスト2
+
+```bash
+echo 557560378758942720 | python retweeters.py | mysql -utest -ppass --force twitter
+```
+
+retweetsに実在するIDを使わないと外部キーエラーになることに注意。
+
+#### テスト3
+
+データベースから、未調査のリツイートを取得する。
+
+```bash
+echo "select id from retweets where not exists (select * from retweeters where retweeters.tweetId=retweets.id) limit 1;" | mysql -utest -ppass --skip-column-names twitter
+```
+
+#### 本番
+
+以上をつなげて実行する。
+
+```bash
+echo "select id from retweets where not exists (select * from retweeters where retweeters.tweetId=retweets.id) limit 1;" | mysql -utest -ppass --skip-column-names twitter | python retweeters.py | mysql -utest -ppass --force twitter
+```
+
+あとはこれを1回/1分実行すればよい（APIは15分に15回。app authなら60回になるようだが、ここでは試さない）。`checkretweeters.py`でAPIを確認しながら調べてもよいが、`retweeters.sh`のように、1回実行したら1分休む程度で十分だろう。
+
+```bash
+sh retweeters.sh
+```
+
+## 運用
+
+`retweets.sh`と`friends.sh`、`retweeters.sh`を実行する。
+
+## 解析
+
+### フォローしていない人のつぶやきをリツイートしている事例
+
+リツイートする人・される人のペアは1回しか記録しないから、問い合わせ方法は以下の通りでよい。
+誰もフォローしていないユーザのことは考慮していない（TODO:改善）。
+
+分母（リツイートした人で、フォローしている人は調査済みのもの）
+
+```sql
+select count(*) from retweets
+where
+  exists (select * from friends where friends.user=retweets.retweet)-- フォローしている人は調査済み
+;
+```
+
+分子（リツイートした人で、フォローしている人は調査済み、かつ、リツイートされた人をフォローしていない）
+
+```sql
+select count(*) from retweets
+where
+  exists (select * from friends where friends.user=retweets.retweet) and-- フォローしている人は調査済み
+  not exists (select * from friends where friends.user=retweets.retweet and friends.friend=retweets.retweeted)-- フォローしていない
+;
+```
+
+### フォローしていない人のつぶやき（リツイートも含む）をリツイートしている事例
+
+分母（リツイートした人がフォローしている人は調査済み、かつ、誰にリツイートされたかも調査済みのリツイート）
+
+```sql
+select count(*) from retweets
+where
+  exists (select * from friends where friends.user=retweets.retweet) and-- フォローしている人は調査済み
+  exists (select * from retweeters where retweeters.tweetId=retweets.id)-- リツイートした人は調査済み
+;
+```
+
+分子（リツイートした人がフォローしている人は調査済み、かつ、誰にリツイートされたかも調査済みのリツイートで、リツイートした人はリツイートされた人とリツイートした人をフォローしていない）
+
+```sql
+select count(*) from retweets
+where
+  exists (select * from friends where friends.user=retweets.retweet) and-- フォローしている人は調査済み
+  exists (select * from retweeters where retweeters.tweetId=retweets.id) and-- リツイートした人は調査済み
+  not exists (select * from friends where friends.user=retweets.retweet and friends.friend=retweets.retweeted) and-- フォローしていない
+  not exists (
+    select * from friends,retweeters where
+      retweeters.tweetId=retweets.id and-- 該当するつぶやきを
+      friends.user=retweets.retweet and-- リツイートした人が
+      friends.friend=retweeters.retweet)-- フォローしている人がリツイートした例は存在しない
+;
+```
+
+
+
+
+
+# 以下は古い実装（そのままでは動かない）
 
 ## フォロー関係の調査
 
