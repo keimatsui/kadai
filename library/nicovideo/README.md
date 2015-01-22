@@ -21,8 +21,12 @@ do
 done
 ```
 
+2015年1月23日取得したデータが`20150123_result.dat`である。
+
 こうしてできる`result.dat`はJSONのかたまり。ここから必要な情報を抽出する。
 
 ```bash
 cat result.dat | python3 videos.py > minecraft.csv
 ```
+
+2015年1月23日取得したデータが`20150123_minecraft.csv`である。
