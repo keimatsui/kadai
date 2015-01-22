@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*- 
+#TODO:UnicodeDecodeErrorの直し方がよくわからない
 
 import sys,urllib2,re
 from HTMLParser import HTMLParser
