@@ -12,7 +12,7 @@
 wget "http://ja.wikipedia.org/w/index.php?title=利用者:香辛料&action=history" -O tmp
 
 cat tmp\
-| gawk '/^<li>/{print gensub(/.*\((([0-9,空])+)(バイト)?\).*/, "\\1", $0)}'\
+| gawk -f byte.awk\
 | sed 's/,//g'\
 | sed 's/空/0/g'\
 | head -n 1
@@ -22,7 +22,7 @@ cat tmp\
 
 ```bash
 wget "http://ja.wikipedia.org/w/index.php?title=利用者:香辛料&action=history" -O -\
-| gawk '/^<li>/{print gensub(/.*\((([0-9]|,)+)バイト\).*/, "\\1", $0)}'\
+| gawk -f byte.awk\
 | sed 's/,//g'\
 | head -n 1
 ```
@@ -31,7 +31,7 @@ wget "http://ja.wikipedia.org/w/index.php?title=利用者:香辛料&action=histo
 
 ```bash
 wget "http://ja.wikipedia.org/w/index.php?title=利用者:タイポ女子&action=history" -O -\
-| gawk '/^<li>/{print gensub(/.*\((([0-9]|,)+)バイト\).*/, "\\1", $0)}'\
+| gawk -f byte.awk\
 | sed 's/,//g'\
 | head -n 1
 ```
@@ -48,7 +48,7 @@ wget "http://ja.wikipedia.org/w/index.php?title=利用者:タイポ女子&action
 wget "http://ja.wikipedia.org/w/index.php?title=特別:投稿記録/香辛料&limit=500" -O tmp
 
 cat tmp\
-| gawk '/^<li/{print gensub(/.*\((([+-]([0-9]|,)+)|0)\).*/, "\\1", $0)}'\
+| gawk -f diff.awk\
 > tmp.csv
 
 cat tmp.csv
@@ -58,16 +58,16 @@ cat tmp.csv
 
 ```bash
 cat tmp\
-| gawk '/^<li/{print gensub(/.*\((([+-]([0-9]|,)+)|0)\).*/, "\\1", $0)}'\
-| gawk 'BEGIN{s=0;s2=0} {s+=$1;s2+=$1*$1;} END{m=s/NR;printf("%f,%f\n",m,sqrt(s2/NR-m*m))}'
+| gawk -f diff.awk\
+| gawk -f stat.awk
 ```
 
 ファイルに保存せずに調べるなら、
 
 ```bash
 wget "http://ja.wikipedia.org/w/index.php?title=特別:投稿記録/香辛料&limit=500" -O -\
-| gawk '/^<li/{print gensub(/.*\((([+-]([0-9]|,)+)|0)\).*/, "\\1", $0)}'\
-| gawk 'BEGIN{s=0;s2=0} {s+=$1;s2+=$1*$1;} END{m=s/NR;printf("%f,%f\n",m,sqrt(s2/NR-m*m))}'
+| gawk -f diff.awk\
+| gawk -f stat.awk
 ```
 
 ## 編集回数の多いウィキペディアン
@@ -76,7 +76,7 @@ wget "http://ja.wikipedia.org/w/index.php?title=特別:投稿記録/香辛料&li
 
 `python topwikipedians.py > topwikipedians.csv`（`topwikipedians.csv`をExcelで読むと文字化けする。Excelで読みたい場合は、`nkf -sjis topwikipedians.csv > topwikipedians.sjis.csv`などとすること。）
 
-Google Spreadsheetで「=IMPORTHTML("http://ja.wikipedia.org/wiki/Wikipedia:%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%E3%81%AE%E5%A4%9A%E3%81%84%E3%82%A6%E3%82%A3%E3%82%AD%E3%83%9A%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%81%AE%E4%B8%80%E8%A6%A7","table",1)」としてもよいのだが「(bot)」などを手動で削除しなければならない。
+Google Spreadsheetで`=IMPORTHTML("http://ja.wikipedia.org/wiki/Wikipedia:%E7%B7%A8%E9%9B%86%E5%9B%9E%E6%95%B0%E3%81%AE%E5%A4%9A%E3%81%84%E3%82%A6%E3%82%A3%E3%82%AD%E3%83%9A%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%81%AE%E4%B8%80%E8%A6%A7","table",1)`としてもよいのだが「(bot)」などを手動で削除しなければならない。
 
 1行目は見出しだから無視し、2行目以降で2列目に入っている名前を抜き出す。
 
