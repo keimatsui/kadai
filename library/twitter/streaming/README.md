@@ -85,10 +85,10 @@ usersに実在するIDを使わないと外部キーエラーになることに�
 
 #### テスト3
 
-データベースから、未調査のリツイートを取得する。（誰もフォローしていないユーザで止まらないように、ランダムに取り出している。）
+データベースから、未調査のリツイートを取得する。
 
 ```bash
-echo "select retweet from retweets where not exists (select * from friends where friends.user=retweets.retweet) order by rand() limit 1;" | mysql -utest -ppass --skip-column-names twitter
+echo "select retweet from retweets join users on users.id=retweets.retweet where users.friendsChecked=false limit 1;" | mysql -utest -ppass --skip-column-names twitter
 ```
 
 #### 本番
@@ -96,7 +96,7 @@ echo "select retweet from retweets where not exists (select * from friends where
 以上をつなげて実行する。
 
 ```bash
-echo "select retweet from retweets where not exists (select * from friends where friends.user=retweets.retweet) order by rand() limit 1;" | mysql -utest -ppass --skip-column-names twitter | python friends.py | mysql -utest -ppass --force twitter
+echo "select retweet from retweets join users on users.id=retweets.retweet where users.friendsChecked=false limit 1;" | mysql -utest -ppass --skip-column-names twitter | python friends.py | mysql -utest -ppass --force twitter
 ```
 
 あとはこれを1回/1分実行すればよい（APIは15分に15回）。API呼び出し可能回数を確認しながら調べてもよいが、`friends.sh`のように、1回実行したら1分休む程度で十分だろう。
@@ -128,7 +128,7 @@ retweetsに実在するIDを使わないと外部キーエラーになること�
 データベースから、未調査のリツイートを取得する。
 
 ```bash
-echo "select id from retweets where not exists (select * from retweeters where retweeters.tweetId=retweets.id) limit 1;" | mysql -utest -ppass --skip-column-names twitter
+echo "select id from retweets where retweetersChecked=false limit 1;" | mysql -utest -ppass --skip-column-names twitter
 ```
 
 #### 本番
@@ -136,7 +136,7 @@ echo "select id from retweets where not exists (select * from retweeters where r
 以上をつなげて実行する。
 
 ```bash
-echo "select id from retweets where not exists (select * from retweeters where retweeters.tweetId=retweets.id) limit 1;" | mysql -utest -ppass --skip-column-names twitter | python retweeters.py | mysql -utest -ppass --force twitter
+echo "select id from retweets where retweetersChecked=false limit 1;" | mysql -utest -ppass --skip-column-names twitter | python retweeters.py | mysql -utest -ppass --force twitter
 ```
 
 あとはこれを1回/1分実行すればよい（APIは15分に15回。app authなら60回になるようだが、ここでは試さない）。`checkretweeters.py`でAPIを確認しながら調べてもよいが、`retweeters.sh`のように、1回実行したら1分休む程度で十分だろう。
@@ -160,8 +160,9 @@ sh retweeters.sh
 
 ```sql
 select count(*) from retweets
+join users on users.id=retweets.retweet
 where
-  exists (select * from friends where friends.user=retweets.retweet)-- フォローしている人は調査済み
+  friendsChecked=true-- フォローしている人は調査済み
 ;
 ```
 
@@ -169,8 +170,9 @@ where
 
 ```sql
 select count(*) from retweets
+join users on users.id=retweets.retweet
 where
-  exists (select * from friends where friends.user=retweets.retweet) and-- フォローしている人は調査済み
+  friendsChecked=true and-- フォローしている人は調査済み
   not exists (select * from friends where friends.user=retweets.retweet and friends.friend=retweets.retweeted)-- フォローしていない
 ;
 ```
@@ -181,9 +183,10 @@ where
 
 ```sql
 select count(*) from retweets
+join users on users.id=retweets.retweet
 where
-  exists (select * from friends where friends.user=retweets.retweet) and-- フォローしている人は調査済み
-  exists (select * from retweeters where retweeters.tweetId=retweets.id)-- リツイートした人は調査済み
+  friendsChecked=true and-- フォローしている人は調査済み
+  retweetersChecked=true-- リツイートした人は調査済み
 ;
 ```
 
@@ -191,9 +194,10 @@ where
 
 ```sql
 select count(*) from retweets
+join users on users.id=retweets.retweet
 where
-  exists (select * from friends where friends.user=retweets.retweet) and-- フォローしている人は調査済み
-  exists (select * from retweeters where retweeters.tweetId=retweets.id) and-- リツイートした人は調査済み
+  friendsChecked=true and-- フォローしている人は調査済み
+  retweetersChecked=true and-- リツイートした人は調査済み
   not exists (select * from friends where friends.user=retweets.retweet and friends.friend=retweets.retweeted) and-- フォローしていない
   not exists (
     select * from friends,retweeters where

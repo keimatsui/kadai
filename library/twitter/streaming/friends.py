@@ -9,6 +9,10 @@ from auth import api
 for line in sys.stdin:
   userId = line.rstrip()
   sys.stderr.write("checking friends of %s...\n" % userId)
+  
+  #フレンドを調べたことを記録する。
+  sys.stdout.write("update users set friendChecked=true where id=%s;\n" % (userId))
+  
   try:
     friends = api.friends_ids(userId)
     for friendId in friends:

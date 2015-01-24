@@ -66,3 +66,17 @@ create table friends (
 );
 
 desc friends;
+
+-- 仕様変更
+
+-- フレンドを調べたかどうか、リツイートした人を調べたかどうかをテーブルに書いておくことにする
+alter table users add friendsChecked boolean not null default false;
+alter table users add index(friendsChecked);
+alter table retweets add retweetersChecked boolean not null default false;
+alter table retweets add index(retweetersChecked);
+
+-- すでにフレンドを調べている場合はそのことを反映する。
+update users set friendsChecked = true where exists (select * from friends where friends.user=users.id);
+
+-- すでにリツイートした人を調べている場合はそのことを反映する。
+update retweets set retweetersChecked = true where exists (select * from retweeters where retweeters.tweetId = retweets.id);
