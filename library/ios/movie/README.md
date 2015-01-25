@@ -2,6 +2,7 @@
 
 ## 参考資料
 
+* [ビデオカメラアプリの作り方 (1) - セッションの作成](http://news.mynavi.jp/column/iphone/040/)
 * [ビデオカメラアプリの作り方(2) - ビデオ画像の表示](http://news.mynavi.jp/column/iphone/041/)
 * [リアルタイム加工カメラアプリの作り方 iOS](http://nyaonyaokun.hatenablog.com/entry/2014/12/28/044344)
 
