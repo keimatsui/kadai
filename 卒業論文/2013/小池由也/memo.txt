@@ -1,0 +1,82 @@
+﻿Big Query
+SELECT repository.url, repository.forks, repository.language
+FROM [publicdata:samples.github_nested]
+結果を「Save table」で自分のプロジェクトに保存
+保存したテーブルを、Exportしようとする
+「View Files」でGoogle Cloud Strageが開く
+バケットを作る
+バケットにファイルをExportした
+その結果をクリックしてダウンロードしたものがk:/forks.csvにあるとする。
+
+XAMPP Control PanelでMySQLを起動しておく。
+
+コマンドプロンプトを起動
+
+ドライブ移動
+cd k:
+
+ファイル確認
+dir
+
+MySQL起動（管理者rootとして）
+c:/xampp/mysql/bin/mysql --local-infile -uroot
+
+データベースの作成（1回だけ）
+create database mydb default charset=utf8;
+load
+使う（毎回）
+use mydb
+
+テーブルの削除・作成（1回だけ）
+drop table if exists projects;
+create table projects (
+  id int auto_increment primary key,
+  url varchar(200),
+  forks int,
+  lang varchar(100),
+  key (lang)
+);
+
+データのインポート（矢吹の本のp.110）
+load data local infile "forks.csv" into table projects
+fields terminated by ','
+(url,forks,lang);
+
+確認
+select * from projects limit 10;
+
+1行目削除
+delete from projects where id=1;
+
+確認
+select * from projects limit 10;
+
+言語の種類
+select distinct lang from projects;
+
+言語ごとのプロジェクト数
+select lang, count(*) from projects group by lang;
+
+言語ごとのプロジェクト数
+select lang, count(*) as n from projects group by lang order by n;
+
+言語ごとのフォーク数の平均
+select lang, avg(forks) as avgfork from projects group by lang order by avgfork;
+
+空欄を除く言語ごとのプロジェクト数
+select lang, count(*) from projects where not(lang = "")group by lang;
+
+空欄を除く言語ごとのプロジェクト数の分散
+select lang, VAR_POP(forks) as VAR_POPfork from projects where not(lang = "") group by lang order by VAR_POPfork;
+
+
+create table project2 (select url,count(distinct lang) as num from projects group by url);
+
+ファイルのエクスポート（全体）
+select distinct url,forks into outfile 'c:/work/test.csv' from project3;
+
+ファイルのエクスポート（言語別）
+select distinct  url,forks into outfile 'c:/work/JavaScript.csv' from project3 where lang='JavaScript';
+
+全部まとめて表にする
+select lang, count(distinct url) as n, avg(forks),stddev_pop(forks) from project3 group by lang order by n desc;

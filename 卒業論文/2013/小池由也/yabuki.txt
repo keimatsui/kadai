@@ -1,0 +1,20 @@
+select min(forks),max(forks) from projects;
+
+select 1+log(2,count(*)) from projects;
+
+250ということに
+
+create table num (n int);
+insert into num(n) values (0),(1),(2),(3),(4),(5),(6),(7),(8),(9);
+
+create table num99 select 10*a.n+b.n as n from num as a,num as b order by n;
+
+create table result
+  select n,
+    (select count(*) from projects where 250*n<=forks and forks<250*(n+1)) as c
+  from num99
+  where n<29;
+
+教科書p.110
+
+select * into outfile 'c:/work/result.dat' from result;
