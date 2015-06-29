@@ -9,7 +9,6 @@
 \usepackage[expert,deluxe]{otf}
 \usepackage[dvipdfmx,hiresbb]{graphicx}
 \usepackage{here}
-\usepackage{fancyhdr}
 
 \makeatletter
 
@@ -46,20 +45,13 @@
 \title{\vspace{-14mm}GitHubにおける開発フローの判別分析 \footnotemark[0]}
 \author{若月 純 \footnotemark[1] \\ 千葉工業大学 社会システム科学部 プロジェクトマネジメント学科\footnotemark[2]}
 \date{}%日付を入れる必要はない．
-\pagestyle{fancy}
+\pagestyle{none}
 \begin{document}
 
-%ページ番号は振らない．
-\lhead{}
-\chead{情報処理学会第78回全国大会}
-\rhead{}
-\lfoot{}
-\cfoot{}
-\rfoot{Copyright © 2015 Information Processing Society of Japan.\\ALL Rights Reserved.}
 
 
 \twocolumn[
-	\maketitle\thispagestyle{fancy}
+	\maketitle
 ]
 \begingroup
 \def\thefootnote{\fnsymbol{footnote}}
