@@ -5,14 +5,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
 \usepackage{wrapfig}
-%2段になるようにした
 \usepackage{multicol}
 \usepackage[expert,deluxe]{otf}
-%ここも編集した
 \usepackage[dvipdfmx,hiresbb]{graphicx}
-% プリアンブルでパッケージに追加
 \usepackage{here}
-%ヘッダの指定
 \usepackage{fancyhdr}
 
 \makeatletter
@@ -37,9 +33,6 @@
     %{\normalfont\normalsize\headfont}}
     {\normalfont}} 
     
- \newenvironment{tablehere}
-  {\def\@captype{table}}
-  {}    
     
  \newenvironment{figurehere}
     {\def\@captype{figure}}
@@ -69,10 +62,10 @@
 	\maketitle\thispagestyle{fancy}
 ]
 \begingroup
-\def\thefootnote{\fnsymbol{footnote}}%
-\footnotetext[0]{英語のタイトル名}
+\def\thefootnote{\fnsymbol{footnote}}
+\footnotetext[0]{Discriminant analysis of the development flow in GitHub}
 \footnotetext[1]{Jun WAKATSUKI(s1242132hb@s.chibakoudai.jp)}
-\footnotetext[2]{Chiba Institute of Tchnology}
+\footnotetext[2]{Department of Project Management, Social System Sciences, Chiba Institute of Tchnology}
 \endgroup
 
 \section{研究の背景}
