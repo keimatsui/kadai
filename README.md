@@ -6,6 +6,8 @@ yabukilab
 * [ドキュメント作法](https://github.com/taroyabuki/yabukilab/wiki/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88%E4%BD%9C%E6%B3%95)
 * [課題図書](https://github.com/taroyabuki/yabukilab/wiki/%E8%AA%B2%E9%A1%8C%E5%9B%B3%E6%9B%B8)
 
+もう一つのリポジトリ：https://github.com/taroyabuki/laboratory （研究のデータ置き場）
+
 ## 有用なリンク
 
 * [矢吹のブログ](http://blog.unfindable.net/)
