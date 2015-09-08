@@ -1,7 +1,7 @@
 <?php
 // ※は自分で設定してください
-define("ACCESS_KEY_ID"     , '※アクセスキー');
-define("SECRET_ACCESS_KEY" , '※シークレットキー');
+define("ACCESS_KEY_ID"     , '※アクセスキー');//キーを書いたファイルをGitHubに置いてはいけない！
+define("SECRET_ACCESS_KEY" , '※シークレットキー');//キーを書いたファイルをGitHubに置いてはいけない！
 define("ASSOCIATE_TAG"     , 'inquisitor-22'); // 矢吹
 define("ACCESS_URL"        , 'http://ecs.amazonaws.jp/onca/xml'); // 矢吹：修正した
 
