@@ -18,8 +18,7 @@ yabukilab
 ## 有用なツール
 
 * 本を探す道具
- * Chrome + [Libron](http://libron.net/)：Amazonで閲覧中の本が図書館にあるかどうかをチェックする。地元の図書館を登録しておく。
- * Chrome + [その本、図書館にあります。](http://www.kigurumi.asia/imake/1369/)：Amazonで閲覧中の本が図書館にあるかどうかをチェックする。千葉工大津田沼と千葉工大新習志野を登録しておく。
+ * Calilay（[Chrome版](https://chrome.google.com/webstore/detail/calilay/cafcmlkomanlkeanjkijmhepabjigeef?hl=ja)・[Firefox版](https://addons.mozilla.org/ja/firefox/addon/calilay/)）：Amazonで閲覧中の本が図書館にあるかどうかをチェックする。千葉工大の図書館と地元の図書館を登録しておく。
  * Chrome + [amaruzen](https://chrome.google.com/webstore/detail/amaruzen/mebbcheaekaddnilejjllbifehngpcjj?hl=ja)：Amazonで閲覧中の本が丸善にあるかどうかをチェックする。
 * [AutoPager](https://www.google.co.jp/search?q=autopager)あるいは[AutoPagerize](http://autopagerize.net/)
 
