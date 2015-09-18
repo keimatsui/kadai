@@ -1,0 +1,17 @@
+% This file was created with JabRef 2.10.
+% Encoding: UTF8
+
+
+@Misc{naikaku2014,
+  Title                    = {農業情報の標準化に関する個別ガイドライン等について},
+
+  Author                   = {内閣官房情報通信技術(IT)総合戦略室},
+  Note                     = {\url{https://www.kantei.go.jp/jp/singi/it2/senmon_bunka/nougyou_guideline/siryou1.pdf}}
+}
+
+@Misc{nogyo2015,
+  Title                    = {農業情報の標準化に対するー考察},
+
+  Author                   = {株式会社イーエスケイ}
+}
+
