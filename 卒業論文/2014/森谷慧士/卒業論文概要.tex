@@ -13,9 +13,16 @@
 \usepackage{secdot}
 
 \makeatletter
-\renewcommand{\section}{\@startsection{section}{1}{\z@}{0pt}{0.4\Cvs}{\normalfont\raggedright}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}{\z@}{\z@}{\normalfont}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{\z@}{\z@}{\normalfont}}
+\renewcommand{\section}{%
+\@startsection{section}{1}{\z@}%
+{0.6\Cvs}{0.4\Cvs}%
+{\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+{\z@}{\z@}%
+{\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+{\z@}{\z@}%
+{\normalfont\normalsize}} 
 \makeatother
 %ここから上を編集する必要はない．
 
@@ -38,7 +45,7 @@
 
 %以下が本文
 \section{研究の背景}
-\makeatletter\renewcommand{\section}{\@startsection{section}{1}{\z@}{0.6\Cvs}{0.4\Cvs}{\normalfont\raggedright}}\makeatother%余白の調整（気にしなくていい）
+
 2014年11月にはみずほ銀行がコールセンターにIBMの人工知能であるWatsonを導入したことで話題となった\cite{mizuho2014}．人工知能を利用することで，膨大な解答例データの中から最適な回答案を優先的に表示させ，コールセンターの対応時間の短縮につなげることができる．このように，ビジネス内での様々なシステムに人工知能が導入され始めている．
  
 2014年11月に「ロボットは東大に入れるか」という研究が取り上げられて話題となった\cite{tourobo2014}．これは，人工知能を利用して東大入試を突破できる計算機プログラムを開発することにより，「思考するプロセス」を研究しようというものである．この研究により，人工知能が施行して学習するというプロセスを得ることになり，SFに登場するような思考し自己学習をする人工知能を搭載したシステムやロボットが登場してくると推測される．
