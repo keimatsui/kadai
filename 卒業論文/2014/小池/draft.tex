@@ -1,4 +1,5 @@
-%卒論中間審査用研究概要テンプレート ver. 1.0
+%卒論中間審査用研究概要テンプレート ver. 1.1
+
 
 \documentclass[uplatex,twocolumn]{jsarticle}
 \usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
@@ -13,10 +14,18 @@
 \usepackage{secdot}
 
 \makeatletter
-\renewcommand{\section}{\@startsection{section}{1}{\z@}{0pt}{0.4\Cvs}{\normalfont\raggedright}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}{\z@}{\z@}{\normalfont}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{\z@}{\z@}{\normalfont}}
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
 \makeatother
+
 %ここから上を編集する必要はない．
 
 
@@ -40,15 +49,13 @@
 \section{研究の背景}
 \makeatletter\renewcommand{\section}{\@startsection{section}{1}{\z@}{0.6\Cvs}{0.4\Cvs}{\normalfont\raggedright}}\makeatother%余白の調整（気にしなくていい）
 
-平成27年3月10日に内閣官房情報通信技術(IT)総合戦略室が発表した農業情報の標準化に関する個別ガイドライン等に関する説明会では，農業の情報の相互運用性を確保するインターオペラビティーとポータビリティー確保の標準化が必要とされている\cite{naikaku2014}．
+平成27年3月10日に発表された農業情報の標準化に関する個別ガイドラインでは，農業の情報の相互運用性を確保するインターオペラビティーとポータビリティー確保の標準化が必要とされている\cite{naikaku2014}．
 
-しかし，異なる企業や団体の意思を一つにまとめる作業には困難が伴う．標準化して，データをやり取りするプロトコルやデータ形式は各企業の利害がぶつかるため，困難である\cite{kizi2015}．そのため複数のシステムの間でマスターを統一しようとする共通語彙には，目的と実現する考え方のアーキテクチャーが異なり，マスターは構造も用語も異なるため現実感が無いため，共通的な方法論ができないかを考える．
+しかし，異なる企業や団体の意思を一つにまとめる作業には困難が伴う．標準化して，データをやり取りするプロトコルやデータ形式は各企業の利害がぶつかるため，困難である\cite{kizi2015}．よって，複数のシステムの間でマスターを統一しようとする共通語彙には，目的と実現する考え方のアーキテクチャーが異なり，マスターは構造も用語も異なるため現実感が無いため，共通的な方法論ができないかを考える．
 
-作物名称は，研究，行政，流通，農家自身のための作物名称などによって名称が変る．研究は研究目的に応じた分類のため，行政は行政の目的に応じた分類のため，流通は流通に都合の良いネーミングのため，農家自身は営農の都合の良い分類のための用途により視点が異なるため用語も異なる．
+作物名称は，研究，行政，流通，農家により変わる．研究は研究目的に応じた分類のため，行政は行政の目的に応じた分類のため，流通は流通に都合の良いネーミングのため，農家は営農の都合に良い分類のための用途により視点が異なる．よって，用語も異なる．
 
-これを目的に応じたよう用語の変換（翻訳）を実現する共通な仕組みができないかに着目する．
-
-Wikipediaの記事構造からの上位下位関係抽出の論文からMediaWikiを利用する\cite{nogyo2015}．MediaWikiは,オープンソース(GPL)で配布されているため，MediaWikiを用いれば，自分専用のWikipediaを設置・運用することができるため，MediaWikiを利用し，目的に応じて最適な語彙の翻訳を可能とする検索システムの仕組みの開発を研究する．
+これを目的に応じた用語の変換（翻訳）を実現する共通な仕組みができないかに着目する．用語の変換をするために用語をタグで結び，関連用語を抽出することを考える．これと同じような事例を探し，参考として研究する．そして．2008年のWikipediaの記事構造からの上位下位関係抽出の論文を参考にして，MediaWikiを利用する\cite{nogyo2015}．MediaWikiは,オープンソース(GPL)で配布されているため，MediaWikiを用いれば，自分専用のWikipediaを設置・運用することができる．MediaWikiを利用し，目的に応じて最適な語彙の翻訳を可能とする翻訳システムの開発を研究する．
 
 
 
@@ -58,21 +65,21 @@ Wikipediaの記事構造からの上位下位関係抽出の論文からMediaWik
 以下の方法で研究する．
 \begin{enumerate}
 \item MediaWikiのサーバーを立ち上げ．
-\item MediaWikiに知識を登録する．
-\item Wikiに登録した情報から，単語間の関連情報を抽出する．
-\item 抽出した情報を使って，用語の翻訳を試みる．
+\item MediaWikiに知識を登録．
+\item 登録した情報から，単語間の関連情報を抽出．
+\item 抽出した情報を使って，用語の翻訳．
 \end{enumerate}
 
 
 \section{成果物のイメージ}
-類似名称のある作物や意味が同じ作物固有の名称がある作物など目的に応じて最適な語彙の翻訳を可能とする検索をすることで，用語と世界をつなぐことができる．
+類似名称のある作物や意味が同じ作物固有の名称がある作物など目的に応じて最適な語彙の翻訳を可能とすることで，用語と世界をつなぐことができる．
 \section{進捗状況}
 現在の進捗状況は，検索システムのプロトタイプの開発のための準備をしている．
 \section{今後の計画}
 今後は以下のように進める．
 \begin{enumerate}
 \item MediaWikiの立ち上げ．
-\item データの入力を行う．
+\item データの入力．
 \item 入力したデータを抽出できるかを実験．
 \end{enumerate}
 
