@@ -1,4 +1,4 @@
-%卒論中間審査用研究概要テンプレート ver. 1.0
+%卒論中間審査用研究概要テンプレート ver. 1.1
 
 \documentclass[uplatex,twocolumn]{jsarticle}
 \usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
@@ -13,9 +13,16 @@
 \usepackage{secdot}
 
 \makeatletter
-\renewcommand{\section}{\@startsection{section}{1}{\z@}{0pt}{0.4\Cvs}{\normalfont\raggedright}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}{\z@}{\z@}{\normalfont}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{\z@}{\z@}{\normalfont}}
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
 \makeatother
 %ここから上を編集する必要はない．
 
@@ -38,33 +45,32 @@
 
 %以下が本文
 \section{研究の背景}
-\makeatletter\renewcommand{\section}{\@startsection{section}{1}{\z@}{0.6\Cvs}{0.4\Cvs}{\normalfont\raggedright}}\makeatother%余白の調整（気にしなくていい）
 
-Wikipediaは，多くのボランティアにより，始まってから10年足らずの間に，大きな成長を見せたオンライン百科事典プロジェクトである．総記事数の文字数は10億文字を超え，ブリタニカ国際大百科事典とエンカルタ総合大百科の合計と比較しても上回る．2015年9月には言語が291個も開設された．Wikipediaは，さまざまな言語が参加しているグローバルなプロジェクトでもある\cite{wikirevo}．
+Wikipediaは，多くのボランティアにより，始まってから10年足らずの間に，大きな成長を見せたオンライン百科事典プロジェクトである．総記事数の文字数は10億文字を超え，ブリタニカ国際大百科事典とエンカルタ総合大百科の合計と比較しても上回る．Wikipediaは，さまざまな言語が参加しているグローバルなプロジェクトでもある\cite{wikirevo}．2015年9月までには，言語が291個も開設されている．
 
 このオープンなプロジェクトの百科事典は，制限なく誰でも自由に使用でき編集することもできる．
 
-誰でも自由に編集できるからこそ，ボランティアの人々は気軽に参加でき，特定の企業や個人の金儲けに力を貸していると感じることなく，時間と労力を注ぐことができる．また，顔や素性が分からない人たちと信頼し合い，共同作業で作り出されている．
+誰でも自由に編集できるからこそ，ボランティアの人々は気軽に参加でき，特定の企業や個人のお金を稼ぐのに力を貸していると感じることなく，時間と労力を注ぐことができる．
 
-しかし、編集者のすべてが善意を持っているとは限らない．中には悪意のある編集をするものもいる．Wikipediaでは，悪意のある行為をする人とわかっていても規制などをしたりはしない．記事は完成・確定されることはなく，新しい情報にいつでも改変することができる．それにもかかわらず，記事の内容は，我々がWikipediaを使用している際はそのようなことは見かけず，信頼のおける品質が保たれている．
+記事の内容はボランティアの人々の協力によって，様々な問題を対応し，信頼のおける品質が保たれている．問題の例として，悪意のある編集をするものがいる．悪意のある編集者はその記事の内容とは関係ないことを書き込んだり，記事の破壊行為を繰り返している．Wikipediaでは，悪意のある編集をする人とわかっていても規制などをしたりはしない．記事は完成・確定されることはなく，新しい情報にいつでも改変することができる．
 
-本研究では，Wikipediaの全編集データをマイニングすることによって，Wikipediaの品質が保たれている成功理由を見つけ出す．
-
+本研究では，Wikipediaの全編集データをマイニングすることによって，Wikipediaの品質が保たれている理由を見つけ出す．
 
 
 
 
 
 \section{目的}
+
 Wikipediaを一つのプロジェクトとみなし，このオンライン百科事典で品質管理がどのように行われているか調査する．この調査により，オープンな共同作業プロジェクトにおける，品質管理マネジメントの在り方についての知見を得たい．
 
-
-
-
 \section{研究方法}
-Wikipedia日本語版の編集履歴まで含んだファイルをダウンロードし，ローカルでデータマイニングを行う．どのような品質管理が行われているかその分析から調査する．また，オープンなプロジェクトにおける品質管理マネジメントの在り方を提案する．
 
+Wikipedia日本語版の編集履歴まで含んだファイルをダウンロードし，ローカルでデータマイニングを行う．
 
+どのような品質管理が行われているかその分析から調査する．
+
+オープンなプロジェクトにおける品質管理マネジメントの在り方を提案する．
 
 \section{成果物のイメージ}
 
@@ -76,17 +82,15 @@ Wikipediaのオープンなプロジェクトでの品質マネジメントの�
 ビッグデータを解析するためのウェブサービスBigQueryで，Wikipediaのデータを提供されている差し戻しデータを抽出することができた．
 BigQueryが提供しているデータは、英語版のみでだった．他言語版を解析する為には，別の解析方法をとる必要がある\cite{bigquery}．
 
-
 \section{今後の計画}
+
+以下の順番で行う
 
 1：パソコンの環境をローカルで解析するために整える．
 
 2：日本語版の全履歴データをWikimediaというサイトからダウンロードする．
 
 3：Wikipediaの全履歴データを解析し，オープンなプロジェクトをする際の品質管理のあり方について調査し提案する．
-
-
-
 
 \bibliographystyle{junsrt}
 \bibliography{biblio}%「biblio.bib」というファイルが必要．
