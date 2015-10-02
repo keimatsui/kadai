@@ -1,0 +1,79 @@
+﻿%卒論中間審査用研究概要テンプレート ver. 1.1
+
+\documentclass[uplatex,twocolumn]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont SNS経由で入手される情報のユーザ間差異の可視化}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242131　吉野聡志}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{研究の背景}
+
+世界的に人気のあるSNS(Social Networking Service)のひとつとしてTwitterが存在する．2015年6月30日現在，月間アクティブユーザは3億1600万人である\cite{twitterinc}．
+
+Twitterのユーザは「つぶやき」と呼ばれる140字以内の短い記事を書き込むことが可能で，また，他の不特定多数のユーザがそれを閲覧することができる．さらに，つぶやきに返信をすることでコミュニケーションが生まれる．他のユーザのつぶやきを追跡することを「フォローする」という．タイムラインと呼ばれる画面には，自分とフォローしたユーザのつぶやきが同一列上にリアルタイムで，時系列に沿って表示される．自分が閲覧していない間もタイムラインは常に流れていき，フォロー数が多いとつぶやきを見逃す可能性が出てくるため，ユーザ同士の密接でない，ゆるいつながりがTwitter上で生まれるとされている\cite{ascii}．
+
+Twitterを利用するスタイルはユーザによって千差万別で，1日に2，3回ほどつぶやく人がいれば，複数ユーザとの会話で数十から数百ものつぶやきをし，チャットのように利用するユーザもいる．
+
+SNSの中でもアクティブユーザ数が非常に多く，利用スタイルも多数あるTwitterに対し，ユーザである人々が顕在的・潜在的に持っているニーズが何であるかが分かれば，他のSNS（Facebook等）との差別化を図りやすくなる．これにより効率的なマーケティングの手法をTwitter社や，Twitter上に広告を打ち出す企業に提案できるのではないか，と考えられる．
+
+\section{目的}
+後述する方法で数名のTwitterタイムラインを取得し，各人のタイムライン上に並ぶ単語や，単語同士の結びつきの強さを可視化する．その結果からつぶやきの性質を分析し，各人の嗜好や関心事項と合致するもの・しないものを見つけ出し，Twitterへの顕在的・潜在的なニーズを読み取ることが目的である．
+
+\section{研究方法}
+まず，自らが利用するTwitterアカウントのタイムラインを，TwitterのStreaming APIを用いて1日分取得する．
+
+上記の取得が成功し次第，矢吹研究室に所属している3年生のうち，Twitterをアクティブに利用しているユーザを対象に，各自同様の方法でつぶやきを取得してもらう．
+
+そして，UserLocalテキストマイニング（http://textmining.userlocal.jp/）を用いて単語（名詞・動詞・形容詞に分類可能）の出現頻度をカウントしたり，単語同士の結びつきの強さを可視化する「共起ネットワーク」を表示させ，各人のTwitterタイムライン上にあるつぶやきの性質を可視化する．
+
+\section{成果物のイメージ}
+UserLocalテキストマイニングを用いて可視化したつぶやきの性質を分析した結果や，この研究に携わるそれぞれの人の嗜好等と分析結果の共通点・相違点を示したものを成果物とする予定である．
+
+\section{進捗状況}
+TwitterのStreaming APIを利用するプログラムを使用し，友人の協力を得て複数ユーザのタイムラインをリアルタイムに取得することに成功した．
+
+\section{今後の計画}
+今回の研究に携わる矢吹研究室の3年生とともにつぶやきを取得したのち，UserLocalテキストマイニングを用いてつぶやきの分析をする予定である．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
