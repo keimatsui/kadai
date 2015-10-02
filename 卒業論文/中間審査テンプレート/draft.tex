@@ -1,4 +1,4 @@
-%卒論中間審査用研究概要テンプレート ver. 1.0
+%卒論中間審査用研究概要テンプレート ver. 1.1
 
 \documentclass[uplatex,twocolumn]{jsarticle}
 \usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
@@ -13,9 +13,16 @@
 \usepackage{secdot}
 
 \makeatletter
-\renewcommand{\section}{\@startsection{section}{1}{\z@}{0pt}{0.4\Cvs}{\normalfont\raggedright}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}{\z@}{\z@}{\normalfont}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{\z@}{\z@}{\normalfont}}
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
 \makeatother
 %ここから上を編集する必要はない．
 
@@ -38,7 +45,6 @@
 
 %以下が本文
 \section{研究の背景}
-\makeatletter\renewcommand{\section}{\@startsection{section}{1}{\z@}{0.6\Cvs}{0.4\Cvs}{\normalfont\raggedright}}\makeatother%余白の調整（気にしなくていい）
 
 %図の挿入
 %\begin{wrapfigure}[行数]{r}{幅}%行数はオプションだが，調整しないとうまくいかないことがある．
