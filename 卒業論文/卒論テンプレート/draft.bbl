@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{yabuki2011}
+矢吹太朗, 佐久田博司.
+\newblock
+  {SQL}による数独の解法とクエリオプティマイザの有効性.
+\newblock 日本データベース学会論文誌, Vol.~9, No.~2, pp. 13--18,
+  2010.
+
+\bibitem{yabuki2013}
+矢吹太朗, 増永良文, 森田武史, 石田博之.
+\newblock
+  知識体系のエリア自動抽出のためのユニット分類手法.
+\newblock
+  第5回データ工学と情報マネジメントに関するフォーラム（DEIM2013）.
+  電子情報通信学会データ工学研究専門委員会,
+  日本データベース学会,
+  情報処理学会データベースシステム研究会, 2013.
+
+\bibitem{kubo2014}
+久保孝樹.
+\newblock
+  チケットを活用するオープンソースソフトウェア開発の実態調査.
+\newblock 卒業論文, 千葉工業大学, 2014.
+
+\bibitem{okumura2013}
+奥村晴彦, 黒木裕介.
+\newblock \LaTeX2e 美文書作成入門.
+\newblock 技術評論社, 第6版, 2013.
+
+\bibitem{self}
+矢吹太朗.
+\newblock 自分のコードを出力するプログラム.
+\newblock
+  \url{http://www.unfindable.net/article/self.html}（2012.12.01閲覧）.
+
+\end{thebibliography}
