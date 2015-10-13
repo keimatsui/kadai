@@ -116,13 +116,28 @@ revision数が多いページを見つける．
 練習（`""`の中はTAB．Ctrl-vを押してからTABキーで入力する．`revisions.sh`からコピペしてもいい）
 
 ```
-head revisions.dat | sort -r -n -k 2 -t " "
+head revisions.dat | sort -r -n -k 2 -t "	"
 ```
 
 本番（TABの入力が不安だから，`revisions.sh`に書いておく．5m30sくらいかかる）
 
 ```
 time sh revisions.sh
+```
+
+「`head sort.dat`」の結果は以下のとおり．
+
+```
+Wikipedia:保護依頼/history20080331      13939
+Wikipedia:メインページ新着投票所/新しい項目候補/ログ/2014年     12071
+Wikipedia:メインページ新着投票所/新しい項目候補/ログ/2007年まで 10335
+Wikipedia:井戸端/history 070722 7918
+Wikipedia:保護解除依頼/history20080331  6963
+Wikipedia:管理者伝言板/荒らし/history20080331   6811
+Wikipedia:改名提案/history20140727      6760
+Wikipedia:改名提案/history20120406      6557
+Wikipedia:井戸端/過去ログ/2006年9月     6556
+Wikipedia:管理者伝言板/投稿ブロック/history20110116     6412
 ```
 
 ## 並列化
@@ -170,7 +185,43 @@ cat jawiki-20150901-stub-meta-history4.xml | python3 revisions.py > revisions4.d
 結合してソートする（5分くらいかかる）．
 
 ```
-cat revisions{1,2,3,4}.dat | sort -r -n -k 2 -t " " > sort-parallel.dat
+cat revisions{1,2,3,4}.dat | sort -r -n -k 2 -t "	" > sort-parallel.dat
 ```
 
 `head sort-parallel.dat`で結果を確認する．`diff sort.dat sort-parallel.dat`の結果が空，つまり両者に違いが無ければよい．
+
+## 差し戻し回数
+
+SHA1が同じなら差し戻しとみなすことにする．厳密には，
+
++ テキストが違ってもSHA1が同じになることはある
++ 差し戻してそのまま編集された場合をカウントできない．
+
+SHA1を単純に数えた結果が編集回数．そこから重複を削除した結果が差し戻し以外の回数．両者の差が，ここでいう差し戻しの回数となる．詳細は`revert.py`を参照すること．
+
+```
+cat jawiki-20150901-stub-meta-history1.xml | python3 revert.py > revert1.dat &
+cat jawiki-20150901-stub-meta-history2.xml | python3 revert.py > revert2.dat &
+cat jawiki-20150901-stub-meta-history3.xml | python3 revert.py > revert3.dat &
+cat jawiki-20150901-stub-meta-history4.xml | python3 revert.py > revert4.dat &
+```
+
+```
+cat revert{1,2,3,4}.dat | sort -r -n -k 4 -t "	" > revert.dat
+```
+
+「`head revert.dat`」の結果は以下のとおり．
+
+```
+Portal:スポーツ/今日は何の日    3654    1114    2540
+Portal:文学/今日は何の日        3922    1518    2404
+朝ズバッ!       2572    668     1904
+Template:今日は何の日   4470    2884    1586
+Portal:災害/今日は何の日        1421    500     921
+ログ・ホライズン        1312    466     846
+デュラララ!!    1432    607     825
+KARA    1941    1133    808
+水橋かおり      1077    311     766
+魔法少女まどか☆マギカ  2683    1933    750
+```
+
