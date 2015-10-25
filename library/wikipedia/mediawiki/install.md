@@ -32,6 +32,7 @@ echo 'phpmyadmin phpmyadmin/app-password-confirm password pass' | sudo debconf-s
 必要なソフトウェアをインストールする。（phpMyAdminは必須ではないが，これを入れればApacheやPHPも入るから便利）
 
 ```
+sudo apt-get update
 sudo apt-get install -y mysql-server phpmyadmin
 ```
 
