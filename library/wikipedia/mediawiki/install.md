@@ -2,14 +2,22 @@
 
 Ubuntuで作業する。
 
-以下のコマンドは，再現性を確保するために掲載しているものであって，「意味もわからずコピペすればよい」というものではない。（つまり，すべてのコマンドが何を意味しているのかはわかっている必要がある。）
-
 自信が無い場合は，仮想マシンのスナップショットを撮ってから作業する（よくわからなくなったらスナップショットに戻る）。
+
+以下のコマンドは，再現性を確保するために掲載しているものであって，「意味もわからずコピペすればよい」というものではない。（つまり，すべてのコマンドが何を意味しているのかはわかっている必要がある。）
 
 管理者権限があることを確認する。
 
 ```
 sudo ls
+```
+
+作業ディレクトリに移動する。
+
+```
+cd
+mkdir tmp
+cd tmp
 ```
 
 以下を実行する。
@@ -31,9 +39,6 @@ sudo apt-get update
 sudo apt-get install -y mysql-server phpmyadmin
 
 # MediaWikiをダウンロードし，展開する。
-cd
-mkdir tmp
-cd tmp
 wget https://releases.wikimedia.org/mediawiki/1.25/mediawiki-1.25.2.tar.gz
 tar zxf mediawiki-1.25.2.tar.gz
 sudo mv mediawiki-1.25.2 /var/www/html/mediawiki
