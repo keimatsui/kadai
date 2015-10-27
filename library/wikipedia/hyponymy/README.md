@@ -123,6 +123,14 @@ php /var/www/html/mediawiki/maintenance/dumpBackup.php --current > all-pages.xml
 echo -e 'チーズ\nワイン' | php /var/www/html/mediawiki/maintenance/deleteBatch.php
 ```
 
+XMLファイルのインポートは以下のとおり。
+
+```
+bzip2 -dc all-pages.xml.bz2 | php /var/www/html/mediawiki/maintenance/importDump.php
+```
+
+ページの削除とXMLファイルのインポートを使えば，MediaWikiの内容を簡単に書き換えられる。
+
 ### テストデータの解析
 
 ```
