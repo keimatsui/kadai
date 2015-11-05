@@ -36,6 +36,12 @@ sudo ruby-switch --set ruby1.8
 ruby -v
 ```
 
+次のように表示されれば成功。
+
+```
+ruby 1.8.7 (2015-04-14 MBARI 8/0x6770 on patchlevel 375) [x86_64-linux], MBARI 0x6770, Ruby Enterprise Edition 2012.02
+```
+
 ## MeCab
 
 ```
