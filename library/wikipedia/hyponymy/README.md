@@ -15,11 +15,11 @@ mkdir tmp
 
 ## Ruby 1.8（古いRuby）
 
-https://www.brightbox.com/docs/ruby/ubuntu/ を参考にインストールする。
+https://www.brightbox.com/docs/ruby/ubuntu/ を参考にインストールする。（よくわからなければ，1行ずつ実行すること。）
 
 ```
 sudo apt-get update
-sudo apt-get install software-properties-common
+sudo apt-get -y install software-properties-common
 sudo apt-add-repository ppa:brightbox/ruby-ng
 ```
 
