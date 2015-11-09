@@ -157,4 +157,4 @@ https://dumps.wikimedia.org/jawiki/20150901/ から`jawiki-20150901-pages-meta-c
 bash script/ex_hyponymy.sh -E -s -t ./data3 jawiki-20150901-pages-meta-current.xml.bz2
 ```
 
-Core i7-4930K，メモリ8Gで，約46時間かかった。
+Core i7-4930K，メモリ8Gで，約46時間かかった。（分割ファイルを使っても同じ結果は得られない。速くもならない。）
