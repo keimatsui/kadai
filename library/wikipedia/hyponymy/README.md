@@ -147,7 +147,7 @@ bash script/ex_hyponymy.sh -E -s -t ./data3 all-pages.xml.bz2
 
 ディレクトリ`cheese-wine`と`orange-apple`に結果がある。
 
-## Wikipediaデータの解析（試していない。100時間？）
+## Wikipediaデータの解析
 
 https://dumps.wikimedia.org/jawiki/20150901/ から`jawiki-20150901-pages-meta-current.xml.bz2`をダウンロードして実行する（もっと新しいものを使ってもよい）。
 
@@ -156,3 +156,5 @@ https://dumps.wikimedia.org/jawiki/20150901/ から`jawiki-20150901-pages-meta-c
 ```
 bash script/ex_hyponymy.sh -E -s -t ./data3 jawiki-20150901-pages-meta-current.xml.bz2
 ```
+
+Core i7-4930K，メモリ8Gで，約46時間かかった。
