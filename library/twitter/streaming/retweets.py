@@ -9,8 +9,9 @@ def extractUserProfile(user):
   statuses = user['statuses_count']
   friends = user['friends_count']
   followers = user['followers_count']
+  lang = user['lang']
   profileImage = user['profile_image_url'].replace('_normal.', '.')#プロフィール画像（オリジナルサイズ）
-  sys.stdout.write("insert into users (id,screenName,statuses,friends,followers,profileImageUrl) values (%s,'%s',%d,%d,%d,'%s');\n" % (id, screenName, statuses, friends, followers, profileImage))
+  sys.stdout.write("insert into users (id,screenName,statuses,friends,followers,lang,profileImageUrl) values (%s,'%s',%d,%d,%d,'%s','%s');\n" % (id, screenName, statuses, friends, followers, lang, profileImage))
   return id
 
 for line in sys.stdin:
