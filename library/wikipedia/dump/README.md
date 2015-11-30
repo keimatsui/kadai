@@ -239,3 +239,10 @@ KARA    1941    1133    808
 魔法少女まどか☆マギカ  2683    1933    750
 ```
 
+## 編集者の調査
+
+`pageId[TAB]revisionId[TAB]userId[TAB]ip`というデータを作る。
+
+```
+cat jawiki-20150901-stub-meta-history.xml | python3 editors.py > editors.dat
+```
