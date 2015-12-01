@@ -4,8 +4,7 @@ import xml.sax
 import sys
 
 class myHandler(xml.sax.ContentHandler):
-  inTitle = False #title要素解析中
-  inSha1 = False #sha1要素解析中
+  reading = {"title":False, "sha1":False}
   title = ""
   revisions = 0
   sha1 = ""
@@ -15,31 +14,25 @@ class myHandler(xml.sax.ContentHandler):
     xml.sax.ContentHandler.__init__(self)
  
   def startElement(self, name, attrs):
-    if name == "title": #title要素の開始
-      self.inTitle = True
-    elif name == "sha1":
-      self.inSha1 = True
-      
+    self.reading[name] = True
  
   def endElement(self, name):
-    if name == "page": #page要素の終了
+    self.reading[name] = False
+    if name == "page":
       revert = self.revisions - len(self.sha1s) #差し戻し回数
       print(self.title + "\t" + str(self.revisions) + "\t" + str(len(self.sha1s)) + "\t" + str(revert))
       self.title = ""
-      self.revisions = 0 #カウンタのリセット
+      self.revisions = 0
       self.sha1s.clear() #SHA1の集合をクリア
-    elif name == "title": #title要素の終了
-      self.inTitle = False
-    elif name == "sha1": #sha1要素の終了
-      self.inSha1 = False
-      self.sha1s.add(self.sha1)
+    elif name == "sha1":
       self.revisions = self.revisions + 1
+      self.sha1s.add(self.sha1)
       self.sha1 = ""
  
   def characters(self, content):
-    if self.inTitle == True:
-      self.title = self.title + content #遅いかも
-    elif self.inSha1 == True:
+    if self.reading["title"] == True:
+      self.title = self.title + content
+    elif self.reading["sha1"] == True:
       self.sha1 = self.sha1 + content
   
 def main():

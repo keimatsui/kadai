@@ -4,10 +4,7 @@ import xml.sax
 import sys
 
 class myHandler(xml.sax.ContentHandler):
-  inRevision = False
-  inContributor = False
-  inId = False
-  inIp = False
+  reading = {"id":False, "contributor":False, "revision":False, "ip":False}
   pageId = ""
   revisionId = ""
   userId = ""
@@ -17,40 +14,27 @@ class myHandler(xml.sax.ContentHandler):
     xml.sax.ContentHandler.__init__(self)
  
   def startElement(self, name, attrs):
-    if name == "revision":
-      self.inRevision = True
-    elif name == "contributor":
-      self.inContributor = True
-    elif name == "id":
-      self.inId = True
-    elif name == "ip":
-      self.inIp = True
+    self.reading[name] = True
  
   def endElement(self, name):
+    self.reading[name] = False
     if name == "page":
       self.pageId = ""
-    if name == "revision":
+    elif name == "revision":
       print(self.pageId + "\t" + self.revisionId + "\t" + self.userId + "\t" + self.ip)
-      self.inRevision = False
       self.revisionId = ""
       self.userId = ""
       self.ip = ""
-    elif name == "contributor":
-      self.inContributor = False
-    elif name == "id":
-      self.inId = False
-    elif name == "ip":
-      self.inIp = False
  
   def characters(self, content):
-    if self.inId == True:
-      if self.inContributor == True:
+    if self.reading["id"] == True:
+      if self.reading["contributor"] == True:
         self.userId = self.userId + content
-      elif self.inRevision == True:
+      elif self.reading["revision"] == True:
         self.revisionId = self.revisionId + content
       else:
         self.pageId = self.pageId + content
-    elif self.inIp == True:
+    elif self.reading["ip"] == True:
         self.ip = self.ip + content
   
 def main():
