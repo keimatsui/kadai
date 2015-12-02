@@ -24,7 +24,7 @@ class myHandler(xml.sax.ContentHandler):
       self.revisions = self.revisions + 1
  
   def characters(self, content):
-    if self.inTitle == True:
+    if self.reading["title"] == True:
       self.title = self.title + content
   
 def main():
