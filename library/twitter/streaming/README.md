@@ -123,7 +123,7 @@ echo 557560378758942720 | python retweeters.py
 echo 557560378758942720 | python retweeters.py | mysql -utest -ppass --force twitter
 ```
 
-retweetsに実在するIDを使わないと外部キーエラーになることに注意。
+テーブルretweetsの中に存在するIDを使わないと外部キーエラーになることに注意。
 
 #### テスト3
 
