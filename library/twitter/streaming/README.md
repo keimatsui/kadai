@@ -83,7 +83,7 @@ echo 5739562 | python friends.py
 echo 5739562 | python friends.py | mysql -utest -ppass --force twitter
 ```
 
-usersに実在するIDを使わないと外部キーエラーになることに注意。
+usersに実在するIDを使わないと外部キーエラーになることに注意。（先にデータベースに登録したデータを使えばよい。）
 
 #### テスト3
 
@@ -123,7 +123,7 @@ echo 557560378758942720 | python retweeters.py
 echo 557560378758942720 | python retweeters.py | mysql -utest -ppass --force twitter
 ```
 
-テーブルretweetsの中に存在するIDを使わないと外部キーエラーになることに注意。
+テーブルretweetsの中に存在するIDを使わないと外部キーエラーになることに注意。（先にデータベースに登録したデータを使えばよい。）
 
 #### テスト3
 
