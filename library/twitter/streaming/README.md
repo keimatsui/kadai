@@ -133,7 +133,7 @@ echo 557560378758942720 | python retweeters.py | mysql -utest -ppass --force twi
 echo "select id from retweets where retweetersChecked=false limit 1;" | mysql -utest -ppass --skip-column-names twitter
 ```
 
-リスイート数が5000より多い、おそらく日本語のツイートのみを対象にしたい場合は、`select retweets.id from retweets,users where retweetersChecked=false and lang='ja' and rcount>5000`。
+リツイート数が5000より多い、おそらく日本語のツイートのみを対象にしたい場合は、`select retweets.id from retweets,users where retweetersChecked=false and lang='ja' and rcount>5000`。
 
 #### 本番
 
