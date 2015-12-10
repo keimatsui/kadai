@@ -1,0 +1,45 @@
+% Encoding: UTF-8
+
+
+@Misc{kubo2014,
+  Title                    = {チケットを活用するオープンソースソフトウェア開発の実態調査},
+  Author                   = {久保 孝樹},
+  HowPublished             = {卒業論文, 千葉工業大学},
+  Year                     = {2014}
+}
+
+@Book{okumura2013,
+  Title                    = {\LaTeX2e 美文書作成入門},
+  Author                   = {奥村 晴彦 and 黒木 裕介},
+  Publisher                = {技術評論社},
+  Year                     = {2013},
+  Edition                  = {6}
+}
+
+@Misc{self,
+  Title                    = {自分のコードを出力するプログラム},
+  Author                   = {矢吹太朗},
+  Note                     = {\url{http://www.unfindable.net/article/self.html}（2012.12.01閲覧）},
+  Owner                    = {yabuki},
+  Timestamp                = {2014.12.18}
+}
+
+@Article{yabuki2011,
+  Title                    = {{SQL}による数独の解法とクエリオプティマイザの有効性},
+  Author                   = {矢吹太朗 and 佐久田博司},
+  Journal                  = {日本データベース学会論文誌},
+  Year                     = {2010},
+  Number                   = {2},
+  Pages                    = {13--18},
+  Volume                   = {9},
+  Organization             = {日本データベース学会}
+}
+
+@InProceedings{yabuki2013,
+  Title                    = {知識体系のエリア自動抽出のためのユニット分類手法},
+  Author                   = {矢吹太朗 and 増永良文 and 森田武史 and 石田博之},
+  Booktitle                = {第5回データ工学と情報マネジメントに関するフォーラム（DEIM2013）},
+  Year                     = {2013},
+  Organization             = {電子情報通信学会データ工学研究専門委員会, 日本データベース学会, 情報処理学会データベースシステム研究会}
+}
+
