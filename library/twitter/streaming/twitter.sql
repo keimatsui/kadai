@@ -21,8 +21,10 @@ create table users (
   statuses int,
   friends int,
   followers int,
+  lang varchar(10),
   profileImageUrl varchar(1000),
   rekognition text,-- 画像認識結果のため
+  index(lang),
   unique index(screenName)
 );
 

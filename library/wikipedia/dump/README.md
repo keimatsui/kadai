@@ -69,6 +69,20 @@ time gunzip -c jawiki-20150901-stub-meta-history.xml.gz | grep '<title>' | wc -l
 
 というわけで，このマシン（のHDDの速度）では，オンデマンドで展開しても速度はあまり変わらない．
 
+## 月別編集回数
+
+編集履歴のデータから，`grep`でタイムスタンプを取り出し，`cut`で「西暦-月」を切り出し，`sort`で並び替え，`uniq`で集計する。（「`|`」の後を`less`にして，少しずつ動かして試すとよい。）
+
+```
+gunzip -c jawiki-20150901-stub-meta-history.xml.gz | grep "<timestamp>" | cut -c18-24 | sort | uniq -c > month.dat
+```
+
+この`month.dat`をExcelで（テキスト形式で）読み込めばよいが，次のようにCSV形式にした方が簡単だろう。
+
+```
+cat month.dat | awk '{print $2","$1}' > month.csv
+```
+
 ## SAX
 
 SAXでXMLを解析する．
@@ -225,3 +239,10 @@ KARA    1941    1133    808
 魔法少女まどか☆マギカ  2683    1933    750
 ```
 
+## 編集者の調査
+
+`pageId[TAB]revisionId[TAB]userId[TAB]ip`というデータを作る。
+
+```
+cat jawiki-20150901-stub-meta-history.xml | python3 editors.py > editors.dat
+```

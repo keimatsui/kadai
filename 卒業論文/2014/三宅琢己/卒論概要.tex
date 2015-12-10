@@ -1,3 +1,119 @@
+<<<<<<< HEAD
+%卒論中間審査用研究概要テンプレート ver. 1.0
+
+\documentclass[uplatex,twocolumn]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{\z@}{0pt}{0.4\Cvs}{\normalfont\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}{\z@}{\z@}{\normalfont}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{\z@}{\z@}{\normalfont}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 集合知の成功事例としての株価変動についての調査}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242109　三宅琢己}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{研究背景}
+\makeatletter\renewcommand{\section}{\@startsection{section}{1}{\z@}{0.6\Cvs}{0.4\Cvs}{\normalfont\raggedright}}\makeatother%余白の調整（気にしなくていい）
+
+1986年スペースシャトル・チャレンジャー号墜落事故が起きた．
+その直後，事故原因がわかっていないのにも関わらず，一つの株式会社の株価だけが大きく下がった．
+
+事故が起きてから数か月後にその株価が大きく下がった株式会社の製品が原因でその事故が起きたとマスメディアが報じた\cite{miyake2}．
+
+チャレンジャー号墜落事故の原因をマスメディアが報じる前に一つの株式会社の株価のみが大幅に下がり，その株式会社が原因企業であったのは，偶然の出来事であったのか．
+それとも株式市場は賢く，原因企業を瞬時に特定して一つの株式会社の株価のみを下げたのか．
+
+
+
+
+
+
+
+\section{研究目的}
+株式市場は事故原因をわかっていたのか．それとも偶然背景にある事例が起きたのか．
+そのことについて調査する．
+
+ナレッジマネジメントの集合知の成功事例として，株式市場もあてはまるのかを調査する．
+
+
+
+\section{研究方法}
+チャレンジャー号墜落事故の事例と同じような条件の事故を調べる．
+
+調べる事故の条件は以下のとおりである．
+\begin{itemize}
+  \item 複数の企業が関わっていること
+  \item 原因企業が判明するまでに時間がかかっていること
+  \item 原因企業が株式会社であること
+
+\end{itemize}
+
+
+このような条件に当てはまる事故をウェブで検索して調べる．
+
+
+次に原因企業と関連する企業の事故当日の株価データを調べる．
+原因企業に関連するの企業の株価も大幅下がっていたら，
+それは研究背景の内容とは異なってくるためである．
+
+原因企業以外の株価を調査するため，その事故当日の株価の変動データを
+収集する\cite{miyake}．
+その中でその日に下がっている株価を抽出し，事故に関連性のある企業があるかかないかを調べる．
+さらに関連性のある企業を抽出したら，その企業が事故にどの程度関与しているのかを調べ，株式市場は賢かったのか，チャレンジャー号墜落事故の事例は偶然であったのかを判断する．
+
+
+\section{成果物のイメージ}
+研究結果やその結果を出すまでの過程とそこに出てくる用語などを記載したもの．
+
+
+
+
+\section{進捗状況}
+条件の当てはまる事故をチャレンジャー号墜落事故を含め，4件見つけてその事故の原因企業を調べた．
+事故原因の企業の株価はもうわかっており，株価の記録を取得し，分析した結果，4件中2件は，原因企業の株価が事故当日に下がっていることがわかった．
+
+事故原因企業の株価のみが大幅に下がっているのかを調査する必要がある．
+そのために，Rubyのコードで事故当日の株価の変動データを収集し，さらにその中で株価の下がっている企業を取り上げる．
+
+現状は事故当日の株価の変動データを収集する段階である．
+
+
+\section{今後の計画}
+10月中に事故事故当日の株価の変動データを抽出し，その中で下がっている株価を抽出しその事故に関連する企業があるかどうかを調べる．
+次に12月末までには事故の調査方法、株価の収集方法，そこから出る結果について論文を書き，
+論文が書き終わり次第すぐに発表資料に作成に入る．
+
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+=======
 %卒論中間審査用研究概要テンプレート ver. 1.0
 
 \documentclass[uplatex,twocolumn]{jsarticle}
@@ -108,4 +224,5 @@
 \bibliographystyle{junsrt}
 \bibliography{biblio}%「biblio.bib」というファイルが必要．
 
+>>>>>>> origin/master
 \end{document}
