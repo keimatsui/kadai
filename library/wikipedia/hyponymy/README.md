@@ -94,7 +94,7 @@ wget http://www.tkl.iis.u-tokyo.ac.jp/~ynaga/pecco/ex-hyponymy-1.0-pecco.patch
 patch -p0 < ex-hyponymy-1.0-pecco.patch
 ```
 
-さらに，`script/lib/mecab_part.rb`の`require 'Cut'`の前に`require 'rubygems'`を追記する。
+さらに，`script/lib/mecab_part.rb`の`require 'Cut'`の前の行に`require 'rubygems'`という1行を追記する。
 
 ```
 gedit script/lib/mecab_part.rb &
