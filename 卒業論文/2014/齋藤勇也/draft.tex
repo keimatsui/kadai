@@ -1,0 +1,102 @@
+%卒論中間審査用研究概要テンプレート ver. 1.1
+
+\documentclass[uplatex,twocolumn]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont オンラインショッピングサイト利用者による商品に対するレビューの動向調査}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242042　齋藤 勇也}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+
+%以下が本文
+\section{研究の背景}
+
+
+
+
+インターネットを利用した電子商取引は1994年に米国のピザハットが行ったのが最初であるといわれている\cite{sugasaka2003}．
+1994年以前，商品の購入方法は商品の下に足を運ぶ必要があった．つまり商品を購入した人物は直接顔を合わせた相手にのみにしかレビューを語ることが出来ない状態である．
+
+書籍によると全ての商取引における電子取引の割合が2014年時点で3.7％となり，2008年の1.8％比べ 倍近く上昇し，仮想空間でも商品の売買が行いやすい環境であることが分かる\cite{keizai2014}．
+仮想空間での商品の売買が可能となった1994年以降は，電子商取引であるオンラインショッピングのレビューが重要視されている．
+
+
+レビューが実装されている有名なオンラインショッピングサイトでは，利用者は商品についてのレビューを記入することや，商品に得点を付けることが可能である．例えば，Amazonのレビューでは（図\ref{customerReview}）おすすめ度と称して平均値しか表示していない．実際に商品とは一切関係のないレビューや明らかに商品に対して理解が足りないレビューがあり，それらのような本来加えるべきでないレビューも多々存在する．
+
+そこで，レビューの表示が平均評価のでは商品の判断材料としての指標が少ない．そこで平均値のみの表示よりも信頼できる方法を探す\cite{hattori2011} \cite{yamazawa2006}．
+
+
+\begin{figure}[htbp]
+
+\centering
+\includegraphics[width=4cm,clip]{customerReview.pdf}
+\caption{Amazonでのレビューの一例}
+\label{customerReview}
+
+\end{figure}
+%\bigskip
+
+
+\section{目的}
+
+Amazonはレビューを平均値で表示している（図\ref{customerReview}）．
+他の指標を加え判断材料を増やすことで，平均値のみの表示よりも信頼できるレビューを作る．
+
+\section{研究方法}
+
+商品の評価が嘘偽り，無関係の情報であるとしても平均値ではその状態のまま反映してしまう．そのためレビューの信頼が低いと判断した．
+どのレビューが信頼が低いかを判断するためにも，どの程度信用できるかを判断できる重みをレビューに付け足すことで信頼度をあげていく．
+
+
+\section{成果物のイメージ}
+
+研究方法で記入したような信用できるかの判断材料となる項目を増やし，それらを分析することで商品の評価をより信頼できるものにする．
+
+\section{進捗状況}
+
+Amazonで購入した人物を絞り込むことが可能だと判明したので，購入した，していない人物を分類分けすることで新たな評価基準を作り出している．
+
+\section{今後の計画}
+
+
+購入，非購入のような分類分けを更に行い，項目を増やしていく．
+同時に，対象の項目にあわせた分析方法を進める．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
