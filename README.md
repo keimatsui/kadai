@@ -29,7 +29,14 @@ yabukilab
 
 ### [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-* Ubuntuでは、`sudo apt-get install virtualbox-ose-guest-utils`とすることで、ホストとゲストの間でのクリップボードやファイルの共有が可能になる。ファイルの共有は、デバイス→共有フォルダで共有したいホストのフォルダを選択し（Desktopだとする）、Ubuntuのコンソールで`mkdir share`などとして共有用のフォルダを作り、`sudo mount -t vboxsf Desktop share`などとしてマウントすればよい。フォルダ`share`がホストのDesktopと同じになる。
+Ubuntuをゲストにする場合のtips：
+
+* `sudo apt-get install virtualbox-ose-guest-utils`とすることで、ホストとゲストの間でのクリップボードやファイルの共有が可能になる。
+* ホストとゲストでファイルを共有する方法：
+ * デバイス→共有フォルダで共有したいホストのフォルダを選択する（Desktopだとする）。
+ * Ubuntuのコンソールで`mkdir share`などとして共有用のフォルダを作る。
+ * `sudo mount -t vboxsf Desktop share`などとしてマウントする。フォルダ`share`がホストのDesktopと同じになる。
+* [VirtualBox 最大パフォーマンスでUbuntu環境を構築する](http://holybea.com/2015/07/08/virtualbox-ubuntu/)
 
 ## 資料
 
