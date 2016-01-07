@@ -58,8 +58,8 @@
 %脚注の追加をするために以下を追加
 \begingroup
 \def\thefootnote{\fnsymbol{footnote}}
-\footnotetext[0]{欧文タイトル.}%要修正（最後はピリオド）
-\footnotetext[2]{Firstname Lastname (\verb|MAIL|)}%要修正
+\footnotetext[0]{Performance evaluation of symbolic computation system in solving National Center Test for University Admissions math problems.}%要修正（最後はピリオド）
+\footnotetext[2]{Satoshi Moriya(s1242116nc@s.chibakoudai.jp)}%要修正
 \footnotetext[3]{Department of Project Management, Faculty of Social Systems Science, Chiba Institute of Technology.}
 \endgroup
 
@@ -71,11 +71,7 @@
 
  
 東京大学の入試問題を全自動で解くプロジェクト（東ロボプロジェクト）が進められている\cite{arai2014}．その数学の能力は，センター試験の模擬試験で，5教科8科目で511点を記録し，偏差値57.8を獲得した．特に，数学と世界史では偏差値60を超え，数学Ⅰ・A は偏差値64，数学Ⅱ・Bは偏差値65.8，世界史は偏差値66.5を記録した．さらに，東大入試試験の模擬試験では，世界史に挑戦し偏差値54.1を記録した\cite{tourobo}．
-
 人工知能がこのように発達すると，その影響は数学教育にも及ぶだろう．今日の数学教育は，すべてを紙と鉛筆で行うことを前提に行われているが，その一部は コンピュータで置き換えることができるはずである．人間が行うこととコンピュータが行うことをうまく識別する能力の育成が求められるようになるだろう．
-
-
-
 数式処理を行う人工知能も存在する．Wolfram社が開発したMathematicaである．
 Mathematica とは，あらゆる分野の計算に対応する豊富な関数と高度なグラフィック機能を備えた数式所為システムである．Mathematica を提供しているウルフラム・リサーチ社を創業したスティーブン・ウルフラム氏が考案し広く使われている数式処理システムである\cite{wolfram2014}．
 Mathematica は，Wolfram 言語を利用する．
@@ -103,11 +99,9 @@ Wolfram 言語は，汎用的なデータベースやインターネット上の
  
 本研究では大学入試センター試験の数学にMathematicaを用いて解く．そして，使用したコードの数と，利用した数学的知識を集計する．
 大学入試センター試験の問題は，紙と鉛筆だけで解けるように作られているため，そこにコンピュータを導入してももちろん解ける．そこで本研究では，問題をそのまま素直に解釈して，Mathematicaで解くようにする．
-
 例えば，「二次関数\[3a^2 -6a-36=-27\]を解け」という問題を解く．この問題には，Solveというコードを用いる．このSolveは，方程式の解を求めるのに用いられる．\[Solve[3a^2 -6a-36==-27,a]\]とMathematicaに打ち込み，解かせると，\[{{a \rightarrow -1},{a \rightarrow 3}}\]という答えが帰ってくる．
 
 次に，「二次不等式\[2a^2 -6a-36 \le 0\]を解け」という問題を解く．この問題には，Reduceというコードを用いる．このReduceは，方程式あるいは不等式を解き，限定子を除去することで命題を簡約する．\[Reduce[2a^2 -6a-36 \le 0,a]\]とMathematicaに打ち込むと，\[-3 \le a \le 6\]という答えが帰ってくる．
-
 例のように，問題に対して的確なコードを探しだし，Mathematicaを用いて解くという方法を用いる．
 試験の年数を重ねることで，新しく使用するコードの種類が減少し，新しくコードを増やすことがなくなると考える．
 
