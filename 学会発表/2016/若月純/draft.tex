@@ -1,7 +1,7 @@
 %学会発表レジュメ ver. 1.0
 
 \documentclass[uplatex,twocolumn]{jsarticle}
-\usepackage[top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[top=30mm,bottom=25mm,left=20mm,right=20mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
 \usepackage{wrapfig}
@@ -12,7 +12,7 @@
 \usepackage{epsf}
 \usepackage{graphicx}
 \usepackage{graphics}
-\usepackage{graphicx}
+\setlength{\columnsep}{7mm}
 
 \makeatletter
 
@@ -50,8 +50,8 @@
 
 
 %footnotemarkで脚注の追加
-\title{\vspace{-14mm}GitHub上のソフトウェア開発のためのフロー推薦手法 \footnotemark[0]}
-\author{若月 純\footnotemark[2]　　矢吹 太朗\\ 千葉工業大学 社会システム科学部 プロジェクトマネジメント学科\footnotemark[3]}
+\title{\vspace{-10mm}GitHub上のソフトウェア開発のためのフロー推薦手法 \footnotemark[0]}
+\author{\large{若月 純\footnotemark[2]\qquad 矢吹 太朗}\\千葉工業大学 社会システム科学部 プロジェクトマネジメント学科\footnotemark[3]}
 \date{}%日付を入れる必要はない．
 \pagestyle{empty}
 \begin{document}
@@ -59,14 +59,12 @@
 
 
 
-\twocolumn[
-	\maketitle
-]
+\twocolumn[\maketitle]
 \begingroup
 \def\thefootnote{\fnsymbol{footnote}}
-\footnotetext[0]{Workflow recommendation method for software development on GitHub}
-\footnotetext[2]{Jun WAKATSUKI(s1242132hb@s.chibakoudai.jp)}
-\footnotetext[3]{Department of Project Management, Social System Sciences, Chiba Institute of Tchnology}
+\footnotetext[0]{Workflow recommendation method for software development on GitHub．}
+\footnotetext[2]{Jun WAKATSUKI(\verb|1242132hb@s.chibakoudai.jp|}
+\footnotetext[3]{Department of Project Management, Social System Sciences, Chiba Institute of Tchnology．}
 \endgroup
 
 \section{序論}
@@ -107,30 +105,30 @@ GitHubを用いたソフトウェア開発プロジェクトの性質におい�
 次に，採用されている開発フローを調査する．開発フローの正解データは，人手で作成する．
 開発フローは，GitHub上のbranchとPull Requestの特性から求められる．
 ここでは，32件のプロジェクトの，5個の開発フロー（Git フローとGitHub フロー，LINE フロー，GitLab フロー，日本CAW フロー）を特定した．
-たとえば，develop branchとrelease branchがある場合は，Git フローである．master branchから記述的な名前のbranchがある場合は，GitHub フローである．バージョンごとにbranchが作られている場合は，LINE フローである．branchにstableが用いられている場合は，GitLab フローである．Pull Request にWIPがある場合は，日本CAW フローである．
-
+たとえば，develop branchとrelease branchがある場合は，Git フローである．
 
 プロジェクトに関する上述の指標から，開発フローを決めるための決定木の作成を試みる．
 具体的には，32件のプロジェクトをランダムに22件の訓練データと10件のテストデータに分け，訓練データを用いて決定木を作成し，テストデータを用いてその性能を測定する．
-そのような実験を10回繰り返すことで，精度と再現率の平均と信頼区間を求める．
+そのような実験を10回繰り返す．
+
+
 
 \section{結果}
-
 % 大文字のHを使用することで好きな位置に図を配置
-\begin{figure}[H]
+\begin{figure}
 %\includegraphics[width=図の幅,clip]{ファイル名}\label{参照用ラベル}
 \includegraphics[width=8.2cm,clip]{decisiontree.eps}
 \caption{プロジェクトの性質により選択される開発フローの違い}\label{決定木}
 \end{figure}
 
 
+
 GitHub上の32件のプロジェクトから，開発フローの採用に関わると思われる指標と，採用されている開発フローを調査し，決定木分析を行った．その結果が，図1である．
 
-図1より，Star数，人数，1日あたりのCommit数，Open Pull Request数，プロジェクト経過日数で，選択されている開発フローを割り出せられる．
-たとえば，Star数が129以上かつ，人数が84人未満かつ，Open Pull Requestが1以上かつ，プロジェクト経過日数が707日以上の場合は，Git フローを選択する．
 
 
 開発フローのわかっているプロジェクトを使って作成された開発フローの決定木が，開発フローが未知のプロジェクトの開発フローを予測できるかどうかを試したところ，精度は平均$41$\%（信頼区間は$26\sim 56$\%），再現率は平均$51$\%（信頼区間は$29\sim 73$\%）だった．
+
 
 
 \section{考察}
