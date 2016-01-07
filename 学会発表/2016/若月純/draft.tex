@@ -1,70 +1,28 @@
-%学会発表レジュメ ver. 1.0
+%情報処理学会全国大会原稿テンプレート ver. 1.2
 
 \documentclass[uplatex,twocolumn]{jsarticle}
 \usepackage[top=30mm,bottom=25mm,left=20mm,right=20mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
-\usepackage{wrapfig}
-\usepackage{multicol}
 \usepackage[expert,deluxe]{otf}
 \usepackage[dvipdfmx,hiresbb]{graphicx}
-\usepackage{here}
-\usepackage{epsf}
-\usepackage{graphicx}
-\usepackage{graphics}
+\usepackage[dvipdfm]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{multicol}
 \setlength{\columnsep}{7mm}
 
-\makeatletter
-
-
-  \renewcommand{\section}{%
-    \if@slide\clearpage\fi
-    \@startsection{section}{1}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    {.5\Cvs \@plus.3\Cdp}% 後アキ
-    %{\normalfont\Large\headfont\raggedright}}
-    {\normalfont\raggedright}}
-
-  \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    {.5\Cvs \@plus.3\Cdp}% 後アキ
-    %{\normalfont\large\headfont}}
-    {\normalfont}}
-
-  \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
-    {\z@}%
-    %{\normalfont\normalsize\headfont}}
-    {\normalfont}
-    } 
-    
-    
- \newenvironment{figurehere}
-    {\def\@captype{figure}}
-    {}    
-    
-\makeatother
-%ここから上を編集する必要はない．(figure,を追加)
-
-
-
-
-%footnotemarkで脚注の追加
-\title{\vspace{-10mm}GitHub上のソフトウェア開発のためのフロー推薦手法 \footnotemark[0]}
+\title{\vspace{-10mm}GitHub上のソフトウェア開発のためのフロー推薦手法\footnotemark[0]}
 \author{\large{若月 純\footnotemark[2]\qquad 矢吹 太朗}\\千葉工業大学 社会システム科学部 プロジェクトマネジメント学科\footnotemark[3]}
-\date{}%日付を入れる必要はない．
+\date{}
 \pagestyle{empty}
 \begin{document}
-
-
-
-
 \twocolumn[\maketitle]
+
 \begingroup
 \def\thefootnote{\fnsymbol{footnote}}
-\footnotetext[0]{Workflow recommendation method for software development on GitHub．}
+\footnotetext[0]{Workflow recommendation method for software development on GitHub.}
 \footnotetext[2]{Jun WAKATSUKI(\verb|1242132hb@s.chibakoudai.jp|)}
-\footnotetext[3]{Department of Project Management, Social System Sciences, Chiba Institute of Tchnology．}
+\footnotetext[3]{Department of Project Management, Faculty of Social Systems Science, Chiba Institute of Technology.}
 \endgroup
 
 \section{序論}
