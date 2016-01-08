@@ -32,6 +32,7 @@
 \section{序論}
 
 東京大学の入試問題を全自動で解くプロジェクト（東ロボプロジェクト）が進められている\cite{arai2014}．その処理システムは，大学入試センター試験（以下では，センター試験と記載する）の模擬試験（5教科8科目）で950満点中511点（偏差値は57.8）を獲得，数学と世界史の偏差値は特に高く，数学Ⅰ・A は偏差値64，数学Ⅱ・Bは偏差値65.8，世界史は偏差値66.5であったという\cite{tourobo}．
+
 人工知能がこのように発達すると，その影響は数学教育にも及ぶだろう．今日の数学教育は，すべてを紙と鉛筆で行うことを前提に行われているが，その一部はコンピュータで置き換えることができるはずである．人間が行うこととコンピュータが行うことをうまく識別する能力の育成が求められるようになるだろう．
 
 \section{目的}
@@ -91,7 +92,7 @@ Reduce[
 \end{figure}
 
 2009年から2015年までのセンター試験の数学Ⅰ・Aの問題を解き，利用したMathematicaの組み込みシンボルの累積数を記録した結果が図\ref{累積グラフ}である．
-利用した組み込みシンボルは全部で23個となり，使用頻度順に，\verb|Solve|（方程式を解く），\verb|Reruce|（同値な式に置き換える），\verb|Simplify|（簡約），\verb|SolveAlways|（恒等式となる条件を求める），\verb|Maxmize|（最大化），\verb|TrigExpand|（三角関数を展開する），\verb|TrigFactor|（三角関数をまとめる），\verb|TrigReduce|（三角関数を書き換える）FactorInteger|（因数を取り出す），\verb|Divisors|（約数を求める），\verb|Length|（リストの長さを求める），\verb|Sqrt|（平方根），\verb|!|（階乗），\verb|Clear|（シンボル割り当ての解除），\verb|Integate|（積分），\verb|Factor|（因数分解），\verb|Cos|（余弦），\verb|Sin|（正弦），\verb|SetDelayed|（関数定義），\verb|Expand|（式の展開），\verb|HornerForm|（ホーナー形式への変換），\verb|Degree|（角度の変換）であった．
+利用した組み込みシンボルは全部で23個となり，使用頻度順に，\verb|Solve|（方程式を解く），\verb|Reruce|（同値な式に置き換える），\verb|Simplify|（簡約），\verb|SolveAlways|（恒等式となる条件を求める），\verb|Maxmize|（最大化），\verb|TrigExpand|（三角関数を展開する），\verb|TrigFactor|（三角関数をまとめる），\verb|TrigReduce|（三角関数を書き換える），\verb|FactorInteger|（因数を取り出す），\verb|Divisors|（約数を求める），\verb|Length|（リストの長さを求める），\verb|Sqrt|（平方根），\verb|!|（階乗），\verb|Clear|（シンボル割り当ての解除），\verb|Integate|（積分），\verb|Factor|（因数分解），\verb|Cos|（余弦），\verb|Sin|（正弦），\verb|SetDelayed|（関数定義），\verb|Expand|（式の展開），\verb|HornerForm|（ホーナー形式への変換），\verb|Degree|（角度の変換）であった．
 
 \section{考察}
 組み込みシンボルの累積数の増加が図{累積グラフ}のように6年で止まったため，センター試験の数学I・Aの問題を解くのに必要なMathematicaの機能は，「結果」に記載した23種類で十分であることがわかる．Mathematicaのような数式処理システムには膨大な機能が備えられているが，数学I・Aのために必要なのはこのように比較的少数の機能があり，教育の現場に導入するのも容易だと思われる．
