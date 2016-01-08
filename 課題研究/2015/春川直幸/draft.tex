@@ -1,0 +1,134 @@
+%課題研究レジュメテンプレート ver. 1.1
+
+\documentclass[uplatex]{jsarticle}
+\usepackage[top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{here}
+
+
+
+\makeatletter
+  \renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    {.5\Cvs \@plus.3\Cdp}% 後アキ
+    %{\normalfont\Large\headfont\raggedright}}
+    {\normalfont\raggedright}}
+
+  \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    {.5\Cvs \@plus.3\Cdp}% 後アキ
+    %{\normalfont\large\headfont}}
+    {\normalfont}}
+
+  \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    {\z@}%
+    %{\normalfont\normalsize\headfont}}
+    {\normalfont}}
+\makeatother
+
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+
+%ここから上を編集する必要はない．
+
+
+
+
+
+\title{\vspace{-14mm}{オープンソースソフトウェア開発における開発者あたりのコミット数のパレート分析}}
+\author{PMコース　矢吹研究室　1342100　春川 直幸}
+\date{}%日付を入れる必要はない．
+\pagestyle{empty}%ページ番号は振らない．
+\begin{document}
+\maketitle
+
+
+
+
+
+\section{研究の背景}
+
+ソフトウェア開発では，複数のメンバが同時に開発を行うため，ファイルの最新バージョンが分からなくなる，同一ファイルに対する変更が競合する等の問題が発生する．このような問題を解決するため，バージョン管理システムを用いる\cite{ikeda2014}．バージョン管理システムとは，変更履歴を管理するシステムのことである．具体的にはソフトウェアのソースコードを書き足したり，変更したりする過程を記録していき，特定の段階まで戻ったり，誤って消してしまったファイルを復活させたりなど，変更履歴を管理するシステムはソフトウェア開発の現場において無くてはならない機能である\cite{otuka2014}．
+
+バージョン管理システム(VCS:Version Control System)のソフトウェアの1つにGitがある\cite{shioya2014}．
+
+バージョン管理システムを提供するサービスに，GitHubがある．GitHubはGitのリモートリポジトリとさまざまなWebツールを提供するサービスである．GitHubが人気を集めている理由は，Webベースで提供させるコラボレーションツールにある．オンラインでのコミュニケーションを円滑に進めるために，GitHubでは相談して課題を解決するIssue(イシュー)や改善案を手軽に提案できるPull Request(プルリクエスト)などの機能が提供されている\cite{shioya2014}．
+
+Gitには修正をひと固まりにして保存することができるCommit(コミット)という機能がある．修正内容のほかに，修正日時，修正した人，修正した内容についてのコメントが含まれている．コミットを意味のある単位でまとめることで，コミット単位の差分を見たり，コミット単位で修正を取り消すことができる\cite{shioya2014}．
+
+Gitにはリポジトリのコミットされたログを確認できるgit logコマンドというものがある．git logでは誰がいつコミットやマージをしてどのような差分を発生したのか確認するができる\cite{otuka2014}．
+このgit logコマンドを解析することによって，開発者の貢献度を求める．なお今回はコミット数を貢献度の基準とする．GitHubでのソフトウェア開発でもパレートの法則が成り立つのか調査する．
+
+\section{研究の目的}
+
+GitHubを用いたソフトウェア開発プロジェクトにおいて，コミット数を基準とするプロジェクトへの貢献度を調査，可視化し，結果を分析する．
+
+\section{プロジェクトマネジメントとの関連}
+
+コミットを基準としたプロジェクトへの貢献度を分析し，パレート図を作成することにより，GitHubを用いたソフトウェア開発プロジェクトでのプロジェクトの工程改善を検討し，改善できる問題を抽出する．
+ソフトウェア開発プロジェクトでの開発設計工程の品質向上を目的とするため，プロジェクトマネジメントの知識エリアにおいて，品質マネジメントに該当する．
+
+
+\section{研究の方法}
+
+本研究は2段階に分かれる．
+\begin{enumerate}
+\item GitHub上のプロジェクトから，開発者数とコミット回数を調査する．
+\item 調査したデータの分析をする．
+\end{enumerate}
+
+
+調査したデータの分析は，デシル分析で行う．
+デシル分析とは，複数の事物や現象について、データを10等分に分け分析し，管理効率を高めようとする分析手法である．
+今回はデシル分析でコミット数の多い順に開発者を10等分して，各ランクのコミット構成比率を算出し，コミット貢献度を明らかにする．
+
+
+
+
+\section{現在の進捗状況}
+
+
+
+GitHub上の10個のプロジェクトから，プロジェクトの開発者数、コミット数を調査し，デシル分析を行った．
+
+開発者人数は最少1人，最大3503人だった．コミット数は最小1，最大54421だった．
+
+10件のプロジェクトをデシル分析し平均を算出した．結果は，図1である．分析結果から，デシル1の構成比が88％になっており，約9割の成果は1割の開発者によって生み出されていることがわかった．
+
+このことから，GitHubにおけるソフトウェア開発では，パレートの法則とは違う結果になっていると言えるであろう．
+
+こうなった要因として調査したすべてのプロジェクトでオーナーのコミット数が一位だったことが関係していると考える．コミット数が一位だった開発者のコミット構成比の平均を求めた結果，42.4％だった．今回はマージコミットもコミット数のカウント対象に含んだのがオーナーのコミット数が多かった要因として考えられる．
+
+
+\begin{figure}[H] 
+\centering
+\includegraphics[width=13cm]{g1.pdf}
+\caption{デシル分析 グラフ}\label{デシル分析}
+\end{figure}	
+
+\section{今後の計画}
+
+以下のように研究を進める計画である．
+
+\begin{enumerate}
+\item 一定期間内のアクティブな開発者の数や，プロジェクトで使用しているワークフローなど貢献に関する基準について考える．
+\item 調査対象となるプロジェクトの数を増やしたり，他の分析手法も用いて分析を行う．
+\item 論文の執筆を行う．
+
+\end{enumerate}
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
