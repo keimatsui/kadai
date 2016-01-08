@@ -1,137 +1,109 @@
-%学会発表レジュメ ver. 1.0
+%情報処理学会全国大会原稿テンプレート ver. 1.2
 
 \documentclass[uplatex,twocolumn]{jsarticle}
-\usepackage[top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[top=30mm,bottom=25mm,left=20mm,right=20mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
-\usepackage{wrapfig}
-\usepackage{multicol}
 \usepackage[expert,deluxe]{otf}
 \usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfm]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{multicol}
 \usepackage{here}
+\setlength{\columnsep}{7mm}
 
-\makeatletter
-
-  \renewcommand{\section}{%
-    \if@slide\clearpage\fi
-    \@startsection{section}{1}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    {.5\Cvs \@plus.3\Cdp}% 後アキ
-    %{\normalfont\Large\headfont\raggedright}}
-    {\normalfont\raggedright}}
-
-  \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
-    {.5\Cvs \@plus.3\Cdp}% 後アキ
-    %{\normalfont\large\headfont}}
-    {\normalfont}}
-
-  \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
-    {\z@}%
-    %{\normalfont\normalsize\headfont}}
-    {\normalfont}} 
-    
-    
- \newenvironment{figurehere}
-    {\def\@captype{figure}}
-    {}    
-    
-\makeatother
-%ここから上を編集する必要はない．(figure,を追加)
-
-
-%footnotemarkで脚注の追加
-\title{\vspace{-14mm}GitHubにおける開発フローの判別分析 \footnotemark[0]}
-\author{若月 純 \footnotemark[2] \\ 千葉工業大学 社会システム科学部 プロジェクトマネジメント学科\footnotemark[2]}
-\date{}%日付を入れる必要はない．
+\title{\vspace{-10mm}GitHub上のソフトウェア開発のためのフロー推薦手法\footnotemark[0]}
+\author{\large{若月 純\footnotemark[2]\qquad 矢吹 太朗}\\千葉工業大学 社会システム科学部 プロジェクトマネジメント学科\footnotemark[3]}
+\date{}
 \pagestyle{empty}
 \begin{document}
+\twocolumn[\maketitle]
 
-
-
-\twocolumn[
-	\maketitle
-]
 \begingroup
 \def\thefootnote{\fnsymbol{footnote}}
-\footnotetext[0]{Discriminant analysis of the development flow in GitHub}
-\footnotetext[2]{Jun WAKATSUKI・Department of Project Management, Social System Sciences, Chiba Institute of Tchnology}
+\footnotetext[0]{Workflow recommendation method for software development on GitHub.}
+\footnotetext[2]{Jun WAKATSUKI(\verb|1242132hb@s.chibakoudai.jp|)}
+\footnotetext[3]{Department of Project Management, Faculty of Social Systems Science, Chiba Institute of Technology.}
 \endgroup
 
-\section{研究の背景}
+\section{序論}
 
 ソフトウェア開発では，複数のメンバが同時に開発を行うため，ファイルの最新バージョンが分からなくなる，同一ファイルに対する変更が競合する等の問題が発生する．このような問題を解決するため，バージョン管理システムを用いる．バージョン管理システムとは，変更履歴を管理するシステムのことである\cite{ikeda2014}．
 
-バージョン管理システムを提供するサービスに，GitHubがある．GitHubは，バージョン管理システムに加え，branch，Pull Requestといった開発を補助する機能を提供するサービスである．branchとは，履歴を分岐して記録していくためのものである．branchを用いることにより，同一リポジトリ内で，別々の作業を並行して行うことが出来るようになる．Pull Requestとは，自分のリポジトリから相手のリポジトリへ変更を取り込んでもらうための要求を出す機能である．Pull Requestを用いることにより，変更が追加される前に確認することが出来る．
+バージョン管理システムを提供するサービスに，GitHubがある．GitHubは，バージョン管理システムに加え，branch，Pull Requestといった開発を補助する機能を提供するサービスである．branchとは，履歴を分岐して記録していくためのものである．branchを用いることにより，同一リポジトリ内で，別々の作業を並行して行うことが出来るようになる．Pull Requestとは，自分のリポジトリから相手のリポジトリへ，変更を取り込んでもらうための要求を出す機能である．Pull Requestを用いることにより，変更が追加される前に確認することが出来る．
 
-GitHubを使用する手順を開発フローと呼ぶ．現在わかっている開発フローの数は13個ある．開発フローの例を2つあげる．
-GitHub Flowは，作業をするbranchを作成し，完成したら統合する．というような開発フローである．この開発フローはとてもシンプルなため，開発フローを実施するまでの学習コストは抑えられるが，開発規模が大きい場合，Pull Requestがたまりやすく，コードレビューに時間がかかってしまうことがある．
-Git Flowは，develop branchから作業用branchを作成する．完成したらPull Requestを行い，develop branchに統合する．リリースができるレベルになったら，リリース用branchを作成し，作業をする．リリース作業が終了するとmasterブランチに統合され，バージョンタグを打ってリリースする．というような開発フローである．branch別にやることが決まっているため管理は容易であるが，複雑すぎるため，Pull Requestを異なったbranchに送ってしまう等の人的ミスが発生する場合がある\cite{otsuka2014}．
+GitHubを使用する手順を開発フローと呼ぶ．開発フローの種類を調査した結果，13種類あることがわかった．開発フローの例として，GitHub フローとGit フローを紹介する．
 
-このように開発フローは，メリットとデメリットがある．適切でない開発フローを選択すると，デメリットが多く発生する場合がある．このような事態を防ぐために，開発フローをプロジェクトの性質から選択する基準が必要である．しかし，選択する基準は定められていないため，適切な開発フローを選択する基準を明確にすることが必要である．
+GitHub フローは，作業をするbranchを作成し，完成したら統合する．といった開発フローである．この開発フローはとてもシンプルなため，開発フローを実施するまでの学習コストは抑えられるが，開発規模が大きい場合，Pull Requestがたまりやすく，コードレビューに時間がかかってしまうことがある．
 
-\section{研究の目的}
+Git フローは，develop branchから作業用branchを作成する．完成したらPull Requestを行い，作業用branchをdevelop branchに統合する．リリースができるレベルになったら，リリース用branchを作成し，作業をする．リリース作業が終了するとmasterブランチに統合され，バージョンタグを打ってリリースする．といった開発フローである．branch別にやることが決まっているため管理は容易であるが，branchが複数あるため，Pull Requestを異なったbranchに送ってしまう等の人的ミスが発生する場合がある\cite{ohtsuka2014}．
 
-GitHubを用いたソフトウェア開発プロジェクトの性質において，適切な開発フローを選択できるようにするための基準を提供する．
+このように，開発フローは，メリットとデメリットがある．しかし，選択する基準は定められていないため，状況にあった開発フローを選択するのは難しい．そのため，適切でない開発フローを選択し，開発に悪影響を与える危険がある．このような事態を防ぐため，適切な開発フローを選択できるようにするための基準が求められる．
 
-\section{プロジェクトマネジメントとの関連}
 
-ソフトウェア開発プロジェクトにおいて，プロジェクトマネージャーは，QCDを達成させるためにスケジュール，コスト，品質コントロールを行う．これらのコントロールを，GitHubを用いた開発フローを導入することで，補助することが出来る．
+そこで本研究では，適切な開発フローを選択できるようにするための基準を求める．
+そのために，GitHub上のプロジェクトを対象に，採用されている開発フローと，開発フローの採用に関わると思われる指標を調査し，分析する．
 
-\section{研究の方法}
+\section{目的}
 
-本研究は2段階に分かれる．
+GitHubを用いたソフトウェア開発プロジェクトの性質において，適切な開発フローを選択できるようにするための基準を求める．
+
+\section{手法}
+
+
+本研究は3段階に分かれる．
 \begin{enumerate}
-\item GitHub上のプロジェクトから，プロジェクトの性質と開発フローを調査する．
-\item 調査したデータの分析をする．
+\item GitHub上のプロジェクトから，開発フローの採用に関わると思われる指標と，採用されている開発フローを調査する．
+\item 調査結果を分析する．
+\item 分析結果の精度と再現率を求める． 
 \end{enumerate}
 
-プロジェクトの性質は，開発人数，言語，行数を調査する．開発人数と言語は，GitHub上のデータを用いる．
+初めに，GitHub上のプロジェクトから，開発フローの採用に関わると思われる指標を調査する．
+本研究で用いた指標は，プロジェクト経過日数，行数，ファイル数，バイト数，Watch数，Star 数，Fork数，Commit数，branch数，Release数，人数，Open Issue数，Closed Issue数，Issue数，Open Pull Request数，Closed Pull Request数，Pull Request数，Label数，Open Milestone数，Closed Milestone数，Milestone数，Wiki数，言語，1日あたりの行数，1日あたりのCommit数，1人日あたりの行数，1人日あたりのCommit数である．
 
-開発フローは，GitHub上のbranch，Pull Requestの特性から求められる．branchにstableが用いられている場合は，Stable Flowである．master branchから記述的な名前のbranchがある場合は，GitHub Flowである．develop branchとrelease branchがある場合は，Git Flowである．バージョンごとにbranchが作られている場合は，LINE Flowである． Pull Request にWIPがある場合は，WIP Flowである．
+次に，採用されている開発フローを調査する．開発フローの正解データは，人手で作成する．
+開発フローは，GitHub上のbranchとPull Requestの特性から求められる．
+ここでは，32件のプロジェクトの，5個の開発フロー（Git フローとGitHub フロー，LINE フロー，GitLab フロー，日本CAW フロー）を特定した．
+たとえば，develop branchとrelease branchがある場合は，Git フローである．
 
-調査したデータの分析は，決定木分析を行う．決定木分析により，プロジェクトがどのような性質を持つときに，どの開発フローが使われているかを明らかにする．
+プロジェクトに関する上述の指標から，開発フローを決めるための決定木の作成を試みる．
+具体的には，32件のプロジェクトをランダムに22件の訓練データと10件のテストデータに分け，訓練データを用いて決定木を作成し，テストデータを用いてその性能を測定する．
+そのような実験を10回繰り返す．
 
 
 
-\section{現在の進捗状況}
+\section{結果}
 
 % 大文字のHを使用することで好きな位置に図を配置
 \begin{figure}[H]
 %\includegraphics[width=図の幅,clip]{ファイル名}\label{参照用ラベル}
-\includegraphics[width=9cm,clip]{images.pdf}
+\includegraphics[width=8.2cm,clip]{decisiontree.eps}
 \caption{プロジェクトの性質により選択される開発フローの違い}\label{決定木}
 \end{figure}
 
+GitHub上の32件のプロジェクトから，開発フローの採用に関わると思われる指標と，採用されている開発フローを調査し，決定木分析を行った．その結果が，図1である．
 
-GitHub上の32個のプロジェクトから，プロジェクトの性質と開発フローを調査し，決定木分析を行った．
+図1より，Star数，人数，1日あたりのCommit数，Open Pull Request数，プロジェクト経過日数で，選択されている開発フローを割り出せられる．
+たとえば，Star数が129未満かつ，1日あたりのCommit数が0.18以上の場合は，日本CAW フローを選択する．
 
-プロジェクトの性質は，開発人数，言語，行数を調査した．開発人数は最少3人，最大156人だった．言語は，Java，JavaScript，Ruby等19種類だった．行数は最小695，最大875841だった．
-
-
-開発フローは，Git Flow，GitHub Flow，LINE Flow，Stable Flow，WIP Flowの5種類だった．
-
-決定木分析結果は，図1である．分析結果から，プロジェクトの性質により選択される開発フローが明らかにされた．
-22人以上の場合，GitHub Flowが使われていないことがわかる．GitHub Flowは，開発人数が多くなると管理が難しくなるためであると考えられる．
-また，言語により使われている開発フローに違いがあることがわかる．これは，言語により開発スピードが異なり，管理方法も異なるためであると考えられる．
+開発フローのわかっているプロジェクトを使って作成された開発フローの決定木が，開発フローが未知のプロジェクトの開発フローを予測できるかどうかを試したところ，精度は平均$41$\%（信頼区間は$26\sim 56$\%），再現率は平均$51$\%（信頼区間は$29\sim 73$\%）だった．
 
 
 
 
+\section{考察}
 
-\section{今後の計画}
+図1は，全データをStar数で分類している．Starとは，注目度を表す指標である．Star数が129以上の場合，プロジェクトを主にbranchで管理するGit フローが選択されている．Star数が129未満の場合，プロジェクトを主にPull Requestで管理する日本CAW フローが選択されている．ここから，開発人数だけでなく，チェックしているユーザ数により，最適な開発フローが異なることがわかる．
+
+また，1日あたりのCommit数といった，時系列データにより分類されていることが分かった．ここから，Commit増加傾向や，人数の増減傾向等，他の時系列データを調査することで，より精度と再現率をあげられると考えられる．
 
 
-現在の開発フローを選択する基準は，人数の場合，21人以下と22人以上で別れている．そのためプロジェクトメンバが5人の場合と15人の場合，同一の開発フローを選んでしまう．しかし，プロジェクトメンバが5人の場合と15人の場合では，プロジェクトの性質は大きく異なり，同一の開発フローを選択するとデメリットが発生する可能性がある．そのような事態を防ぐため，開発フローを選択する基準を，より詳細なプロジェクトの性質で決められるようにする．
 
-データ数が増えれば，より詳細なプロジェクトの性質で開発フローを選択する基準を明確にすることが出来ると仮定し，以下のように研究を進める計画である．
+\section{結論}
 
-\begin{enumerate}
-\item GitHub上のプロジェクトから，プロジェクトの性質と開発フローを調査する．
-\item 調査したデータを元に分析を行い，開発フローを選択する基準を明確にする．
-\item 論文の執筆を行う．
-\end{enumerate}
+本研究では，決定木を用いた，開発フローを推薦する手法を提案した．
+現状では，精度と再現率が高いとは言えないが，このような手法を発展させることによって，GitHubの経験が少ないチームでの開発でも，最適なフローを決定できるようになることが期待される．
+
 \bibliographystyle{junsrt}
 \bibliography{biblio}%「biblio.bib」というファイルが必要．
 
