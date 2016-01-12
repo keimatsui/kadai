@@ -39,7 +39,7 @@ awk 'BEGIN { openissues=0; closedissues=0; } $2=="open" { openissues++; } $2=="c
 ### 準備
 
 ```
-sudo apt-get install gnuplot-x11
+sudo apt-get -y install gnuplot-x11 plotutils
 ```
 
 ### 実験
