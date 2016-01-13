@@ -40,3 +40,30 @@ ruby nokogiri-stock.rb
 ```
 ruby nokogiri-stock-history.rb
 ```
+
+#### 改良
+
+`nokogiri-stock-history.rb`にはバグがあるため，`nokogiri-stock-history2.rb`のように変更する。ついでに，企業（コード）と期間を指定して株価を取得するようにする。
+
+Yahoo (4689)の2015/10/1から2015/12/31の株価を取得するコマンドは次のとおり。
+
+```
+code=4689
+ruby nokogiri-stock-history2.rb ${code} 2015 10 1 2015 12 31 > ${code}.csv 
+```
+
+#### 可視可
+
+準備：Gnuplotをインストールする。
+
+```
+sudo apt-get -y install gnuplot-x11 plotutils
+```
+
+取得した株価データを可視化する（`history.pl`と`plot.sh`が必要）。
+
+```
+sh plot.sh 4689
+```
+
+`4689.png`ができているはず。
