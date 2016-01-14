@@ -1,0 +1,76 @@
+%卒業論文概要テンプレート ver. 1.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 農業におけるWikiを活用する知の構造化}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242034　氏名 小池　克人}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}
+
+平成27年3月10日に発表された農業情報の標準化に関する個別ガイドラインでは，農業の情報の相互運用性を確保するインターオペラビティーとポータビリティー確保の標準化が必要とされている\cite{naikaku2014}．
+
+しかし，異なる企業や団体の意思を一つにまとめる作業には困難が伴う．標準化して，データをやり取りするプロトコルやデータ形式は各企業の利害がぶつかるため，困難である\cite{kizi2015}．よって，複数のシステムの間でマスターを統一しようとする共通語彙には，目的と実現する考え方のアーキテクチャーが異なり，マスターは構造も用語も異なるため現実感が無いため，共通的な方法論ができないかを考える．
+
+作物名称は，研究や行政などにより変わる．研究は研究目的に応じた分類のため，行政は行政の目的に応じた分類のため，などの用途により視点が異なる．よって，用語も異なる．
+
+これを目的に応じた用語の変換（翻訳）を実現する共通な仕組みができないかに着目する．用語の変換をするために用語をタグで結び，関連用語を抽出することを考える．これと同じような事例を探し，参考として研究する．そして．2008年のWikipediaの記事構造からの上位下位関係抽出の論文を参考にして，MediaWikiを利用する\cite{nogyo2015}．MediaWikiを用いれば，自分専用のWikipediaを設置・運用することができる\cite{nico2015}．MediaWikiを利用し，目的に応じて最適な語彙の翻訳を可能とする翻訳システムの開発を研究する．
+
+\section{目的}
+農業情報の用途により視点，用語が異なる語彙を目的に応じた最適な語彙への翻訳ができるような仕組みを作ることが目的である．
+
+\section{手法}
+本研究では，MediaWikiのサーバーを立ち上げる，MediaWikiに知識を登録をする，登録した情報から，上位下位関係抽出ツールを用いて単語間の関連情報を抽出をする， 抽出した情報を使って，用語の翻訳を試みる．
+
+以上の４つの方法で研究する．
+\section{結果}
+Mediawikiに様々な書き方をした解析することで成功するパターンを発見することに成功した．カテゴリに出荷統計作物名などを記載して，記事の見出しのレベルを上げて書くことで目標とする解析結果を表示できた．
+\section{考察}
+成功パターンを発見できたため，結果に記載したようにWikiを編集すれば，Wikiを編集したことがない人でも容易に編集することができ，農業情報の標準化することができると考えられる．
+\section{結論}
+本研究では，•上位下位関係抽出ツールを用いて，関連情報を抽出をすることに成功した．どのように運用していくかが今後の課題である．
+
+
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+\end{document}
+
