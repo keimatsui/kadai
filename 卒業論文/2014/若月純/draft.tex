@@ -1,6 +1,6 @@
-%卒論中間審査用研究概要テンプレート ver. 1.1
+%卒業論文概要テンプレート ver. 1.0
 
-\documentclass[uplatex,twocolumn]{jsarticle}
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
 \usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
 \setlength{\columnsep}{15mm}
 \usepackage[T1]{fontenc}
@@ -31,8 +31,8 @@
 
 
 %タイトルと学生番号，名前だけ編集すること
-\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont GitHubを用いた開発フローの判別分析}
-\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242132　若月　純}
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont GitHub上のソフトウェア開発のためのフロー推薦手法}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242132　若月 純}
 \date{}
 \pagestyle{empty}
 \begin{document}
@@ -44,67 +44,56 @@
 
 
 %以下が本文
-\section{研究の背景}
+\section{序論}
+ソフトウェア開発では，複数のメンバが同時に開発を行うため，様々な問題が発生する．問題を解決するため，バージョン管理システムを用いる．バージョン管理システムとは，変更履歴を管理するシステムのことである\cite{ikeda2014}．
 
-ソフトウェア開発では，GitHubを用いることが多い．GitHubは，バージョン管理システムに加え，branch，PullRequest，Issuesといった開発を補助する機能を提供するサービスである．
- 
-GitHubを使用する手順を開発フローと呼ぶ．現在わかっている開発フローの数は13個ある\cite{onodera2015}．開発フローの例を1つあげる．GitHub Flowは，作業をするbranchを作成し，完成したら統合する.というような開発フローである.この開発フローはとてもシンプルなため，開発フローを実施するまでの学習コストは，抑えられるが，開発規模が大きい場合，PullRequestがたまりやすく，コードレビューに時間がかかってしまうことがある\cite{okumura2013}．
+バージョン管理システムを提供するサービスに，GitHubがある．GitHubは，バージョン管理システムに加え，開発を補助する機能を提供するサービスである．
 
-このように開発フローは，メリット・デメリットがある．そのため，開発フローをプロジェクトの性質から選択する基準が必要である． 
+GitHubを使用する手順を開発フローと呼ぶ．開発フローは，13種類あり，それぞれメリットとデメリットがある．しかし，選択する基準は定められていないため，状況にあった開発フローを選択するのは難しい．そのため，適切でない開発フローを選択し，開発に悪影響を与える危険がある．
+
+そこで，本研究では，適切な開発フローを選択できるようにするための基準を求める．
+
 
 
 \section{目的}
 
-GitHubを用いたソフトウェア開発プロジェクトの性質において，適切な開発フローを選択できるようにするための基準を提供する．
+GitHubを用いたソフトウェア開発プロジェクトの性質において，適切な開発フローを選択できるようにするための基準を求める．
+
+\section{手法}
+
+初めに，GitHub上のプロジェクトから，開発フローの採用に関わると思われるの指標を調査する．
+
+次に，採用されている開発フローを調査する．開発フローの正解データは，人手で作成する．
+
+最後に，プロジェクトに関する上述の指標から，開発フローを決めるための決定木の作成を試みる．
 
 
-\section{研究方法}
+\section{結果}
 
-初めに，GitHub上のプロジェクトから，プロジェクトの性質と開発フローを調査する．
-開発フローは，GitHub上のプロジェクトと，開発フローの特徴を照らしあわせることで求められる．
-
-次に，調査したデータを分析する．分析は，調査したデータをランダムに２種類のデータに分け，決定木分析を行う．決定木分析により，プロジェクトがどのような性質を持つときに，どの開発フローが使われているかを明らかにする．
-
-
-\section{成果物のイメージ}
-
-32件の調査データを2種類にわけ，決定木分析を行い，開発フローを選択する基準を求める．
-
-
-\section{進捗状況}
-
-GitHub上の32件のプロジェクトから，プロジェクトの性質と開発フローを調査し，分析を行った．
-
-プロジェクトの性質は，行数，ファイル数，バイト数，Watch数，Star数，Fork数，Commit数，branch数，Release数，人数，Issues数，PullRequest数，Label数，Milestone数，Wiki数，言語を調査した．
-
-開発フローは，Git Flow，GitHub Flow，LINE Flow，Stable Flow，WIP Flowの5種類だった．
-
-決定木分析結果は，図\ref{left}と図\ref{right}である．
-図\ref{left}は，Issues数とファイル数，図\ref{right}は，言語，行数，バイト数により分けられた．
-2種類のデータに分け，分析を行うことで，異なった開発フローを選択する基準を求めることが出来た．
-
-\begin{figure}[thbp]
- \begin{minipage}{0.5\hsize}
-  \begin{center}
-   \includegraphics[width=45mm]{DecisionTree1.pdf}
-   \caption{決定木1}
-   \label{left}
-  \end{center}
- \end{minipage}%
- \begin{minipage}{0.5\hsize}
-  \begin{center}
-   \includegraphics[width=45mm]{DecisionTree2.pdf}
-   \caption{決定木2}
-   \label{right}
-  \end{center}
- \end{minipage}
+% 大文字のHを使用することで好きな位置に図を配置
+\begin{figure}
+%\includegraphics[width=図の幅,clip]{ファイル名}\label{参照用ラベル}
+\includegraphics[width=8cm,clip]{decisiontree.eps}
+\caption{プロジェクトの性質により選択される開発フローの違い}\label{決定木}
 \end{figure}
 
 
-\section{今後の計画}
+決定木分析結果が，図1である．
 
-時系列データを分析に含めた場合，基準にどのような変化があるか調査する．そうすることで，開発スピードを含めた開発フローを選択する基準が求められる．
+図1より，行数，バイト数，1日あたりの行数で，選択されている開発フローを割り出せられる．
 
+開発フローのわかっているプロジェクトを使って作成された開発フローの決定木が，開発フローが未知のプロジェクトの開発フローを予測できるかどうかを試したところ，精度は平均$38$\%（信頼区間は$33\sim 42$\%），再現率は平均$46$\%（信頼区間は$41\sim 51$\%）だった．
+
+
+
+\section{考察}
+
+1日あたりの行数といった，時系列データにより分類されていることが分かった．ここから，他の時系列データを調査することで，より精度と再現率をあげられると考えられる．
+
+\section{結論}
+
+本研究では，決定木を用いた，開発フローを推薦する手法を提案した．
+現状では，精度と再現率が高いとは言えないが，このような手法を発展させることによって，GitHubの経験が少ないチームでの開発でも，最適なフローを決定できるようになることが期待される．
 
 \bibliographystyle{junsrt}
 \bibliography{biblio}%「biblio.bib」というファイルが必要．
