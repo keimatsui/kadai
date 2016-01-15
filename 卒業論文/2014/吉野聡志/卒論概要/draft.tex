@@ -1,0 +1,76 @@
+﻿%卒業論文概要テンプレート ver. 1.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont SNS経由で入手される情報のユーザ間差異の可視化}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242131　吉野聡志}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}
+世界的に人気のあるSNS(Social Networking Service)のひとつとしてTwitterが存在する．2015年6月30日現在，月間アクティブユーザは3億1600万人である\cite{twitterinc}．
+
+Twitterのユーザは「つぶやき」と呼ばれる140字以内の短い記事を書き込むことが可能で，また，他の不特定多数のユーザがそれを閲覧することができる．さらに，つぶやきに返信をすることでコミュニケーションが生まれる．他のユーザのつぶやきを追跡することを「フォローする」という．タイムラインと呼ばれる画面には，自分とフォローしたユーザのつぶやきが同一列上にリアルタイムで，時系列に沿って表示される．自分が閲覧していない間もタイムラインは常に流れていき，フォロー数が多いとつぶやきを見逃す可能性が出てくるため，ユーザ同士の密接でない，ゆるいつながりがTwitter上で生まれるとされている\cite{ascii}．
+
+SNSの中でもアクティブユーザ数が非常に多く，利用スタイルも多数あるTwitterに対し，ユーザである人々が持っているニーズが何であるかが分かれば，他のSNSとの差別化を図りやすくなる．これにより効率的なマーケティングの手法をTwitter社や，Twitter上に広告を打ち出す企業に提案できるのではないかと考えられる．
+
+\section{目的}
+数名のTwitterタイムラインを取得し，各人のタイムライン上に並ぶ単語や，単語同士の結びつきの強さを可視化する．その結果からつぶやきの性質を分析し，各人の嗜好や関心事項と合致するものを見つけ出し，Twitterへのニーズを読み取ることが目的である．
+
+\section{手法}
+自らが利用するものと，矢吹研究室に所属する3年生5人のTwitterアカウントのタイムラインを，TwitterのStreaming APIを用いて1日分取得する．
+
+次に，User Localテキストマイニング（http://textmining.userlocal.jp/）を用いて単語の出現頻度をカウントしたり，単語同士の結びつきの強さを可視化する「共起ネットワーク」を表示させ，各人のTwitterタイムライン上にあるつぶやきの性質を可視化する．
+
+本研究を行う過程でUser Localテキストマイニングでは不都合な場面が生じたため，形態素解析システムのMeCabを用いてUser Localテキストマイニングの分析で行われている処理の再現も試みた．
+
+\section{結果}
+User Localテキストマイニングによる分析の結果，各人の趣味趣向に関連する単語が多く出現した．それに対し，MeCabを用いて分析したところ，どの人のタイムラインにおいてもより一般的な単語が多く出現し，個人間での違いはあまり大きく現れなかった．
+
+\section{考察}
+両者における結果の違いは，User Localテキストマイニングを運営する株式会社ユーザーローカルはビッグデータ分析を主とする会社であるのに対し，デフォルトの状態におけるMeCabは新語や流行語，専門的な単語に弱い傾向があるために現れたものと思われる．
+
+\section{結論}
+MeCabを用いてTwitterタイムラインを分析し，ニーズを読み取るには，まず新語等の辞書をMeCabに追加し，可能な限りトレンドに追いついていく必要があるといえる．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
