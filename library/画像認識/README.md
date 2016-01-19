@@ -23,7 +23,7 @@ https://lab.open.wolframcloud.com/objects/wpl/GetStarted.nb にアクセスす�
 
 https://github.com/yabukilab/main/tree/master/library/twitter/streaming が途中まで終わっていて，リツイートされたツイートがデータベースに入っているとする。
 
-データベースからリツイート数が2000を超えるツイートをした人のアイコンを30件取得する。（30件に限定しているのは，Wolfram Cloutの時間制限を超えないようにするため。）
+データベースからリツイート数が2000を超えるツイートをした人のアイコンを30件取得する。（30件に限定しているのは，Wolfram Cloudの時間制限を超えないようにするため。）
 
 ```
 echo "select distinct profileImageUrl from retweets join users on retweets.retweeted=users.id where rcount>2000 limit 30;" | mysql -uroot -ppass --skip-column-names twitter > images.dat
@@ -44,7 +44,7 @@ echo "};" >> images.m
 
 #### Wolfram Cloudでの作業
 
-`images.m`の内容をWolfram Cloutに貼り付けてShift+Enter。
+`images.m`の内容をWolfram Cloudに貼り付けてShift+Enter。
 
 Wolfram Cloudで`Length[urls]`を評価して，30件あることを確認する。
 
