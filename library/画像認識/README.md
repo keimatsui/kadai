@@ -2,10 +2,10 @@
 
 画像認識の方法を二つ紹介する。
 
-* Wolfram Clout
+* Wolfram Cloud
 * Docomo Developer Support
 
-## Wolfram Cloutを使う
+## Wolfram Cloud
 
 ### 基本
 
