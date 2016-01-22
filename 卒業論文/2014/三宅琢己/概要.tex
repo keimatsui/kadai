@@ -1,0 +1,92 @@
+%卒業論文概要テンプレート ver. 1.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 集合知の成功事例としての株価変動についての調査}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242109　三宅琢己}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}
+
+1986年スペースシャトル・チャレンジャー号爆発事故が起きた．
+その直後，事故原因がわかっていないのにも関わらず，一つの株式会社の株価だけが大きく下がった．事故発生数か月後にその株価が大きく下がった株式会社の製品が原因でその事故が起きたとマスメディアが報じた\cite{miyake2}．チャレンジャー号爆発事故の原因をマスメディアが報じる前に一つの株式会社の株価のみが大幅に下がり，その株式会社が原因企業であったのは，偶然の出来事であったのか．それとも原因企業を瞬時に特定して一つの株式会社の株価のみを下げたのか．
+
+\section{目的}
+
+株式市場は事故原因をわかっていたのか．それとも偶然背景にある事例が起きたのか．
+そのことについて調査する．集合知の成功事例として，株式市場もあてはまるのかを調査する．
+\section{手法}
+チャレンジャー号墜落事故の事例と同じような条件の事故を調べる．
+
+調べる事故の条件は以下のとおりである．
+\begin{itemize}
+  \item 複数の企業が関わっていること
+  \item 原因企業判明まで時間が経っていること
+  \item 原因企業が株式会社であること
+\end{itemize}
+このような条件に当てはまる事故をウェブで検索して調べる．次に原因企業と関連する企業の事故当日の株価データを調べる．原因企業に関連するの企業の株価も大幅下がっていたら，それは研究背景の内容とは異なってくるためである．原因企業以外の株価を調査するため，その事故当日の株価の変動データを収集する\cite{miyake}．その中でその日に下がっている株価を抽出し，事故に関連性のある企業があるかかないかを調べる．さらに関連性のある企業を抽出したら，その企業が事故にどの程度関与しているのかを調べ，株式市場は賢かったのか，チャレンジャー号墜落事故の事例は偶然であったのかを判断する．
+
+\section{結果}
+原因企業の事故当日の株価
+\begin{itemize}
+  \item スペースシャトル・チャレンジャー号爆発事故
+
+原因企業：モートン=サイオコール社　12パーセント下落
+  \item トルコ航空ＤＣ-10パリ墜落事故
+
+原因企業：マクドネル・ダグラス社　　株価取得ならず
+  \item 日本航空123便墜落事故
+
+原因企業：ボーイング社　0.11パーセント下落
+  \item 東京航空交通管制システム障害
+
+原因企業：日本電気株式会社　0.05パーセント上昇
+\end{itemize}
+
+\section{考察}
+今回は事例も少なく，株価変動も明らかなものもなく，関連企業のデータ取得技術の開発ができず，はっきりと答えを出すことができなかった．だが，その技術が開発でき次第，この研究が進められると考える．事故と株価の変動は必ず関係するため今後も注目していく．
+\section{結論}
+事故に関連する企業の情報を取得する技術を開発することができず，今回の研究は目的を果たすことができなかった．だが関連する企業の情報を取得することができたとしてそのあとの事故当日の日本企業の株価を取得し，そのデータを可視化するツールの開発は成功した．よって，今回の研究は関連する企業の情報を取得することができれば，また研究が進むところにつなげるものとなった．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
