@@ -1,0 +1,103 @@
+%卒業論文概要テンプレート ver. 1.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 集合知の成功事例としての株価変動についての調査}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242109　三宅琢己}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}
+
+1986年スペースシャトル・チャレンジャー号爆発事故が起きた．
+その直後，事故に関連していた4社の株価が急落した．そのうち3社の株価は持ち直したのだが，1社の株価だけさらに下がり，持ち直すことはなかった．
+その数か月後，その1社の部品が原因で爆発事故が起きたことを公表した\cite{miyake2}．この結果だけ見ると株式市場は原因企業を特定していたのではないかと考えられる．
+株式市場は賢く，原因企業を本当に特定していたのか，それとも偶然このようなことが起きたのか．
+
+\section{目的}
+
+背景にあることを調査するためには，銘柄・期間を指定し，さらに株価データの変動を可視化できるようにする必要がある．そのようなことを可能にするツールの開発を本研究での目的とする．完成次第背景にある，株式市場は賢いのか，そうでもないのかを進めるものとする．
+\section{手法}
+『Rubyによるクローラー開発技法』を参考に株価の取得ツールの開発をした\cite{miyake}．そして開発したツールを試し，背景の調査を進める．今回，2015年10月以降問題となっている，「横浜市マンション傾斜問題」に関連している企業の株価を研究の対象とする．「横浜市マンション傾斜問題」に関連し，判明した日は以下のとおりである．
+\begin{itemize}
+  \item 三井不動産　
+
+2015年10月14日マンション傾斜公表する
+  \item 旭化成　
+
+2015年10月14日杭打ちデータ改ざん認める
+  \item 三井住友建設　
+
+2015年10月24日設計より短い杭を発注したこと認める
+  \item 日立ハイテクノロジーズ　
+
+2015年10月27日旭化成に下請けを丸投げ疑惑がかかる
+\end{itemize}
+これらの日付をもとに株価変動を比較していく．
+
+
+
+\section{結果}
+関連企業の株価変動結果
+\begin{itemize}
+  \item 三井不動産は13日から下がり始め，14日は2パーセント下落
+  \item 旭化成は10月14日まで変動はなく，15日の始値は14日の終値から11.4パーセント下落
+  \item 三井住友建設は13日終値から14日始値は12パーセント下落し，14日始値と終値で30パーセント下落，その後持ち直さなかった
+  \item 日立ハイテクノロジーズはトレンドを乱すことなく，特に変化なし
+\end{itemize}
+
+\section{考察}
+株価に変動があったのは日立ハイテクノロジーズ以外の3社である．
+
+旭化成は14日に杭打ちデータ改ざんを認めたため株価が下がるのは当たり前であると考える．
+
+だが三井住友建設は10月24日に短い杭を8流していたことを認めたのにもかかわらず，
+14日に大幅にトレンドが乱れ下落している．
+この結果を見る限り，株式市場は三井住友建設が主犯であると言っているように感じられる．
+
+\section{結論}
+本研究の目的である株価取得とその可視化は成功した．
+背景の調査に関してはマンション傾斜の事例だけを見れば株式市場は原因をわかっていたと言えるが，
+事例が一つしかないため断言はできない．
+開発したツールを使い，事例を増やし研究していけば調査は進められる．
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
