@@ -1,30 +1,15 @@
-%卒論中間審査用研究概要テンプレート ver. 1.2
+%中間審査概要テンプレート ver. 2.0
 
 \documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
 \usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
 \setlength{\columnsep}{15mm}
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
-\usepackage{wrapfig}
 \usepackage[expert,deluxe]{otf}
 \usepackage[dvipdfmx,hiresbb]{graphicx}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper}
 \usepackage{secdot}
-
-\makeatletter
-\renewcommand{\section}{%
-  \@startsection{section}{1}{\z@}%
-  {0.6\Cvs}{0.4\Cvs}%
-  {\normalfont\normalsize\raggedright}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
-  {\z@}{\z@}%
-  {\normalfont\normalsize}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
-  {\z@}{\z@}%
-  {\normalfont\normalsize}}
-\makeatother
-%ここから上を編集する必要はない．
 
 
 
@@ -32,7 +17,7 @@
 
 %タイトルと学生番号，名前だけ編集すること
 \title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 研究タイトル}
-\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1234567　氏名}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1234567　氏名}
 \date{}
 \pagestyle{empty}
 \begin{document}
@@ -44,34 +29,28 @@
 
 
 %以下が本文
-\section{研究の背景}
+\section{背景}
 
-%図の挿入
-%\begin{wrapfigure}[行数]{r}{幅}%行数はオプションだが，調整しないとうまくいかないことがある．
-%\begin{wrapfigure}[11]{r}{4cm}
-\begin{wrapfigure}{r}{4cm}
-\vspace*{-\intextsep}
-%\includegraphics[width=図の幅,clip]{ファイル名}\label{参照用ラベル}
-\includegraphics[width=4cm,clip]{figure.pdf}
-\caption{図の挿入例}\label{サンプル図}
-\end{wrapfigure}
-
-矢吹研究室では課題研究のレジュメは\LaTeX で書くことになっている．その理由は2つある．
-
-\noindent
-（以下略．課題研究のテンプレを参照）
+矢吹研究室では課題研究のレジュメは\LaTeX で書くことになっている．
 
 \noindent
 □□□□□□□□□■□□□□□□□□□■□□□□□□□□□■
+
+%図の挿入
+\begin{figure}[h]
+\centering
+\includegraphics[width=4cm,clip]{figure.pdf}
+\caption{図の挿入例}\label{サンプル図}
+\end{figure}
 
 \noindent
 注意：1ページいっぱいまで書くこと（右段の下の空行が2行以下ならよい）。
 
 \section{目的}
 
-\section{研究方法}
+\section{手法}
 
-\section{成果物のイメージ}
+\section{想定される成果物}
 
 \section{進捗状況}
 
