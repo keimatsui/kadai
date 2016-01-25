@@ -1,0 +1,84 @@
+﻿%卒業論文概要テンプレート ver. 1.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=20mm,right=20mm]{geometry}
+\setlength{\columnsep}{15mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+  {0.6\Cvs}{0.4\Cvs}%
+  {\normalfont\normalsize\raggedright}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {\z@}{\z@}%
+  {\normalfont\normalsize}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont SNS経由で入手される情報のユーザ間差異の可視化}
+\author{\normalsize プロジェクトマネジメントコース・ソフトウェア開発管理グループ　矢吹研究室　1242131　吉野聡志}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}
+世界的に人気のあるSNS(Social Networking Service)のひとつとしてTwitterが存在する．2015年9月30日現在，月間アクティブユーザは3億2000万人である\cite{twitterinc}．
+
+Twitterの速報性や拡散性を活かし，様々な企業がTwitterを用いたマーケティングを行っている．その例のひとつに，江崎グリコ株式会社が販売する「ポッキー」がある．11月11日を「ポッキー＆プリッツの日」とし，毎年11月11日になると「ポッキー」とたくさんつぶやくよう呼びかけ，「24時間で最もツイートされたブランド」としてギネス世界記録樹立を狙う．その取り組みで実際にギネス世界記録に認定されるだけでなく，ポッキーの売上が大きく跳ね上がるという結果も生み出した\cite{marketing}．
+
+SNSの中でもアクティブユーザ数が非常に多く，利用スタイルも多数あるTwitterに対し，ユーザである人々が持っているニーズが何であるかが分かれば，他のSNSとの差別化を図りやすくなる．これにより効率的なマーケティングの手法をTwitter社や，Twitter上に広告を打ち出す企業に提案できるのではないかと考えられる．
+
+\section{目的}
+数名のTwitterタイムラインを取得し，各タイムラインで特徴となる単語をリストアップする．第一の目的は，その語群が各人のTwitterでの関心事項や利用スタイルとどの点が一致するか，またはしないかを見つけることである．
+
+また第二の目的は，リストアップした単語やTwitterの利用スタイルをユーザごとに比較し，ユーザひとりひとりがどれだけ違った情報をTwitter上でやり取りしているかを見比べることである．
+
+\section{手法}
+まず，Twitterアクティブユーザである5人の矢吹研究室3年生に協力を仰ぎ，各人がTwitterに求める情報や，Twitterの利用スタイルを聞く．
+
+次に自分のものを含む6つのアカウントにおいて，同じ期間のタイムラインを一日分取得する．
+
+そして取得したタイムラインを形態素解析エンジンMeCabで解析し，頻出単語とその頻度（TF）を算出し，同時に各単語の重み付け（IDF）を行う．
+
+最後にTFとIDFをかけ合わせ（TFIDF），各タイムラインの特徴となる単語（特徴語）と特徴の度合いを導き出す．
+
+\section{結果}
+どのユーザにおいても，Twitterへの関心事項とタイムラインの特徴語の一致をある程度観測することができた．
+
+また，直接的な一致がなくとも関心事項に関連する単語も現れていた．
+
+リストアップした単語のユーザによる違いは大きなものとなった．
+
+\section{考察}
+Twitterでユーザが他のユーザをフォローする基準のひとつに，自分が興味のある情報をそのユーザが発信するかどうか，があると考えられる．
+
+\section{結論}
+本研究の手法を用いてTwitterへの顕在的なニーズを読み取るのは十分に可能といえる．しかし，ユーザが他のユーザをフォローする基準は人それぞれであり，それによってはニーズと関係のない，ノイズとなるデータがどれだけ入ってくるかが変わるため，潜在的なニーズを予測する際は他の有用な情報も同時に得る必要がある．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
