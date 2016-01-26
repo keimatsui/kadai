@@ -2,10 +2,12 @@
 
 import xml.sax
 import sys
+import re
 
 class myHandler(xml.sax.ContentHandler):
-  reading = {"title":False}
+  reading = {"title":False, "timestamp":False}
   title = ""
+  timestamp = ""
   revisions = 0
 
   def __init__(self):
@@ -21,14 +23,19 @@ class myHandler(xml.sax.ContentHandler):
       self.title = ""
       self.revisions = 0
     elif name == "revision":
-      self.revisions = self.revisions + 1
+      if pattern.match(self.timestamp):
+        self.revisions = self.revisions + 1
+      self.timestamp = ""
  
   def characters(self, content):
     if self.reading["title"] == True:
       self.title = self.title + content
-  
+    elif self.reading["timestamp"] == True:
+      self.timestamp = self.timestamp + content
+
 def main():
   xml.sax.parse(sys.stdin, myHandler())
  
 if __name__ == "__main__":
+  pattern = re.compile(sys.argv[1])
   main()
