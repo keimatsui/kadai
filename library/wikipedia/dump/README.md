@@ -164,7 +164,7 @@ Wikipedia:管理者伝言板/投稿ブロック/history20110116     6412
 cat jawiki-20150901-stub-meta-history1.xml | python3 time-revisions.py 2004-01 > tmp1
 ```
 
-`time-revisions.py`は，引数として与えられたパターンに，先頭からマッチするtimestamp要素を持つrevisionだけを数える。パターンには正規表現を使えるが，先頭からマッチさせる仕様になっている（つまり，`^`を付かなくても`^`を付けたのと同じ結果になる）。
+`time-revisions.py`は，引数として与えられたパターンに，先頭からマッチする内容のtimestamp要素を持つrevisionだけを数える。パターンには正規表現を使えるが，先頭からマッチさせる仕様になっている（つまり，`^`を付かなくても`^`を付けたのと同じ結果になる）。
 
 ## 並列化
 
