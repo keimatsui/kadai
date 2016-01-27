@@ -1,0 +1,94 @@
+\contentsline {chapter}{\numberline {第1章}序論}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}研究背景}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}研究背景となった話}{4}{section.1.2}
+\contentsline {chapter}{\numberline {第2章}研究目的}{8}{chapter.2}
+\contentsline {chapter}{\numberline {第3章}集合知とは}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}集合知収集の4つの手順}{9}{section.3.1}
+\contentsline {chapter}{\numberline {第4章}ナレッジマネジメントとは}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}SECIモデル}{10}{section.4.1}
+\contentsline {section}{\numberline {4.2}具体的な手法}{11}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}データマイニング}{12}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}データウェアハウス}{12}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}知識共有化}{12}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}可視化}{12}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}エンタープライズサーチ}{13}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}知識変換の「場」}{13}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}創発場(Originating Ba)}{13}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}対話場(Dialoguing Ba)}{13}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}システム場(Systemizing Ba)}{13}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}実践場(Exercising Ba)}{13}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {第5章}株とは}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}株とは}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}株式会社とは}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}株価変動の要因}{15}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}株価上昇の要因}{15}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}株価下落の要因}{16}{subsection.5.3.2}
+\contentsline {chapter}{\numberline {第6章}Rubyによるクローラー開発について}{18}{chapter.6}
+\contentsline {section}{\numberline {6.1}Rubyとは}{18}{section.6.1}
+\contentsline {section}{\numberline {6.2}Rubyの特性}{18}{section.6.2}
+\contentsline {section}{\numberline {6.3}Rubyのオブジェクト指向}{19}{section.6.3}
+\contentsline {section}{\numberline {6.4}クローラーとは}{19}{section.6.4}
+\contentsline {section}{\numberline {6.5}クローラーの目的}{19}{section.6.5}
+\contentsline {section}{\numberline {6.6}クローラーの構造}{19}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}コンテンツの取得}{20}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}データの解析}{20}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}データの保存}{21}{subsection.6.6.3}
+\contentsline {section}{\numberline {6.7}RubyとAnemone}{21}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Anemoneとは}{21}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Anemoneの機能}{21}{subsection.6.7.2}
+\contentsline {chapter}{\numberline {第7章}研究方法}{23}{chapter.7}
+\contentsline {section}{\numberline {7.1}Linuxを使用}{23}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}OSとは}{23}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Linuxを使用する理由}{23}{subsection.7.1.2}
+\contentsline {section}{\numberline {7.2}Oracle VM VirtualBoxを使用}{23}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Oracle VM VirtualBoxとは}{23}{subsection.7.2.1}
+\contentsline {section}{\numberline {7.3}Oracle VM VirtualBox用語説明}{24}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}ホストOS}{24}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}ゲストOS}{24}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.3}仮想化ソフト}{24}{subsection.7.3.3}
+\contentsline {subsection}{\numberline {7.3.4}仮想ディスク}{24}{subsection.7.3.4}
+\contentsline {subsection}{\numberline {7.3.5}仮想マシン}{24}{subsection.7.3.5}
+\contentsline {section}{\numberline {7.4}Ubuntu，VirtualBoxをインストール}{24}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Ubuntuとは}{24}{subsection.7.4.1}
+\contentsline {subsection}{\numberline {7.4.2}Ubuntuの特徴}{25}{subsection.7.4.2}
+\contentsline {subsection}{\numberline {7.4.3}Ubuntuをインストール}{26}{subsection.7.4.3}
+\contentsline {subsection}{\numberline {7.4.4}VirtualBoxをインストール}{26}{subsection.7.4.4}
+\contentsline {section}{\numberline {7.5}ゲストマシンを作成し，その中にUbuntuをインストール}{26}{section.7.5}
+\contentsline {section}{\numberline {7.6}『Rubyによるクローラー開発技法の通りに株価を取得}{29}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}端末を開く}{29}{subsection.7.6.1}
+\contentsline {subsection}{\numberline {7.6.2}RubyとAnemoneをインストールする}{30}{subsection.7.6.2}
+\contentsline {subsection}{\numberline {7.6.3}作業ディレクトリを作り，移動する}{32}{subsection.7.6.3}
+\contentsline {subsection}{\numberline {7.6.4}サンプルスプリクトのダウンロードと使うファイルへの移動}{33}{subsection.7.6.4}
+\contentsline {subsection}{\numberline {7.6.5}株価データを収集する}{34}{subsection.7.6.5}
+\contentsline {subsection}{\numberline {7.6.6}株価取得コード}{34}{subsection.7.6.6}
+\contentsline {section}{\numberline {7.7}株価取得ツール使用方法}{36}{section.7.7}
+\contentsline {subsection}{\numberline {7.7.1}RubyとAnemoneのインストール}{36}{subsection.7.7.1}
+\contentsline {subsection}{\numberline {7.7.2}作業ディレクトリの作成と移動}{36}{subsection.7.7.2}
+\contentsline {subsection}{\numberline {7.7.3}ディレクトリにコードファイルを入れる}{37}{subsection.7.7.3}
+\contentsline {subsection}{\numberline {7.7.4}Gnuplotをインストール}{41}{subsection.7.7.4}
+\contentsline {subsection}{\numberline {7.7.5}株価データの可視化}{42}{subsection.7.7.5}
+\contentsline {subsection}{\numberline {7.7.6}描写した株価変動データ}{43}{subsection.7.7.6}
+\contentsline {section}{\numberline {7.8}背景にある調査の進め方}{45}{section.7.8}
+\contentsline {subsection}{\numberline {7.8.1}調べる事故の条件}{45}{subsection.7.8.1}
+\contentsline {subsection}{\numberline {7.8.2}条件に当てはまる事故}{46}{subsection.7.8.2}
+\contentsline {subsection}{\numberline {7.8.3}各事故の原因企業}{48}{subsection.7.8.3}
+\contentsline {subsubsection}{スペースシャトル・チャレンジャー号爆発事故}{48}{section*.2}
+\contentsline {subsubsection}{トルコ航空ＤＣ-10パリ墜落事故}{49}{section*.3}
+\contentsline {subsubsection}{日本航空123便墜落事故}{49}{section*.4}
+\contentsline {subsubsection}{東京航空交通管制システム障害}{49}{section*.5}
+\contentsline {subsection}{\numberline {7.8.4}各事故に関連する企業情報の入手}{51}{subsection.7.8.4}
+\contentsline {subsection}{\numberline {7.8.5}事故関連企業の株価変動データの比較・解析}{52}{subsection.7.8.5}
+\contentsline {section}{\numberline {7.9}横浜マンション傾斜問題の調査}{52}{section.7.9}
+\contentsline {subsection}{\numberline {7.9.1}横浜マンション傾斜問題とは}{52}{subsection.7.9.1}
+\contentsline {subsection}{\numberline {7.9.2}横浜マンション傾斜理由}{52}{subsection.7.9.2}
+\contentsline {subsection}{\numberline {7.9.3}横浜マンション建設の流れ}{52}{subsection.7.9.3}
+\contentsline {subsection}{\numberline {7.9.4}次々と発覚する事実}{52}{subsection.7.9.4}
+\contentsline {subsection}{\numberline {7.9.5}原因企業}{53}{subsection.7.9.5}
+\contentsline {chapter}{\numberline {第8章}結果}{54}{chapter.8}
+\contentsline {subsection}{\numberline {8.0.6}三井不動産}{54}{subsection.8.0.6}
+\contentsline {section}{\numberline {8.1}旭化成}{56}{section.8.1}
+\contentsline {section}{\numberline {8.2}三井住友建設}{58}{section.8.2}
+\contentsline {section}{\numberline {8.3}日立ハイテクノロジーズ}{60}{section.8.3}
+\contentsline {chapter}{\numberline {第9章}考察}{63}{chapter.9}
+\contentsline {chapter}{\numberline {第10章}結論}{64}{chapter.10}
+\contentsline {chapter}{参考文献}{65}{chapter*.6}
