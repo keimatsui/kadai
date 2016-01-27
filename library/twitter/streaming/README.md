@@ -67,6 +67,28 @@ sh retweets.sh
 
 ## リツイートに関する調査
 
+### リツイート数の分布
+
+rcountだけをデータベースから取り出す。
+
+```
+echo "select rcount from retweets;" | mysql -uroot -ppass --skip-column-names twitter > rcount.dat
+```
+
+このファイルをウェブに置く。（たとえばGistに登録する。）
+
+ウェブで閲覧できることを確認する。（Gistなら「Raw」をクリックする。）
+
+https://lab.open.wolframcloud.com/objects/wpl/GetStarted.nb に行く。
+
+`data=Flatten[Import["データのURL","Table"]];`として，Shift-Enter。
+
+`Length[data]`を評価して，データ数を確認する。
+
+`Histogram[data]`でヒストグラムを描く。
+
+`Histogram[data,"Log"]`でヒストグラムを描く。これは何か。『新ネットワーク思考』に載っているか。
+
 ### リツイートした人がフォローしている人の取得（`friends.py`）
 
 指定したIDのユーザがフォローしている人を取得する（最大で5000人、APIの上限）。
