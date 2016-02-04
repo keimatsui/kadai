@@ -48,8 +48,7 @@ ruby nokogiri-stock-history.rb
 Yahoo (4689)の2015/10/1から2015/12/31の株価を取得するコマンドは次のとおり。
 
 ```
-code=4689
-ruby nokogiri-stock-history2.rb ${code} 2015 10 1 2015 12 31 > ${code}.csv 
+code=4689; ruby nokogiri-stock-history2.rb ${code} 2015 10 1 2015 12 31 > ${code}.csv 
 ```
 
 #### 可視可
