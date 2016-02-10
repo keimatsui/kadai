@@ -29,12 +29,13 @@
 
 Ubuntuをゲストにする場合のtips：
 
-* `sudo apt-get install virtualbox-ose-guest-utils`を実行してから再起動することで、ホストとゲストの間でのクリップボードやファイルの共有、画面サイズの変更などが可能になる。
+* `sudo apt-get -y install virtualbox-ose-guest-utils`を実行してから再起動することで、ホストとゲストの間でのクリップボードやファイルの共有、画面サイズの変更などが可能になる。
 * ホストとゲストでファイルを共有する方法：
  * デバイス→共有フォルダで共有したいホストのフォルダを選択する（Desktopだとする）。
  * Ubuntuのコンソールで`mkdir share`などとして共有用のフォルダを作る。
  * `sudo mount -t vboxsf Desktop share`などとしてマウントする。フォルダ`share`がホストのDesktopと同じになる。
 * [VirtualBox 最大パフォーマンスでUbuntu環境を構築する](http://holybea.com/2015/07/08/virtualbox-ubuntu/)
+* CPU負荷を軽くするために，`sudo apt-get -y install compizconfig-settings-manager`としてから`ccsm`でCompizConfig設定マネージャを起動し，OpenGLのテクスチャ・フィルタを「速さ重視」に，垂直ブランクに同期化をオフにする。
 
 ## 資料
 
