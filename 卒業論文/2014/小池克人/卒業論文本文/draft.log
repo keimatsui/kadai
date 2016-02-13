@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.5-u1.11-130605-2.6 (utf8.uptex) (TeX Live 2014/W32TeX) (preloaded format=uplatex 2015.12.2)  27 JAN 2016 23:45
+This is e-upTeX, Version 3.14159265-p3.5-u1.11-130605-2.6 (utf8.uptex) (TeX Live 2014/W32TeX) (preloaded format=uplatex 2015.12.2)  13 FEB 2016 23:25
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -550,529 +550,527 @@ File: utxsyc.fd 2000/12/15 v3.1
 
 
 ]
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 23.0061pt on input line 15.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 23.0061pt on input line 15.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 18.
+(Font)              scaled to size 23.0061pt on input line 15.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 18.
-LaTeX Font Info:    Try loading font information for T1+txss on input line 18.
+(Font)              scaled to size 23.0061pt on input line 15.
+LaTeX Font Info:    Try loading font information for T1+txss on input line 15.
 
 (c:/texlive/2014/texmf-dist/tex/latex/txfonts/t1txss.fd
 File: t1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 18.
-LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 18.
-LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 18.
+(Font)              scaled to size 23.63593pt on input line 15.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 18.
+(Font)              scaled to size 9.24683pt on input line 17.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 18.
+(Font)              scaled to size 9.24683pt on input line 17.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 23.63593pt on input line 18.
- (./draft.toc
+(Font)              scaled to size 9.49997pt on input line 17.
+LaTeX Font Info:    Font shape `JT2/hmc/bx/n' will be
+(Font)              scaled to size 9.24683pt on input line 17.
+LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
+(Font)              scaled to size 9.24683pt on input line 17.
+ [2
+
+] (./draft.toc
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 6.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 6.
-LaTeX Font Info:    Font shape `JT2/hmc/bx/n' will be
-(Font)              scaled to size 9.24683pt on input line 44.
-LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
-(Font)              scaled to size 9.24683pt on input line 44.
- [1
 
+[3
 
 ])
 \tf@toc=\write4
 \openout4 = `draft.toc'.
 
-
-[2]
+ [4]
 第1章
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 19.17792pt on input line 20.
+(Font)              scaled to size 19.17792pt on input line 19.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 19.17792pt on input line 20.
+(Font)              scaled to size 19.17792pt on input line 19.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 19.17792pt on input line 20.
+(Font)              scaled to size 19.17792pt on input line 19.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 19.17792pt on input line 20.
+(Font)              scaled to size 19.17792pt on input line 19.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 19.70294pt on input line 20.
-[1
-
+(Font)              scaled to size 19.70294pt on input line 19.
+[5
 
 ]
 第2章
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 51.
+(Font)              scaled to size 8.32214pt on input line 48.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 51.
-[2
+(Font)              scaled to size 8.32214pt on input line 48.
+[6
 
-] [3]
+] [7]
 第3章
-[4
+[8
 
 ]
 第4章
-[5
+[9
 
 ]
 第5章
 LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 68.
+(Font)              scaled to size 13.31541pt on input line 65.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 68.
+(Font)              scaled to size 13.31541pt on input line 65.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 68.
+(Font)              scaled to size 13.31541pt on input line 65.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 68.
+(Font)              scaled to size 13.31541pt on input line 65.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 13.67995pt on input line 68.
+(Font)              scaled to size 13.67995pt on input line 65.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 75.
+(Font)              scaled to size 11.09619pt on input line 72.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 75.
+(Font)              scaled to size 11.09619pt on input line 72.
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 75.
-[6
+(Font)              scaled to size 11.39996pt on input line 72.
+[10
 
 ]
 File: kinoko8.png Graphic file (type bmp)
  <kinoko8.png>
 File: iden.jpg Graphic file (type bmp)
- <iden.jpg> [7] [8]
+ <iden.jpg> [11] [12]
 File: GMO.jpg Graphic file (type bmp)
  <GMO.jpg>
 File: gan.png Graphic file (type bmp)
- <gan.png> [9] [10]
+ <gan.png> [13] [14]
 第6章
-[11
+[15
 
 ]
 File: img_wiki03.png Graphic file (type bmp)
- <img_wiki03.png> [12]
+ <img_wiki03.png> [16]
 第7章
 File: wikipedia.png Graphic file (type bmp)
-<wikipedia.png> [13
+<wikipedia.png> [17
 
-] [14]
+] [18]
 File: mudai.png Graphic file (type bmp)
  <mudai.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 231--232
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 228--229
  [][] 
  []
 
 File: 2.png Graphic file (type bmp)
 <2.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 238--239
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 235--236
  [][] 
  []
 
 File: 3.png Graphic file (type bmp)
 <3.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 245--246
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 242--243
  [][] 
  []
 
-[15] [16]
+[19] [20]
 第8章
 File: mediawiki.png Graphic file (type bmp)
 <mediawiki.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 263--264
- [][] 
- []
-
-[17
-
-]
-File: kensaku.png Graphic file (type bmp)
- <kensaku.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 294--295
- [][] 
- []
-
-File: sakusei.png Graphic file (type bmp)
-<sakusei.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 302--303
- [][] 
- []
-
-File: ubuntu.png Graphic file (type bmp)
-<ubuntu.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 318--319
- [][] 
- []
-
-[18] [19] [20]
-File: hutomozi.png Graphic file (type bmp)
- <hutomozi.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 338--339
- [][] 
- []
-
-File: syatai.png Graphic file (type bmp)
-<syatai.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 348--349
- [][] 
- []
-
-File: hutosya.png Graphic file (type bmp)
-<hutosya.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 360--361
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 260--261
  [][] 
  []
 
 [21
 
 ]
+File: kensaku.png Graphic file (type bmp)
+ <kensaku.png>
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 291--292
+ [][] 
+ []
+
+File: sakusei.png Graphic file (type bmp)
+<sakusei.png>
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 299--300
+ [][] 
+ []
+
+File: ubuntu.png Graphic file (type bmp)
+<ubuntu.png>
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 315--316
+ [][] 
+ []
+
+[22] [23] [24]
+File: hutomozi.png Graphic file (type bmp)
+ <hutomozi.png>
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 335--336
+ [][] 
+ []
+
+File: syatai.png Graphic file (type bmp)
+<syatai.png>
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 345--346
+ [][] 
+ []
+
+File: hutosya.png Graphic file (type bmp)
+<hutosya.png>
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 357--358
+ [][] 
+ []
+
+[25
+
+]
 File: torikesi.png Graphic file (type bmp)
  <torikesi.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 371--372
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 368--369
  [][] 
  []
 
 File: ma-ku.png Graphic file (type bmp)
 <ma-ku.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 381--382
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 378--379
  [][] 
  []
 
-[22]
+[26]
 File: reberu.png Graphic file (type bmp)
  <reberu.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 393--394
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 390--391
  [][] 
  []
 
-[23]
+[27]
 File: suihei.png Graphic file (type bmp)
  <suihei.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 404--405
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 401--402
  [][] 
  []
 
 File: kazyou.png Graphic file (type bmp)
 <kazyou.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 414--415
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 411--412
  [][] 
  []
 
-[24]
+[28]
 File: risuto.png Graphic file (type bmp)
  <risuto.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 425--426
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 422--423
  [][] 
  []
 
 File: teigi.png Graphic file (type bmp)
 <teigi.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 435--436
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 432--433
  [][] 
  []
 
 File: kasen.png Graphic file (type bmp)
 <kasen.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 446--447
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 443--444
  [][] 
  []
 
 File: naibu.png Graphic file (type bmp)
 <naibu.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 458--459
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 455--456
  [][] 
  []
 
-[25]
+[29]
 File: gaibu.png Graphic file (type bmp)
  <gaibu.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 470--471
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 467--468
  [][] 
  []
 
 File: kategori.png Graphic file (type bmp)
 <kategori.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 484--485
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 481--482
  [][] 
  []
 
-[26] [27] [28]
+[30] [31] [32]
 第9章
 File: reidai.png Graphic file (type bmp)
 <reidai.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 503--504
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 500--501
  [][] 
  []
 
-[29
+[33
 
-] [30]
+] [34]
 File: vm.png Graphic file (type bmp)
  <vm.png>
 File: arsuto.png Graphic file (type bmp)
  <arsuto.png>
 File: kasou.png Graphic file (type bmp)
- <kasou.png> [31
+ <kasou.png> [35
 
-] [32] [33
-
-]
-Overfull \hbox (40.77667pt too wide) in paragraph at lines 600--613
-[][] 
- []
-
-[34
+] [36] [37
 
 ]
-Overfull \hbox (26.64996pt too wide) in paragraph at lines 617--625
+Overfull \hbox (40.77667pt too wide) in paragraph at lines 597--610
 [][] 
  []
 
-[35]
-Overfull \hbox (77.33188pt too wide) in paragraph at lines 626--634
+[38
+
+]
+Overfull \hbox (26.64996pt too wide) in paragraph at lines 614--622
 [][] 
  []
 
-[36]
+[39]
+Overfull \hbox (77.33188pt too wide) in paragraph at lines 623--631
+[][] 
+ []
+
+[40]
 Overfull \vbox (17.78714pt too high) has occurred while \output is active []
 
 
-[37]
+[41]
 File: ubuntugamen.png Graphic file (type bmp)
  <ubuntugamen.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 648--649
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 645--646
  [][] 
  []
 
-[38] [39]
+[42] [43]
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 695.
+(Font)              scaled to size 8.32214pt on input line 692.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 695.
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 695.
+(Font)              scaled to size 8.32214pt on input line 692.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 692.
 
  (c:/texlive/2014/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
-Overfull \hbox (51.07797pt too wide) in paragraph at lines 713--713
+Overfull \hbox (51.07797pt too wide) in paragraph at lines 710--710
 []\T1/txtt/m/n/9 echo 'mysql-server mysql-server/root_password password pass' |
  sudo debconf-set-selections[] 
  []
 
 
-Overfull \hbox (79.42792pt too wide) in paragraph at lines 713--713
+Overfull \hbox (79.42792pt too wide) in paragraph at lines 710--710
 []\T1/txtt/m/n/9 echo 'mysql-server mysql-server/root_password_again password p
 ass' | sudo debconf-set-selections[] 
  []
 
 
-Overfull \hbox (98.32788pt too wide) in paragraph at lines 722--722
+Overfull \hbox (98.32788pt too wide) in paragraph at lines 719--719
 []\T1/txtt/m/n/9 echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect 
 apache2' | sudo debconf-set-selections[] 
  []
 
 
-Overfull \hbox (41.62799pt too wide) in paragraph at lines 722--722
+Overfull \hbox (41.62799pt too wide) in paragraph at lines 719--719
 []\T1/txtt/m/n/9 echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | s
 udo debconf-set-selections[] 
  []
 
 
-Overfull \hbox (46.35298pt too wide) in paragraph at lines 722--722
+Overfull \hbox (46.35298pt too wide) in paragraph at lines 719--719
 []\T1/txtt/m/n/9 echo 'phpmyadmin phpmyadmin/mysql/admin-pass password pass' | 
 sudo debconf-set-selections[] 
  []
 
 
-Overfull \hbox (36.903pt too wide) in paragraph at lines 722--722
+Overfull \hbox (36.903pt too wide) in paragraph at lines 719--719
 []\T1/txtt/m/n/9 echo 'phpmyadmin phpmyadmin/mysql/app-pass password pass' | su
 do debconf-set-selections[] 
  []
 
 
-Overfull \hbox (65.25294pt too wide) in paragraph at lines 722--722
+Overfull \hbox (65.25294pt too wide) in paragraph at lines 719--719
 []\T1/txtt/m/n/9 echo 'phpmyadmin phpmyadmin/app-password-confirm password pass
 ' | sudo debconf-set-selections[] 
  []
 
 File: settei.png Graphic file (type bmp)
 <settei.png>
-Overfull \hbox (24.16737pt too wide) in paragraph at lines 747--748
+Overfull \hbox (24.16737pt too wide) in paragraph at lines 744--745
  [][] 
  []
 
-[40
+[44
 
 ]
 File: mein.png Graphic file (type bmp)
  <mein.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 769--770
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 766--767
  [][] 
  []
 
-[41]
-Overfull \hbox (178.65273pt too wide) in paragraph at lines 823--823
+[45]
+Overfull \hbox (178.65273pt too wide) in paragraph at lines 820--820
 []\T1/txtt/m/n/9 ruby 1.8.7 (2015-04-14 MBARI 8/0x6770 on patchlevel 375) [x86_
 64-linux], MBARI 0x6770, Ruby Enterprise Edition2012.02[] 
  []
 
-[42]
-Overfull \hbox (51.07797pt too wide) in paragraph at lines 840--840
+[46]
+Overfull \hbox (51.07797pt too wide) in paragraph at lines 837--837
 []\T1/txtt/m/n/9 wget -O mecab-ruby-0.994.tar.gz https://mecab.googlecode.com/f
 iles/mecab-ruby-0.994.tar.gz[] 
  []
 
 File: testrb.png Graphic file (type bmp)
 <testrb.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 845--846
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 842--843
  [][] 
  []
 
 
-Overfull \hbox (32.17801pt too wide) in paragraph at lines 867--867
+Overfull \hbox (32.17801pt too wide) in paragraph at lines 864--864
 []\T1/txtt/m/n/9 wget -O ex-hyponymy-1.0.tar.gz https://alaginrc.nict.go.jp/hyp
 onymy/cgi-bin/dl.1.0.cgi[] 
  []
 
-[43]
+[47]
 File: require.png Graphic file (type bmp)
  <require.png>
-Overfull \hbox (52.62013pt too wide) in paragraph at lines 879--880
+Overfull \hbox (52.62013pt too wide) in paragraph at lines 876--877
  [][] 
  []
 
-[44]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 904.
+[48]
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 901.
 
  (c:/texlive/2014/texmf-dist/tex/latex/txfonts/omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 904.
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 901.
 File: hierarchy.png Graphic file (type bmp)
  <hierarchy.png>
 File: definition.png Graphic file (type bmp)
 
-<definition.png> [45
+<definition.png> [49
 
 ]
 File: category.png Graphic file (type bmp)
  <category.png>
 File: zyouikai.png Graphic file (type bmp)
- <zyouikai.png> [46
+ <zyouikai.png> [50
 
 ]
 File: hakusai.png Graphic file (type bmp)
  <hakusai.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 953--954
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 950--951
  [][] 
  []
 
 File: nabe.png Graphic file (type bmp)
 <nabe.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 959--960
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 956--957
  [][] 
  []
 
 File: nabe2.png Graphic file (type bmp)
 <nabe2.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 965--966
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 962--963
  [][] 
  []
 
 File: nabe3.png Graphic file (type bmp)
 <nabe3.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 971--972
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 968--969
  [][] 
  []
 
 File: nabe4.png Graphic file (type bmp)
 <nabe4.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 977--978
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 974--975
  [][] 
  []
 
-[47] [48] [49]
-Overfull \hbox (3.82806pt too wide) in paragraph at lines 989--989
+[51] [52] [53]
+Overfull \hbox (3.82806pt too wide) in paragraph at lines 986--986
 []\T1/txtt/m/n/9 php /var/www/html/mediawiki/maintenance/dumpBackup.php --curre
 nt > all-pages.xml[] 
  []
 
 
-Overfull \hbox (17.83733pt too wide) in paragraph at lines 1002--1002
+Overfull \hbox (17.83733pt too wide) in paragraph at lines 999--999
 []\T1/txtt/m/n/9 echo -e ' \JY2/hgt/m/n/9 ハクサイ\T1/txtt/m/n/9 \n \JY2/hg
 t/m/n/9 鍋料理\T1/txtt/m/n/9 ' | php /var/www/html/mediawiki/maintenance/del
 eteBatch.php[] 
  []
 
 
-Overfull \hbox (22.72803pt too wide) in paragraph at lines 1008--1008
+Overfull \hbox (22.72803pt too wide) in paragraph at lines 1005--1005
 []\T1/txtt/m/n/9 bzip2 -dc all-pages.xml.bz2 | php /var/www/html/mediawiki/main
 tenance/importDump.php
  []
 
 File: kaiseki1.png Graphic file (type bmp)
 <kaiseki1.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 1022--1023
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 1019--1020
  [][] 
  []
 
 File: kaiseki2.png Graphic file (type bmp)
 <kaiseki2.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 1028--1029
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 1025--1026
  [][] 
  []
 
-[50
+[54
 
-] [51]
+] [55]
 第10章
 File: itigokekka.png Graphic file (type bmp)
 <itigokekka.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 1052--1053
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 1049--1050
  [][] 
  []
 
 File: hensyuuseikou.png Graphic file (type bmp)
 <hensyuuseikou.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 1058--1059
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 1055--1056
  [][] 
  []
 
-[52
+[56
 
 ]
 File: kekka.png Graphic file (type bmp)
  <kekka.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 1070--1071
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 1067--1068
  [][] 
  []
 
 File: kekka2.png Graphic file (type bmp)
 <kekka2.png>
-Overfull \hbox (109.52563pt too wide) in paragraph at lines 1078--1079
+Overfull \hbox (109.52563pt too wide) in paragraph at lines 1075--1076
  [][] 
  []
 
 File: kekka3.png Graphic file (type bmp)
 <kekka3.png>
-Overfull \hbox (137.9784pt too wide) in paragraph at lines 1086--1087
+Overfull \hbox (137.9784pt too wide) in paragraph at lines 1083--1084
  [][] 
  []
 
-[53] [54] [55] [56
+[57] [58] [59] [60
 
 ]
 第11章
-[57
+[61
 
 ]
 第12章
-[58
-
-] (./draft.bbl [59
+(./draft.bbl [62
 
 ]
 Underfull \hbox (badness 7326) in paragraph at lines 74--78
@@ -1081,7 +1079,7 @@ Underfull \hbox (badness 7326) in paragraph at lines 74--78
 ィア\T1/txr/m/n/10 -
  []
 
-[60
+[63
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 96--98
@@ -1090,25 +1088,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--98
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1137.
- [61]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1137.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1131.
+ [64]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1131.
  (./draft.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1137.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1137.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1131.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1131.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1137.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1131.
  ) ) 
 Here is how much of TeX's memory you used:
  8985 strings out of 493800
  125954 string characters out of 6154752
- 201143 words of memory out of 5000000
+ 201125 words of memory out of 5000000
  12306 multiletter control sequences out of 15000+600000
  54891 words of font info for 144 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  30i,9n,28p,977b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on draft.dvi (64 pages, 143448 bytes).
+Output written on draft.dvi (64 pages, 143408 bytes).
