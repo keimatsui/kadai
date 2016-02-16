@@ -1,5 +1,0 @@
-customer_cd,name,kana,gender,company_id,zip,prefecture_id,address1,address2,phone,fax,email,lasttrade,twitter_id,facebook_id
-0005,中村あやの,ナカムラアヤノ,2,1,100-0014,13,千代田区永田町1-7-1,,03-0000-0000,03-0000-0000,a_nakamura@test.co.jp,,,
-0006,渡辺ちとせ,ワタナベチトセ,2,1,100-0014,13,千代田区永田町1-7-1,,03-0000-0000,03-0000-0000,c_watanabe@test.co.jp,,,
-0007,山本ひまわり,ヤマモトヒマワリ,2,2,100-0014,13,千代田区永田町1-7-1,,03-0000-0000,03-0000-0000,h_yamamoto@test.co.jp,,,
-0008,伊藤さくらこ,イトウサクラコ,2,3,100-0014,13,千代田区永田町1-7-1,,03-0000-0000,03-0000-0000,s_ito@test.co.jp,,,
