@@ -14,11 +14,8 @@ if (isset($_GET['prefecture'])) {
 }
 
 //データベースへの接続
-$db = new PDO($dsn, $dbUser, $dbPass,
-              array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')); // for PHP before 5.3.6.
-//for PHP before 5.3.6.
-//$db = new PDO($dsn, $dbUser, $dbPass,
-//              array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+$db = new PDO($dsn, $dbUser, $dbPass); //PHP version >= 5.3.6.
+//$db = new PDO($dsn, $dbUser, $dbPass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));//PHP version < 5.3.6.
 
 //検索実行
 $sql = 'SELECT * FROM prefectures WHERE prefecture LIKE :word';
