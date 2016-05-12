@@ -2,14 +2,6 @@
 
 実用的ではないが、感覚をつかむためにこの練習をやってみるといい。
 
-## 準備
-
-curlをインストールする。`curl`については自分で調べること。
-
-```
-sudo apt-get install curl
-```
-
 ## APIの利用
 
 例として、http://developer.github.com/v3/issues/ で紹介されているAPIを試す。https://github.com/Diogenesthecynic/FullScreenMario のissuesを取得したいときは、次のようにAPIをたたけばよい。
