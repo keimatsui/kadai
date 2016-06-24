@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/W32TeX) (preloaded format=uplatex 2016.5.24)  24 JUN 2016 19:35
+This is e-upTeX, Version 3.14159265-p3.6-u1.20-141210-2.6 (utf8.uptex) (TeX Live 2015/W32TeX) (preloaded format=uplatex 2016.5.24)  24 JUN 2016 20:18
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -510,12 +510,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
 (./draft.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 41.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 41.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
  8781 strings out of 493709
  124728 string characters out of 6153566
- 197818 words of memory out of 5000000
+ 197790 words of memory out of 5000000
  12247 multiletter control sequences out of 15000+600000
  29631 words of font info for 87 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
