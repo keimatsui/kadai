@@ -12,3 +12,6 @@ access_token_secret = ""#引用符の中にaccess_token_secretの情報を記述
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
+
+result = api.search(q='東京')
+print(result)
