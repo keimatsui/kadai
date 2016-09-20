@@ -1,0 +1,95 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont ボットを活用するプロジェクトマネジメントツールの提案}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1342097　浜野太豪}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{背景}
+2016年3月24日米マイクロソフト社が開発した人工知能ボットが公開された.ツイッターなどのSNSでユーザとの「会話」を開始した．「Tay（テイ)」と名付けられたこの人工知能ボットは、ユーザのツイートや質問に返信する中で、新しい言葉や会話を学習していくことを目的に開発され、衝撃を与えた．\cite{tay}
+
+他の企業もボットに力を入れている．2016年に発表されたボット開発フレームワークは数多く、有名な企業ではFacebookやLineがあげられる．それらの企業はプラットフォーム用のボット開発フレームワークを公開した．ボット開発フレームワークが公開されたことによってコミュニケーションツールとボットの連携が容易になった．そのため技術者はボットの活用が求められる．
+
+またコミュニケーションツールにSlackというものがある．Slackはリリース当初から爆発的な勢いで世界中に広まっている．当初はスタートアップ企業を中心に利用されていたが，最近ではGoogle，Microsoft，IBM，Sonyなど，世界の名だたる企業も次々に導入し始めている．Slackの利点はサービスとの連携にある．Google DriveやDropbox，Heroku，Githubをはじめ，449ものサービスと連携が可能で、その数は日々増え続けている．\cite{slack}
+　
+
+
+
+
+\section{目的}
+コミュニケーションツールSlackを利用してChatOpsを実現する．
+そしてシステム開発における，複雑な開発環境をSlackに統合する．
+統合することによって情報の共有，操作の可視化を行う．
+
+
+
+\section{手法}
+ボット開発フレームワークbotkitの導入とボットの実装を行う．
+ボットの実装では以下の技術を利用する．
+\begin{enumerate}
+\item Botkit
+\item Node.js
+\item Heroku
+\end{enumerate}
+
+
+\subsection{ボットの実装}
+Slack APIを用いてJavaScriptで作成する．
+
+SlackAPIの例を以下に示す．
+
+hears(コマンド名, メッセージの種類, コマンドの処理)
+
+コマンド名ではユーザからどのようなメッセージに反応するか記述する．メッセージの種類では個人やチャンネルからのメッセージから処理するか記述する．コマンドの処理ではユーザからのメッセージに対しての処理を記述する．
+
+
+
+
+
+\section{想定される成果物}
+運用にかかわる様々なタスクを自動化する
+
+\section{進捗状況}
+Slack上の発言からGitHubのIssueを作成するボットの作成を行うことができた．そのためGitHubAPI，Node.jsライブラリの活用方法を理解した．
+
+
+
+
+\section{今後の計画}
+以下の順で実行する．
+\begin{enumerate}
+\item チーム活動に必要になる要件をまとめる．
+\item JavaScriptを用いて機能を実装する．
+\item ボットを実際に利用してもらう．
+\end{enumerate}
+
+
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
