@@ -7,7 +7,7 @@ https://github.com/jquery/jquery を例に説明する。
 PythonとGit、Pythonで日付を操作するモジュールpython-dateutilを使えるようにする。
 
 ```
-sudo apt-get install python python-setuptools git
+sudo apt-get install python python-setuptools
 sudo easy_install python-dateutil
 ```
 
