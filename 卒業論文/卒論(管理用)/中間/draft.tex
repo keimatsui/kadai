@@ -52,24 +52,30 @@
 
 \section{進捗状況}
 
-2011年発売のプレイステーション3/Xbox360/Windows用ソフト「The Elder Scrolls V Skyrim」の日本語版攻略wiki\cite{wiki}を対象に調査をおこなっている．現在，同wikiのページのうち3ページ分の調査を行い，106人の編集者の編集回数と編集文字数を記録し，それらのデータをもとにヒストグラムを作成した．
+2011年発売のプレイステーション3/Xbox360/Windows用ソフト「The Elder Scrolls V Skyrim」\cite{wikipedia}の日本語版攻略wiki\cite{wiki}を対象に調査をおこなっている．現在，同wikiのページのうち3ページ分の調査を行い，106人の編集者の編集回数と編集文字数を記録し，それらのデータをもとに以下の2つのヒストグラムを作成した．
 
 
+\begin{enumerate}
+\item 1人の編集者が何回の編集をおこなったかについてのヒストグラム．（図\ref{K}）
+\item 1人の編集者が何文字書き加えたかについてのヒストグラム．（図\ref{G}）各編集者の文字数には1～606文字の幅があったため，こちらはlogをとったうえで作成した．
+\end{enumerate}
+
+現状ではどちらのヒストグラムも，もっとも低い編集度合いの編集者数が突出していて，それより編集度合いの高い編集者数には大きな差はみられないという結果になった．
 
 %図の挿入
 \begin{figure}[thbp]
- \begin{minipage}{1\hsize}
+ \begin{minipage}{0.5\hsize}
   \begin{center}
-   \includegraphics[width=60mm]{skyrmK.pdf}
+   \includegraphics[width=45mm]{skyrmK.pdf}
    \caption{編集回数のヒストグラム}
-   \label{left}
+   \label{K}
   \end{center}
- \end{minipage}\\
- \begin{minipage}{1\hsize}
+ \end{minipage}%
+ \begin{minipage}{0.5\hsize}
   \begin{center}
-   \includegraphics[width=60mm]{skyrmG.pdf}
+   \includegraphics[width=45mm]{skyrmG.pdf}
    \caption{編集文字数のヒストグラム}
-   \label{right}
+   \label{G}
   \end{center}
  \end{minipage}
 \end{figure}
