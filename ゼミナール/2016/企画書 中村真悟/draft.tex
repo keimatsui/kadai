@@ -1,0 +1,71 @@
+%卒論概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont MBTIを用いたメンバ間のリスク特定}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442085　中村真悟}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{研究の背景}
+
+プロジェクトマネジメントにおいて，メンバとは必ず顔見知りになるということはない．なので，今マネジメントしているプロジェクトメンバはどのような人なのか，すぐわかるわけではない．ではどのようにしたら改善できるのだろうか．
+
+一つはチームメンバを固定してしまうことである．当然そうすることができれば苦労はしないだろうが，プロジェクトの定義上困難な話である．では，プロジェクトマネージャがより早くメンバのことを人間的特徴を把握することができればどうだろうか．
+
+ユングの類型論を発展させたMBTIというものがある．人の考え方を
+\begin{itemize}
+ \item 内向：I・外交：E
+ \item 感覚：S・直感：N
+ \item 思考：T・感情：F
+ \item 判断的態度：J・知覚的態度：P
+\end{itemize}
+の4指標の組み合わせで16タイプに分類するものである．この技法はキャリアカウンセリングやリーダーシップ開発，チームビルディングなどに使われることが多い．
+
+このMBTIを用いて，プロジェクトのメンバの大まかな性格を理解し，メンバの相互作用が原因となって起きる事象の予測を行うことはできないのだろうかと考える．
+以上のことから本研究ではMBTIを用いて，プロジェクトを円滑に遂行する方法を研究する．
+
+\section{研究の目的}
+
+本研究の目的は，チームメンバのMBTIのタイプの相互作用がプロジェクトにどのような影響をもたらしているのかを調べ，チームメンバの編成によるメンバ間のリスクを特定できるようにすることである．
+
+\section{プロジェクトマネジメントの関連}
+
+本研究では，PMBOKにおけるリスク・マネジメントに関連する．MBTIは自己理解メソッドであり自己成長を促すため，人的資源マネジメントに関連づく．また，MBTIはチームビルディングに用いることができ，さらにはメンバ間の円滑なコミュニケーション向上が期待できるため，コミュニケーションマネジメントに関連しているといえる．
+
+\section{研究方法}
+
+以下の手順で研究を進める．
+\begin{itemize}
+ \item ソフトウェアコースのPM実験を受講する学生に対し、MBTIの性格検査を行い，メンバのタイプを調査
+ \item メンバのタイプを1指標が1タイプに偏る，もしくは4指標すべてが正反対となるようにチームを編成
+ \item そのチームに対し、アンケートを行い実際にどのような事象が起きたか調査
+ \item MBTIのタイプとチームに起こった事象とでどのような関連があるのかを考察
+\end{itemize}
+\nocite{BB19543658}\nocite{110003745117}\nocite{ylab2015}\nocite{katolab2015}
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}
+\end{document}
