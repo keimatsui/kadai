@@ -36,31 +36,28 @@
 
 また，ゲーム攻略wikiの特性を探るため，同じくwikiを使用している百科事典サイトであるWikipediaとの比較を行う．
 
-\noindent
-□□□□□□□□□■□□□□□□□□□■□□□□□□□□□■
 
-%図の挿入
-\begin{figure}[h]
-\centering
-\includegraphics[width=4cm,clip]{figure.pdf}
-\caption{図の挿入例}\label{サンプル図}
-\end{figure}
-
-\noindent
-注意：1ページいっぱいまで書くこと（右段の下の空行が2行以下ならよい）。
 
 \section{目的}
 
+データマイニングにより，ゲーム攻略wikiにおけるプロジェクトマネジメントの状況を分析し，ネット上での不特定多数によるプロジェクトの特性を探る．
+
 \section{手法}
+
+ゲーム攻略wiki内の編集履歴をもとに編集者ID,編集回数，編集文字数を編集者ごとに記録し，Rを用いてヒストグラムを作成する．また，作成したヒストグラムを別の研究で作成された，Wikipediaのヒストグラムと比較する．
 
 \section{想定される成果物}
 
+ゲーム攻略wikiにおける編集回数のヒストグラムおよび編集文字数のヒストグラム．
+
 \section{進捗状況}
+
+2011年発売のプレイステーション3/Xbox360/Windows用ソフト「The Elder Scrolls V Skyrim」を対象に調査をおこなっている．現在，同wikiのページのうち3ページ分の調査を行い，106人の編集者の編集回数と編集文字数を記録し，それらのデータをもとにヒストグラムを作成した．
 
 \section{今後の計画}
 
-参考文献は文献ファイル（この文書では\verb|biblio.bib|）に記述し，\verb|\cite|で参照する．例：データベースのための問い合わせ言語SQLで数独を解く方法が提案されている\cite{yabuki2011}．このように参照すると，参考文献リストに自動的に登録される．文献の種類には，雑誌論文\cite{yabuki2011}や会議録論文\cite{yabuki2013}，卒業論文\cite{kubo2014}，書籍\cite{okumura2013}，ウェブサイト\cite{self}などがある．文献の種類によって必要な項目が異なるため，\verb|biblio.bib|を見て確認すること．
-
+wikiからデータを取得する工程を自動化するために，pukiwikiから機械的にデータを取得する方法を見つける．
+\nocite{*}
 \bibliographystyle{junsrt}
 \bibliography{biblio}%「biblio.bib」というファイルが必要．
 
