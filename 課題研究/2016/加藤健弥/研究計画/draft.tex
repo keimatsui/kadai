@@ -1,0 +1,51 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont Webサービスを利用したプロジェクト}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442037　加藤健弥}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{研究の背景}
+複数の人数で行う開発プロジェクトではマネジメントを楽にするために最新版のファイルの管理，メンバとの情報伝達，スケジュール管理などにWebサービスの使用することが多くなっている．Webサービスとはソフトウェアの機能をネットワークを通じて利用できるもので，プロジェクトで使用されているチャットツールの「LINE」やチーム内のファイル共有をする「GoogleDrive」，タスク管理の「JOOTO」など多種多様にある\cite{01}．つまりプロジェクトに適したWebサービスを選んで使うことができればマネジメントも上手くいくのではないかと考えた．
+
+例えば私が過去に経験したプロジェクトではファイルの共有をGoogleDriveでしたり，情報伝達をLINEで行っていた．その結果としてはGoogleDriveでは最新版のファイルの管理やLINEでのやり取りにファイルを添付するのはマネジメント的に問題が多い．上記の問題を解決するWebサービスの一つにGitHubとSlackがある．
+
+GitHubとはソフトウェア開発のための共有Webサービスであり，バージョン管理や公開されているソースコードを閲覧すること，簡単なバグ管理機能，SNSの機能も備えている\cite{03}．GitHub自体にSNS機能もついているがSlackと連携することでGitHubの機能のPull requestやlssueなどを通知させてより円滑な情報伝達が可能になる．
+
+そこで私の研究では今話題のWebサービスやGitHubとSlackを開発プロジェクトに導入することでそのマネジメントにどのような影響があるのか研究してみたらどうかと考えた．
+\section{研究の目的}
+プロジェクトにGitHubとSlackを導入することはチームメンバにどういうメリットやデメリットがあるのか調べる．
+
+他に導入できそうなWebサービスがあれば実際に導入してみてプロジェクトにどのような影響を及ぼすのか調べる．
+\section{プロジェクトマネジメントとの関連}
+複数の人数の開発プロジェクトにおいてGitHubを導入することは最新版のファイルがわからなくなるというリスクを回避することができる\cite{02}．
+\section{研究の方法}
+本研究ではSI-Labのプロジェクトチーム内で実際にGitHubとSlackを導入し，チームメンバにアンケートを行い実際に使ってみてどうだったか評価してもらう．その評価の結果からSI-LabのプロジェクトにGitHubとSlackは必要だったか調べる．
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
