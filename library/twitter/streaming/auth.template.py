@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import tweepy
+from tweepy import OAuthHandler
 
 consumer_key = ""#引用符の中にconsumer_keyの情報を記述する
 consumer_secret = ""#引用符の中にconsumer_secretの情報を記述する
