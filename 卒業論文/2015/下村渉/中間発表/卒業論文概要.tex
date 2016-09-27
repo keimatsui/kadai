@@ -1,0 +1,76 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont  誰がSNSを炎上させるのか}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1342069　下村渉}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{背景}
+
+ネットサービスが急速な発展をし，ソーシャルメディアを利用すれば，不特定多数の相手に対して，個人が情報を発信することも容易になっている．しかし，ネット上でのコミュニケーションが活発になる一方で，ある人物が発言した内容や行った行為について，ソーシャルメディアに批判的なコメントが殺到する現象「ネット炎上」が多発するようになってきている\cite{a}．炎上が日本で認識されるようになったのは2004年に無料ブログやSNSが多くサービスを開始したこととされ，2011年頃から顕著に増加している\cite{b}．
+
+ 短文の投稿を共有するウェブ上の情報サービスであるTwitterでは日常的に悪質なツイートがされる．例えば一般ユーザーがファッションセンターしまむらの店員に対し土下座を強要し，その光景を写真に収めツイートした件やコンビニエンスストアであるローソンの従業員がアイスケースの中に入った写真をツイートした件などがある．
+
+日常的に悪質なツイートがされることに対し，悪ふざけや犯罪を自慢するツイート，情報モラル，情報リテラシーが低いツイートを見過ごさず，通報やリツイートをする正義感溢れる人達がいる．彼らはそれ相応の罰を受ける必要があるという気持ちや何度も同じ過ちを繰り返してしまわないようにという正義感から通報やリツイートをする．リツイート数が伸びると便乗してリツイートするユーザが増え，結果事態が大きくなってしまい炎上してしまう場合がある．
+ 
+
+\noindent
+
+
+
+
+
+
+
+\section{目的}
+本研究の目的はTwitter上で悪ふざけの投稿や犯罪自慢投稿，情報モラル，リテラシーの低いツイートをより多くリツイートしているユーザの特定し，炎上のリスク対策ができるような指標を作成する．
+
+
+\section{手法}
+本研究はTwitterとStreaming APIを使用しデータの集計をする．Streaming APIとはツイートされた内容をほぼリアルタイムで自動で取得するものである．Streamingデータから，リツイートだけを取り出し，データベースに格納する．リツイートした人，された人のフォロー関係を調べ，データベースに記録する．
+
+\section{想定される成果物}
+リツイートされている炎上したツイートを収集し，炎上したツイートをより多くリツイートしているユーザの特定する．
+\section{進捗状況}
+\begin{enumerate}
+  \item　Streaming APIを使ってTwitterのタイムラインからリツイートを抜き出し，データベースに記録．
+  \item　リツイートした人がフォローしている人の取得．
+  \item　リツイートした人のリストの取得
+\end{enumerate}
+\section{今後の計画}
+
+データを増やすことにより，多くの炎上ツイートをリツイートしているユーザの特定をすることができると仮定し，以下のように研究を進める計画である．
+\begin{enumerate}
+ \item 自動で炎上ツイートを取得できるようにする．
+ \item 集めたデータの分析をする．
+ \item 多くの炎上ツイートからリツイートしているユーザを特定する．
+\end{enumerate}
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
