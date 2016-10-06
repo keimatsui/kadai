@@ -1,0 +1,91 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont  ゲーム攻略Wikiにおけるプロジェクトマネジメント状況の分析}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1342014　泉　雄太}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{背景}
+
+ゲームの攻略情報が体系的にまとめられている媒体は，以前は攻略本だけであった．しかしインターネットが普及した現代では，一般消費者が攻略情報を書き込むゲーム攻略wikiサイトが一般的になっている．
+wikiを使用しているサイトは通常，特定あるいは不特定多数の人間が集まって作られている．そのためこれらを作成する過程ではプロジェクトマネジメントが行われているのではないかと考え，本研究ではゲーム攻略wikiを対象にした調査を行う．
+
+ゲーム攻略wikiの特性を探るため，同じくwikiを使用している百科事典サイトであるWikipediaとの比較を行う．
+
+
+
+\section{目的}
+
+データマイニングにより，ゲーム攻略wikiにおけるプロジェクトマネジメントの状況を分析し，ネット上での不特定多数によるプロジェクトの特性を探る．
+
+\section{手法}
+
+ゲーム攻略wiki内の編集履歴をもとに編集者ID,編集回数，編集文字数を編集者ごとに記録し，Rを用いてヒストグラムを作成する．また，作成したヒストグラムを別の研究で作成されたWikipediaのヒストグラムと比較する．
+
+\section{想定される成果物}
+
+ゲーム攻略wikiにおける，編集者ごとの編集回数のヒストグラムおよび編集文字数のヒストグラムを作成する．それらのヒストグラムから考察することにより，ゲームwikiでのプロジェクトマネジメントの特性を見つけ出す．
+
+\section{進捗状況}
+
+2011年発売のプレイステーション3 / Xbox360 / Windows用ソフト「The Elder Scrolls V Skyrim」\cite{wikipedia}の日本語版攻略wiki\cite{wiki}を対象に調査をおこなっている．現在，同wikiのページのうち3ページ分の調査を行い，106人の編集者の編集回数と編集文字数を記録し，それらのデータをもとに以下の2つのヒストグラムを作成した．
+
+
+\begin{enumerate}
+\item 1人の編集者が何回の編集をおこなったかについてのヒストグラム．（図\ref{K}）
+\item 1人の編集者が何文字書き加えたかについてのヒストグラム．（図\ref{G}）各編集者の文字数には1～606文字の幅があったため，こちらはlogをとったうえで作成した．
+\end{enumerate}
+
+現状ではどちらのヒストグラムも，もっとも低い編集度合いの編集者数が突出していて，それより編集度合いの高い編集者数には大きな差はみられないという結果になった．
+
+%図の挿入
+\begin{figure}[thbp]
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=45mm]{skyrmK.pdf}
+   \caption{編集回数のヒストグラム}
+   \label{K}
+  \end{center}
+ \end{minipage}%
+ \begin{minipage}{0.5\hsize}
+  \begin{center}
+   \includegraphics[width=45mm]{skyrmG.pdf}
+   \caption{編集文字数のヒストグラム}
+   \label{G}
+  \end{center}
+ \end{minipage}
+\end{figure}
+
+
+\section{今後の計画}
+
+wikiからデータを取得する工程を自動化するために，pukiwikiから機械的にデータを取得する方法を見つける．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
