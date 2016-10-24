@@ -47,21 +47,25 @@ less pages.dat
 
 pages.datのすべてのページを処理するのだが、練習のため、MOD%2F%A4%BD%A4%CE%C2%BE だけを処理しよう。
 
+履歴のページのURL
+
 ```
 page=MOD%2F%A4%BD%A4%CE%C2%BE
 url="http://wiki.skyrim.z49.org/?plugin=editlog&mode=search_page&target=all&pname=$page"
 file="$page.html"
 echo $url
+```
 
+```
 curl $url | gunzip | nkf -w > $file
 less $file
 ```
 
-h3要素とli要素を取り出せばよい。
+h3要素とli要素を取り出す（AWKについて勉強しながらeditlog.awkを読むこと。）
 
 ```
 gawk -f editlog.awk $file >> log.dat
 less log.dat
 ```
 
-あとはこれをpages.datのすべての行についてループさせればよいのだが、「sleep 30s」などを入れておくとよいだろう。700ページだから、1分2件でも数時間で終わる。
+あとはこれをpages.datのすべての行についてループさせればよいのだが、相手に負荷がかかるため、「sleep 30s」などを入れておくとよいだろう。700ページだから、1分2件でも数時間で終わる。
