@@ -69,3 +69,12 @@ less log.dat
 ```
 
 あとはこれをpages.datのすべての行についてループさせればよいのだが、相手に負荷がかかるため、「sleep 30s」などを入れておくとよいだろう。700ページだから、1分2件でも数時間で終わる。
+
+ヒント：
+
+```
+for i in `cat pages.dat`;do
+  echo $i
+  sleep 1s
+done
+```
