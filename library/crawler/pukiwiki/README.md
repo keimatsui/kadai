@@ -4,7 +4,7 @@
 
 ##準備
 
-プロキシサーバを用意すること。
+プロキシサーバを用意すること。（https://github.com/yabukilab/main/blob/master/library/crawler/%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7.md を参照）
 
 ##作業
 
