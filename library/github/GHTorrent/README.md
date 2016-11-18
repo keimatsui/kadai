@@ -89,7 +89,49 @@ bash ght-restore-mysql2 -u root -d $dbname .
 
 ## データの利用
 
-必要なところだけインデックスを張る。
+以下で示す処理時間は、矢吹のデスクトップでのものである。
 
-`SET SQL_MODE='';`としから（そうしないと、ERROR 1292 (22007): Incorrect datetime value: '0000-00-00 00:00:00' for column 'created_at' at row 49017 というエラーが出る。）
+### 例：言語の集計
 
+GitHubで最もよく使われている言語を調べる。ここで言う「最もよく使われている言語」とは、`project_languages`に最もよく登場する言語のこととする。
+
+```
+select language, count(*) as count
+from project_languages
+group by language
+order by count desc
+limit 30;
+```
+
+JavaScriptを使っているプロジェクトでは、他にどのような言語を使っているかを調べる。
+
+この場合、`(project_id, JavaScript)`が存在するかどうかを調べなければならないため、`project_id`にインデックスを張っておくといいだろう（インデックス無しでこれを調べることは想像できない）。
+
+この処理には数分かかる。
+
+```
+alter table project_languages add index project_id_idx(project_id);
+```
+
+本題（10分程度かかる）
+
+```
+select language, count(*) as count
+from project_languages as t1
+where exists (
+  select *
+  from project_languages as t2
+  where
+    t2.project_id=t1.project_id and
+    t2.language='JavaScript'
+)
+group by language
+order by count desc
+limit 30;
+```
+
+この例では、`language`にインデックスを張っても使われないため、速くはならない。`(project_id, JavaScript)`にインデックスを張ると遅くなる。
+
+どのインデックスを使うかという判断は、たいていの場合MySQLのオプティマイザにまかせればいいのだが、これはそうでない難しい例のようだ。
+
+利用するインデックスを人間が指定する方法は、https://dev.mysql.com/doc/refman/5.6/ja/index-hints.html を参照。
