@@ -111,6 +111,7 @@ JavaScriptを使っているプロジェクトでは、他にどのような言�
 
 ```
 alter table project_languages add index project_id_idx(project_id);
+optimize table project_languages;
 ```
 
 本題（10分程度かかる）
