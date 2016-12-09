@@ -1,0 +1,92 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+\usepackage{tabularx}
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 学生生活実態調査のためのデータマイニング手法の提案}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1342045　川手元稀}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{背景}
+千葉工業大学では2001年から学生の意識や考え方を調査するために，毎年「学生生活アンケート」を行っている．
+このアンケートの結果は，調査報告書として津田沼校舎や新習志野校舎の図書館等に掲示されている．
+しかしこの調査報告書は学生の意識や考え方に関する分析や解析が行われていないと感じた．
+理由は各項目ごとでしか分析を行っていないからだ．
+\\このアンケートの目的は学生の意識や考え方を調査することである\cite{a}.
+学生を更に理解するためには，個人データを活用した分析を行えば分かるのではないのかと考えた．
+そこで収集したデータを分析する新たな手法の提案が必要であると考える．
+そのためにはデータマイニングの手法を利用することが良いと考えた．学生はどのような意識で学校に来ているのか．
+また学生はどのような考え方で学校に来ているのか．「学生生活アンケート」の結果を更に発展させたいと考えた．
+
+
+\section{目的}
+様々な分析手法を活用して「学生生活アンケート」を発展させることが目的である．
+調査報告書では個人データを活用した分析法を行っていない．この研究では個人データを活用した分析手法を考えている．
+特に因子分析，クラスター分析，対応分析を利用した分析を考えている．この3つの分析法は学生の個人データをパターンに分け，特徴を見つけ出す分析手法である\cite{b}．現在この3つ分析手法を考えているがアンケートデータに有効であれば様々な分析手法を試す．また分析結果を一般の人が見ても分かりづらいと思うので理解されるようにまとめることも意識する．
+
+
+\section{手法}
+本研究は4段階に分かれる．
+
+\begin{enumerate}
+\item 千葉工業大学が実施した2015年度版「学生生活アンケート」をGoogleフォームにて作成する．
+\item 千葉工業大学の学生100人分のアンケートを集める．
+\item 学生の意識や考え方に関するデータに注目し，独自に分析，解析する．
+\item 新たな解析法とまとめ方を提案する．
+\end{enumerate}
+
+\section{想定される成果物}
+以下の成果物が考えられる．
+\begin{enumerate}
+\item 学生の考え方や意識を可視化できるような分析手法
+\item 今の学生がどのようなことを望んでいるのか一目でわかるようなまとめ方
+\end{enumerate}
+
+\section{進捗状況}
+手法の1段階目を終了し，研究室内で22人分のアンケートを実施した．現在解析中である．
+
+\section{今後の計画}
+
+今後の計画は以下の通りである．
+\begin{table}[htbp]
+\centering
+\caption{今後の計画}
+\label{tab:dox}
+\begin{tabularx}{\linewidth}{|X|X|}\hline
+日程 & 内容  \\ \hline \hline
+    10月 & 残り78人分のアンケートを実施 \\
+    11月 & 回収したデータの分析，解析 \\
+    12月 & 学生の意識と考え方が最も可視化出来た結果を提案する \\
+    1月,2月 & 論文の執筆，発表資料の作成 \\
+\hline
+\end{tabularx}
+\end{table}
+
+    
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
