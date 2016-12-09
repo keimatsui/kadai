@@ -1,0 +1,155 @@
+%課題研究レジュメテンプレート ver. 1.2
+
+\documentclass[uplatex]{jsarticle}
+\usepackage[top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{wrapfig}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+\makeatletter
+  \renewcommand{\section}{%
+    \if@slide\clearpage\fi
+    \@startsection{section}{1}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    {.5\Cvs \@plus.3\Cdp}% 後アキ
+    %{\normalfont\Large\headfont\raggedright}}
+    {\normalfont\raggedright}}
+
+  \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}% 前アキ
+    {.5\Cvs \@plus.3\Cdp}% 後アキ
+    %{\normalfont\large\headfont}}
+    {\normalfont}}
+
+  \renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+    {\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
+    {\z@}%
+    %{\normalfont\normalsize\headfont}}
+    {\normalfont}}
+\makeatother
+%ここから上を編集する必要はない．
+
+
+
+
+
+\title{\vspace{-14mm}ディープラーニングによるWebデザイン解析}
+\author{PMコース　矢吹研究室　1442104　増田準}
+\date{}%日付を入れる必要はない．
+\pagestyle{empty}%ページ番号は振らない．
+\begin{document}
+\maketitle
+
+
+
+
+
+\section{研究の背景}
+
+現代において，Webサイトは見るものから使うものへと形を変えている．「言語や配信の仕組みに変わりはないが，広い意味での『Webデザイン』という行為は，その時々に合わせて変化し続けている\cite{bib002}．」とあるように，時代にあったWebデザインが求められている．また，「ネット界は多並行分散型のネットワークになっているので，より多様化を進める方向でウェブという市場は推移する\cite{bib001}．」とあるように，流行の変化に適応することがウェブ運営にとっても重要だと考える．
+視覚的な良し悪しだけではなく，使いやすさを追求することもデザインの一環であるといえる．例えば，スマートフォンなどタブレット端末が生活に根付いた昨今では，ユーザーは縦スクロールの機会が増え，それにあったWebデザインの重要性も高まっている．
+
+
+
+
+
+
+\section{研究の目的}
+
+この研究では，Webデザインのトレンドの存在を，機械的に証明したい．
+海外デザインブログDesignmodoで2016年1月4日に公開された「11 Web Design Trends for 2016\cite{bib004}」という記事がある．2016年のWebデザインのトレンドとなるパターンを11個紹介したものだ．例を挙げると，情報整理がしやすくデバイスを問わず動作が可能な「カード型のデザイン」．ユーザーが直感的に移動させることができ，スクロール，クリック，時間経過にも対応した「フルスクリーンスライド」．更には，ヘッダーに映画のような高解像度の動画を用いた「ヒーロービデオヘッダー」では，「Webデザインは映画製作のようになるだろう」とも言われている．
+この様に，Webデザインにもトレンドが存在するが，その分類は様々だ．しかし利用者は，アクセスしたページから，新しい・古いや，良い・悪いなどを漠然と感じることができる．この感覚が流行を生むと考え，それを機械的に数値で表すことができれば，漠然としたトレンドという存在にも信憑性を持つことができると考えた．
+
+
+
+
+
+\section{プロジェクトマネジメントとの関連}
+
+この研究は，Webデザインのトレンドを対象とした研究であることから，世の中の流行や動向に基づくものである．
+「データマイニングを利用してヒットの要因を把握する技術は，プロジェクトの新規性を見出す方法のひとつとなる\cite{bib003}．」とあるように，この研究にはPMとの関係性もあるといえる．
+
+
+
+
+
+%\begin{wrapfigure}[行数]{r}{幅}%行数はオプションだが，調整しないとうまくいかない．
+
+%\includegraphics[width=図の幅,clip]{ファイル名}\label{参照用ラベル}
+
+
+\section{研究の方法}
+
+\subsection{ライブラリについて}
+
+この研究はディープラーニングを用いて行われる．Caffeという画像解析用ライブラリを利用する．多くのディープラーニング用ライブラリの中でCaffeを選んだ理由は，ディープラーニングの歴史の中では老練なライブラリであり，開発コミュニティの動きも活発でサンプルコード等も多く初心者向きであると判断したためである．
+
+
+
+\subsubsection{手法}
+
+まず始めに学習用の画像としてインターネット・アーカイブに保存されたページをスクリーンショットでキャプチャする．その際，アクセス数の集計を取るWebサイトを参考にし，世界的にアクセス数の多いサイトであるものを保存対象の基準とする．Caffeではまず，タグ付けされた複数の画像をデータベースとして学習させる．本研究はWebデザインの時代による抽出を目的としているため，タグ付けは年代別で行う．その後，学習用の画像とは別のページの画像を検証用として用意し，年代を分類させる．
+
+
+
+
+
+\subsubsection{CNNについて}
+
+Caffeに学習させた画像は，CNN（Convolution Neural Network）という画像解析に適したモデルで認識される．CNNは設定されたレイヤ構成を基に，画像を小領域（フィルタ）に絞り込む．この領域をから得られる特徴から畳み込みを行い，画像全体の特徴をとら耐えることができ，高精度での学習が可能となる．
+
+
+
+
+
+
+
+\section{現在の進捗状況}
+
+%\begin{wraptable}[行数]{r}{幅}%行数はオプションだが，調整しないとうまくいかない．
+\begin{wraptable}[5]{r}{5cm}
+\vspace*{-\intextsep}
+\caption{MNIST結果}\label{サンプル表}
+\begin{tabular}{|c|c|c|}
+\hline
+レイブラリ名 & 正解率 & 学習所要時間 \\
+\hline
+Caffe & 99,04 & 約30分\\
+Tensorflow & 91,59 & なし\\
+\hline
+\end{tabular}
+\end{wraptable}
+
+\subsection{MNISTの学習}
+
+MNISTという手書き数字の画像が集められたデータセットがある．これをサンプルとし，Caffeでの動作確認を行った．また，比較として主要なディープラーニング用ライブラリであるTensorflowを同じ環境下で動作させ，MNISTを解析させた．結果は表1のとおりである．
+正答率ではCaffeが上回った．しかし，Caffeは学習に30分ほどの時間を要した．一方，Tensorflowは正答率はCaffeを下回ったものの，90パーセントを超えた．更に，学習用ファイルを実行してから結果が出るまでが一瞬であった．しかしこれは，Pythonの使用によりレイヤ等の設定を手打ちした後の実行であった．総合的な所要時間は，設定の細かな理解を要するため，より多く必要であると感じた．
+
+
+
+
+
+\subsection{Webデザイン解析}
+インターネット・アーカイブを使用し，Amazon・Google・Microsoft・Wikipedia・Yahoo・YouTubeのホームページを保存した．各サイトが保存されている最古の年代から現代の2016年のものまでを，2年間に1枚のペースでキャプチャした結果，56枚となりこれを学習用データとした．しかし，プログラムを三日間動かし続けたが，一向に学習は終わらなかった．理由として考えられるのは，Webページのキャプチャーであるため，サイズが大きすぎた，CaffeはGPUで動かすことができるが，CPUのみで動かしたので時間がかかった，などが挙げられる．
+
+
+\section{今後の計画}
+
+以下のように研究を進める計画である．
+
+\begin{enumerate}
+\item レイヤーの設定を学び，学習画像のサイズ設定を変える．
+\item 動作環境にGPUを導入する．
+\item 検証用データを与え，正解率を出す．
+\item その後，必要に応じて学習画像の追加等を行う．
+\end{enumerate}
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
