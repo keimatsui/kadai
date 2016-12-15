@@ -34,7 +34,7 @@
 \makeatother
 %ここから上を編集する必要はない．
 
-\title{\vspace{-14mm}Webサービスの障害発生に対する影響調査}
+\title{\vspace{-14mm}Webサービスの障害がプロジェクトに与える影響をTwitterを活用して調査する方法}
 \author{PMコース　矢吹研究室　1442012　岩瀬翔}
 \date{}%日付を入れる必要はない．
 \pagestyle{empty}%ページ番号は振らない．
@@ -58,7 +58,7 @@ GitHubがサーバーダウンしてしまった実例から，ソフトウェ�
 
 \section{プロジェクトマネジメントとの関連}
 
-本研究はプロジェクトマネジメントにおける10個の知識エリアのうち，リスクマネジメントに関連付けることができる．理由として，Webサービスの障害はソフトウェア開発プロジェクトの進捗に関わる明確なリスクであるからだ．
+本研究はプロジェクトマネジメントにおける10個の知識エリアのうち，リスクマネジメントに関連付けることができる．理由として，Webサービスの障害はソフトウェア開発プロジェクトの進捗に関わる明確なリスクだからである．
 
 \section{研究の方法}
 本研究は，ソフトウェア開発プロジェクトにおいて使用する代表的なWebサービスである，GitHubの障害発生時の状況について調査する．調査方法は，Twitterで投稿されている障害発生に関するツイートをデータとして収集する．データ収集の手順は以下の通りである\cite{03}．
@@ -74,19 +74,19 @@ GitHubがサーバーダウンしてしまった実例から，ソフトウェ�
 
 
 \section{現在の進捗状況}
-GitHub Statusを参照に調べたところ，2016年のGitHubの障害発生回数は13回であった．発生した障害それぞれについてデータの収集を完了した．そのデータから，各障害の発生から復旧までに投稿されたツイートの数のグラフと，各障害の発生から復旧までの時間で2つのグラフを作成した．
+GitHub Statusを参照に調べたところ，2016年のGitHubの障害発生回数は13回であった．発生した障害それぞれについてデータの収集を完了した．下記のグラフは，各障害の発生から復旧までに投稿されたツイートの数のグラフ，各障害の発生から復旧までの時間のグラフである．
 \begin{center}
 \begin{figure}[htbp]
 \begin{tabular}{cc}
 \begin{minipage}[t]{0.5\hsize}
  \centering
- \includegraphics[width=8.5cm,clip]{graph1.pdf}
+ \includegraphics[width=7.5cm,clip]{graph1.pdf}
  \caption{各障害の発生から復旧までの時間}
  \label{ラベル1}
 \end{minipage} &
 \begin{minipage}[t]{0.5\hsize}
  \centering
- \includegraphics[width=8.5cm,clip]{graph2.pdf}
+ \includegraphics[width=7.5cm,clip]{graph2.pdf}
  \caption{各障害発生時のツイート数}
  \label{ラベル2}
 \end{minipage}
