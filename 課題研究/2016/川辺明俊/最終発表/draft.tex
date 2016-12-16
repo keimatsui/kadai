@@ -34,7 +34,7 @@
 \makeatother
 %ここから上を編集する必要はない．
 
-\title{\vspace{-14mm}ディープラーニングによるゲームエンジン解析}
+\title{\vspace{-14mm}プレイ画像をもとにしたディープラーニングによるゲームエンジン推定}
 \author{PMコース　矢吹研究室　1442045　川辺明俊}
 \date{}%日付を入れる必要はない．
 \pagestyle{empty}%ページ番号は振らない．
@@ -61,7 +61,6 @@ TensorFlowとは，Googleが開発しオープンソースとして公開した�
 \begin{itemize} 
 \item 顔認識
 \item 画像検索
-\item リアルタイム翻訳
 \end{itemize}
 
 ディープラーニングのフレームワークとしてTensorFlowを使用とする理由は，Qiita（プログラマの技術情報共有サービス）での記事の数がChainerやCaffe，Theanoに比べて圧倒的に多かったからである．
@@ -108,7 +107,7 @@ TensorFlowを使用したディープラーニングのMNISTデータの解析�
 
 TensorFlowのdecodecsvを用いて，CSVファイルでタグ付けされたJPEG形式の画像を解析し，画素の情報を3次元行列（横、縦、色面）として表現したものが得られた．
 
-TensorFlowをインポートする際に画像の縮小の作業を請け負ってくれるOpenCVというライブラリを同時にインポートすることができなかった．その解決策としてAnaconda2とAnaconda3を使ってTensorFlowとOpenCVを同時に動かすことができた．
+TensorFlowをインポートする際に画像の縮小の作業を請け負ってくれるOpenCVというライブラリを同時にインポートすることができなかった．その解決策としてAnaconda2とAnaconda3を同時に使用してTensorFlowとOpenCVを同時に動かすことができた．
 
 \section{今後の計画}
 
