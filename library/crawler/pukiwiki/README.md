@@ -24,7 +24,7 @@ cd /vagrant/pukiwiki
 ページ一覧
 
 ```
-curl http://wiki.skyrim.z49.org/?cmd=list | gunzip | nkf -w > pages.html
+curl http://wiki.skyrim.z49.org/?cmd=list | nkf -w > pages.html
 
 less pages.html
 ```
@@ -57,7 +57,7 @@ echo $url
 ```
 
 ```
-curl $url | gunzip | nkf -w > $file
+curl $url | nkf -w > $file
 less $file
 ```
 
