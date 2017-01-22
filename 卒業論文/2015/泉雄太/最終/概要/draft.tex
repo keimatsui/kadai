@@ -5,6 +5,7 @@
 \setlength{\columnsep}{10mm}
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
+\usepackage{subfig}
 \usepackage[expert,deluxe]{otf}
 \usepackage[dvipdfmx,hiresbb]{graphicx}
 \usepackage[dvipdfmx]{hyperref}
@@ -53,27 +54,22 @@ Wikipediaとの比較は，編集者ごとの編集回数のヒストグラム�
 
 
 %図の挿入
-\begin{figure}[thbp]
-\begin{tabular}{ccc}
- \begin{minipage}{0.33\hsize}
-  \centering
+\begin{figure}[t]
+ \begin{center}
+   \subfloat[編集回数\label{K}]{
    \includegraphics[width=30mm,height=45mm]{logk.pdf}
-   \caption{編集回数のヒストグラム}
-   \label{K}
- \end{minipage}
- \begin{minipage}{0.33\hsize}
-  \centering
+   \hspace{-20pt}
+   }
+  \subfloat[集文字数\label{M}]{
    \includegraphics[width=30mm,height=45mm]{logm.pdf}
-   \caption{1人ごとの編集文字数のヒストグラム}
-   \label{M}
-  \end{minipage}
-   \begin{minipage}{0.33\hsize}
-  \centering
+ \hspace{-17pt}
+ }
+  \subfloat[Wikipediaの編集回数\label{W}]{
    \includegraphics[width=30mm,height=45mm]{logw.pdf}
-   \caption{Wikipediaの編集回数のヒストグラム}
-   \label{W}
-  \end{minipage}
- \end{tabular}
+\hspace{-10pt}
+}
+ \caption{ヒストグラム}
+\end{center}
  \end{figure}
  
 \section{考察}
