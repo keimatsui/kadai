@@ -31,7 +31,8 @@
 %以下が本文
 \section{背景}
 
-ソフトウェア開発では，GitHubを用いることが多い．GitHubとはコンピュータ上で作成，編集されるファイルの変更履歴を管理するためのバージョン管理システムである．複数人でプログラミングを行う場合，ソースコードを効率的に管理，運用する必要がある．GitHubはこのような管理を行うために作られたツールであり，システム開発の現場で一般的に使われているツールの一つである\cite{a}．またGitHubは公開されているソースコードの閲覧や簡単なバグ管理機能，SNS機能を備えている．
+ソフトウェア開発では，GitHubを用いることが多い．GitHubとはコンピュータ上で作成，編集されるファイルの変更履歴を管理するためのバージョン管理システムである．\cite{a}
+
 
 システムエンジニアはコミュニケーション能力が必要とされる仕事である．私はGitHubに公開されているプロジェクトを調べているうち，活発に活動しているユーザはGoogle+やTwitterで交友関係が広い場合が多いことに気が付いた．そこで私はGitHubを用い，活発に活動するシステムエンジニアはコミュニティが広いのではないかという仮説を立て，その仮説を検証するため本研究を行った．
 
@@ -42,7 +43,11 @@
 
 \section{手法}
 
-活発に活動しているシステムエンジニアのユーザ情報を集めるためGHTorrentを使用した．GHTorrentとはGitHubのあらゆる情報が格納されているダンプファイルのことである．また集めたユーザのコミュニティ関係を調べるためGoogle+を使用した．Google+とはGoogleが運営するSNSのことである．
+活発に活動しているシステムエンジニアのユーザ情報を集めるためGHTorrentを使用した．GHTorrentとはGitHubのあらゆる情報が格納されているダンプファイルのことである．
+
+活発に活動しているシステムエンジニアのコミュニティを調べるため，GitHubの機能の一つであるcontributionとGoogle+を使用した．contributionとはユーザがどの程度GitHub上で活動しているのかを定量的に知ることのできる値である．
+
+集めたユーザのコミュニティ関係を調べるためGoogle+を使用した．Google+とはGoogleが運営するSNSのことである．
 
 以下のような手順で研究を進めた．
 
@@ -56,12 +61,17 @@
 \section{結果}
 
 %図の挿入
-\begin{figure}[htb]
+\begin{figure}[thb]
+\begin{minipage}{0,8\hsize}
 \centering
-\includegraphics[width=7cm]{sanpu.jpg}
-\caption{散布図}\label{サンプル図}
+\vspace{-3zh}
+\includegraphics[width=70mm,height=45mm]{figure.pdf}
+\caption{contribution数とフォロワー数の相関}
+\label{サンプル図}
+\end{minipage}
 \end{figure}
-本研究の結果が図1の散布図である．この散布図を見てわかるように，GitHubにおけるcontribution数とGoogle+におけるフォロワー数に相関関係はないことが分かった．
+
+本研究の結果が図\ref{サンプル図}の散布図である．この散布図により，GitHubにおけるcontribution数とGoogle+におけるフォロワー数に相関関係はないということが分かった．
 
 \section{考察}
 
@@ -69,11 +79,12 @@
 
 \section{結論}
 
-本研究を通して明らかとなった相関関係などはなかった．しかし研究を進めるための過程でGHTorrentの使用方法，GitHubAPIの使用方法を学ぶことができた．
-
+本研究を通して明らかとなった相関関係などはなかった．しかし研究を進めるための過程でGHTorrent及びGoogleAPIを使用することができるようになった．今後の課題として研究を行う段階で最も流行しているSNSなどでデータを取得し，統計を取っていく必要がある．
 
 
 \bibliographystyle{junsrt}
 \bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+
 
 \end{document}
