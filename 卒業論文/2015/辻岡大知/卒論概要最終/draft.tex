@@ -3,6 +3,8 @@
 \documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
 \usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
 \setlength{\columnsep}{10mm}
+\setlength\textfloatsep{2pt}
+\setlength\intextsep{2pt}
 \usepackage[T1]{fontenc}
 \usepackage{txfonts}
 \usepackage[expert,deluxe]{otf}
@@ -17,7 +19,7 @@
 
 %タイトルと学生番号，名前だけ編集すること
 \title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont GitHubにおける人的資源マネジメント}
-\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1342081　氏名　辻岡　大知}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1342081　辻岡　大知}
 \date{}
 \pagestyle{empty}
 \begin{document}
@@ -43,9 +45,9 @@
 
 \section{手法}
 
-活発に活動しているシステムエンジニアのユーザ情報を集めるためGHTorrentを使用した．GHTorrentとはGitHubのあらゆる情報が格納されているダンプファイルのことである．
+活発に活動しているシステムエンジニアのユーザ情報を集めるためGHTorrentを使用した．GHTorrentとはGitHubのユーザ情報やプロジェクトの情報など様々なデータが格納されているダンプファイルのことである．
 
-活発に活動しているシステムエンジニアのコミュニティを調べるため，GitHubの機能の一つであるcontributionとGoogle+を使用した．contributionとはユーザがどの程度GitHub上で活動しているのかを定量的に知ることのできる値である．
+活発に活動しているシステムエンジニアのコミュニティを調べるため，Google+とGitHubにおけるユーザ情報の一つであるcontributionを使用した．contributionとはユーザがどの程度GitHub上で活動しているのかを定量的に知ることのできる値である．
 
 集めたユーザのコミュニティ関係を調べるためGoogle+を使用した．Google+とはGoogleが運営するSNSのことである．
 
@@ -60,19 +62,19 @@
 
 \section{結果}
 
+本研究の結果が図\ref{サンプル図}の散布図である．回帰分析の結果，重相関Rの値が約0.19となったため，GitHubにおけるcontribution数とGoogle+におけるフォロワー数にほとんど相関はないということが分かった．
+
 %図の挿入
-\begin{figure}[thb]
+\begin{figure}[ht]
 \centering
-\includegraphics[width=6cm,clip]{figure.pdf}
+\includegraphics[width=6cm,height=3cm,clip]{figure.pdf}
 \caption{contribution数とフォロワー数の相関}
 \label{サンプル図}
 \end{figure}
 
-本研究の結果が図\ref{サンプル図}の散布図である．この散布図により，GitHubにおけるcontribution数とGoogle+におけるフォロワー数に相関関係はないということが分かった．
-
 \section{考察}
 
-本研究を通して，活発に活動しているユーザはGoogle+におけるコミュニティが必ずしも広いわけではないことが分かった．今回研究を行うためGoogle+というSNSを用いたが，現在流行しているFacebookやTwitterなどのSNSを用いることにより，今回とは違った結果が得られるのではないかと考えた．
+本研究を通して，活発に活動しているユーザはGoogle+におけるコミュニティが必ずしも広いわけではないことが分かった．今回はGoogle+を用いたが，現在流行しているFacebookやTwitterなど他のSNSを用いることにより，今回とは違った結果が得られるのではないかと考えた．
 
 \section{結論}
 
