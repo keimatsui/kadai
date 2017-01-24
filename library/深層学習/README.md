@@ -25,7 +25,7 @@
 
 #### Python (Anaconda)
 
-#Anacondaのインストール https://www.continuum.io/downloads#linux から最新版をダウンロードしてもよい。
+Anacondaのインストール https://www.continuum.io/downloads#linux から最新版をダウンロードしてもよい。
 
 ```
 bash ~yabuki/Anaconda3-4.2.0-Linux-x86_64.sh
