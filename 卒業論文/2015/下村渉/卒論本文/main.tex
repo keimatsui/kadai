@@ -172,6 +172,8 @@ VirtualBoxのダウンロードサイト(http://www.oracle.com/technetwork/serve
 \caption{ダウンロードサイト}\label{virtualboxダウンロードサイトの画像}
 \end{figure}
 
+\clearpage
+
 インストーラーを起動し，セットアップウィザードを起動し，指示に従いインストールを開始する．
 その後Warning Network Interfacesが表示されたら「Yes」をクリックする．
 
@@ -181,6 +183,7 @@ VirtualBoxのダウンロードサイト(http://www.oracle.com/technetwork/serve
 \caption{インストール画面1}\label{virtualboxインストール画面1}
 \end{figure}
 
+\clearpage
 Ready to Installが表示されたら「Install」をクリックする．
 \begin{figure}[htb]
 \centering
@@ -189,6 +192,8 @@ Ready to Installが表示されたら「Install」をクリックする．
 \end{figure}
 
 インストール中にユーザーアカウント制御によってインストールを許可するか否かを聞いてくるが，「はい(Y)」をクリックする．
+
+\clearpage
 次に「Windows セキュリティ」ダイアログが表示されたら，「Oracle Corporationからのソフトウエアを常に信頼する(A)」をチェックし，
 「インストール(I)」をクリックする．
 
@@ -214,6 +219,8 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \caption{Ubuntuのダウンロードページ}\label{Ubuntuのダウンロードページ}
 \end{figure}
 
+\clearpage
+
 \subsection{仮想マシンの作成}
 
 デスクトップ上のショートカットからVirtualBoxを起動する．その後VirtualBoxのホーム画面が表示されたら，「新規(N)」をクリックする．その後作成する仮想マシンの名前，メモリサイズ，仮想HDDの設定画面に移動する．
@@ -223,6 +230,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \includegraphics[width=15cm]{vb1.png}
 \caption{仮想マシンの名前の設定画面}\label{仮想マシンの設定画面}
 \end{figure}
+\clearpage
 
 仮想マシンのメモリサイズの設定は以下のように行う．設定後「次へ(N)」をクリックする．
 
@@ -231,7 +239,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \includegraphics[width=15cm]{vb2.png}
 \caption{仮想マシンのメモリサイズ設定画面}\label{仮想マシンの設定画面}
 \end{figure}
-
+\clearpage
 仮想マシンの仮想HDDのファイルの形式を指定する．
 
 
@@ -240,7 +248,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \includegraphics[width=15cm]{vb3.png}
 \caption{仮想HDDのファイル形式作成画面}\label{仮想マシンの設定画面}
 \end{figure}
-
+\clearpage
 作成するハードドライブのファイルの名前を指定する．
 
 
@@ -250,7 +258,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \includegraphics[width=15cm]{vb4.png}
 \caption{仮想HDDの作成画面}\label{仮想マシンの設定画面}
 \end{figure}
-
+\clearpage
 「作成」をクリックしたら以下の画面が表示され，仮想HDDが作成されると自動的にこの画面は閉じられる．
 
 
@@ -277,25 +285,25 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=15cm]{ubuntuinstall1.png}
+\includegraphics[width=15cm]{ubuntuinstall3.png}
 \caption{インストール開始画面}\label{インストール開始画面}
 \end{figure}
 
-下の画面が出たら任意で項目にチェックを入れ，「続ける」をクリックする．
+下の画面が出たら「Encrypt the new Ubuntu installation for security」，「Use LVM with the new Ubuntu installation」のチェックをはずし，「続ける」をクリックする
 \begin{figure}[htb]
 \centering
 \includegraphics[width=15cm]{ubuntuinstall2.png}
 \caption{インストール準備画面}\label{インストール準備画面}
 \end{figure}
 
-「Encrypt the new Ubuntu installation for security」，「Use LVM with the new Ubuntu installation」のチェックをはずし，「続ける」をクリックする．
-
+\clearpage
+「インストール中にアップデートをダウンロードする」のチェックボックスにチェックを入れ，「続ける」をクリックする．
 \begin{figure}[htb]
 \centering
-\includegraphics[width=15cm]{ubuntuinstall3.png}
+\includegraphics[width=15cm]{ubuntuinstall1.png}
 \caption{インストールの種類}\label{インストール準備画面2}
 \end{figure}
-
+\clearpage
 以下の画面でタイムゾーンを選択する．デフォルトで東京(Tokyo)が選択されているので，「続ける」をクリックする．
 
 \begin{figure}[htb]
@@ -303,7 +311,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \includegraphics[width=15cm]{ubuntuinstall4.png}
 \caption{タイムゾーン}\label{タイムゾーン}
 \end{figure}
-
+\clearpage
 
 以下の画面でキーボード配列を選択する．そのまま「続ける」をクリックする．
 
@@ -312,7 +320,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \includegraphics[width=15cm]{ubuntuinstall5.png}
 \caption{キーボード配列}\label{キーボード配列}
 \end{figure}
-
+\clearpage
 
 「あなたの名前」の欄には自分の名前を記載する．「コンピュータの名前」を適当に入力する．「ユーザー名の入力」は自分のユーザー名を決め，「パスワード」は任意で決める．それらの情報を入力したら「続ける」をクリックする．
 
@@ -323,7 +331,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \caption{情報入力画面}\label{情報入力画面}
 \end{figure}
 
-
+\clearpage
 数分待機すると，インストールが終了し，以下の画面が表示される．「今すぐ再起動する」をクリックし，画面に表示されるメッセージがとまったら，何か適当かキーを打つ．すると，仮想マシンが再起動する．
 
 
@@ -332,7 +340,7 @@ UbuntuのISOデータを http://www.ubuntulinux.jp/ よりダウンロードす�
 \includegraphics[width=15cm]{ubuntuinstall7.png}
 \caption{インストール完了画面}\label{イメージ画面}
 \end{figure}
-
+\clearpage
 この様な画面が表示されればインストールが終了する．
 
 
@@ -412,13 +420,14 @@ api = tweepy.API(auth)
 OAuthを使用するには，TwitterAPIで「Consumer key」，「Consumer Sercret」，「Access Token」，「Access Token Secret」の4つの情報を入手する必要がある．
 
 \subsection{ユーザーアカウントの用意}
-Twitter APIを利用するには，ユーザーアカウントが必要になるのでTwitter公式サイトでアカウント作成をクリックし，ニックネーム，電話番号又はメールアドレス，パスワードを入力してアカウント作成をクリックする．
+Twitter APIを利用するには，ユーザーアカウントが必要になるのでTwitter公式サイトでアカウント作成をクリックする．
 \begin{figure}[htb]
 \centering
 \includegraphics[width=15cm]{twitterhp.png}
 \caption{twitterhp}\label{twitterhp}
 \end{figure}
-
+\clearpage
+ニックネーム，電話番号又はメールアドレス，パスワードを入力してアカウント作成をクリックする．
 \begin{figure}[htb]
 \centering
 \includegraphics[width=15cm]{account.png}
