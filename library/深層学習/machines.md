@@ -29,17 +29,17 @@ sudo apt clean
 
 `sudo adduser iwase`などとしてユーザを作成した（パスワードは全員「yabuki」）。
 
-+iwase
-+iwahashi
-+oki
-+oyama
-+kato
-+kawasaki
-+kawabe
-+suzuki
-+suyama
-+nakamura
-+masuda
++ iwase
++ iwahashi
++ oki
++ oyama
++ kato
++ kawasaki
++ kawabe
++ suzuki
++ suyama
++ nakamura
++ masuda
 
 ### Sambaの設定  
 
