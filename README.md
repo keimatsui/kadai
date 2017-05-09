@@ -10,7 +10,7 @@
 
 ## 有用なウェブサイト
 
-* [矢吹のブログ](http://blog.unfindable.net/)
+* 矢吹の[ブログ](http://blog.unfindable.net/)・[Twitter](https://twitter.com/yabuki)
 * [Google Scholar（論文検索）](http://scholar.google.co.jp/)
 * [CiNii（論文検索）](http://ci.nii.ac.jp/) （BibTeXのデータも取得可能）
 
