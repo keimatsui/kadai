@@ -1,0 +1,68 @@
+%卒論概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont ニコニコ動画の視聴ランキングと動画関連ツイートの相関性 }
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1342072　杉山 喜彦}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}
+
+ニコニコ動画とは，株式会社ドワンゴが運営・提供している動画共有サービスである．ニコニコ動画の利用者の数は一般会員登録者数が約5000万人，有料会員は約250万人（2015年8月）である\cite{iii}．ニコニコ動画のランキングにカテゴリ合算毎時総合ランキングという項目がある．これはニコニコ動画に投稿された動画のカテゴリの合算を行い，再生数・コメント数・登録マイリスト数・ニコニコ広告宣伝ポイントを総合ポイントに変換し，この総合ポイントを１時間毎にランキング順にしたものである．総合ポイントの中で再生数は大きな要素となっている．
+
+Twitterは，「ツイート」と称される140文字以内の短文の投稿を共有するウェブ上の情報サービスである．
+
+Twitterにニコニコ動画で投稿された動画のタイトルがツイートされている．これは動画の投稿者が動画を投稿したことをTwitterで不特定多数の人に伝えると同時に，その動画の宣伝を行っているためである．そこで私はニコニコ動画のカテゴリ合算毎時総合ランキングとTwiiterのツイート数には相関性があるのではないかと考えた．
+\noindent
+
+\section{目的}
+ニコニコ動画のカテゴリ合算毎時総合ランキングの順位とTwiiterのツイート数との相関性があるかを調べる．
+\section{手法}
+
+以下の手法で研究を行う．
+
+\begin{enumerate}
+
+\item　ニコニコ動画のカテゴリ合算毎時総合ランキングの1位から100位までの投稿動画の情報を1時間毎に抜き出す．
+\item　1時間毎に抜き出した情報から動画タイトルと再生数を抜き出す．
+\item　Twiiterでニコニコ動画のカテゴリ合算毎時総合ランキングの1位から100位までの動画の名前でTwitterのツイート検索を行い，ツイート数と時間を抜き出す．
+\item　縦軸はツイート数，横軸を再生数の散布図を作成する．
+\item　ツイート数と再生数で回帰分析を行い，相関係数からカテゴリ合算毎時総合ランキングとTwiiterのツイート数との相関性があるかを考察する．
+
+\end{enumerate}
+
+\section{結果}
+本研究の結果として，再生数とツイート数の相関係数は0.58の数値が出た．相関係数が0.5から0.7の間にあったため，ニコニコ動画の再生数とTwitterのツイート数はかなり高い相関があることが分かった．
+\section{考察}
+結果と総合ポイントの中で再生数は大きな要素となっていることから，カテゴリ合算毎時総合ランキングの順位とTwitterの動画関連ツイート数 には，かなり高い相関があることが考えられる．
+\section{結論}
+本研究では，ニコニコ動画のカテゴリ合算毎時総合ランキングとTwitterの動画関連ツイートとの間には相関係数が0.58でかなり高い相関があることが分かった．また本研究ではTwitterを使用したが，ニコニコ動画にはTwitterの他にFacebookとLINEのアイコンが存在しており，カテゴリ合算毎時総合ランキングと相関関係があるのかを調べることと，因果関係は分かっていないため，ツイートの内容などから因果関係を考えることの２つが今後の課題と言える．
+
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
