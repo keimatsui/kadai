@@ -36,6 +36,8 @@ Seleniumを使ってInternet Archiveをキャプチャする。Windows上で試�
 
 getarchive.pyは，指定したサイトの指定した年・月のようすをキャプチャし，ディレクトリ`img`に保存するスクリプトである。
 
+geckodriver.exeにPATHを通すか，このファイルのある場所をコマンドプロンプトのカレントディレクトリとして実行すること。
+
 ### 準備
 
 1. 自分が取得したい範囲の年と月をgetarchive.pyで設定する。
