@@ -57,7 +57,7 @@ EOF
 #### GPUの確認
 
 ```
-nvidia-swi
+nvidia-smi
 ```
 
 ### 深層学習用ライブラリ
