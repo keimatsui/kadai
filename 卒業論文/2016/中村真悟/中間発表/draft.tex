@@ -1,0 +1,65 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont プロジェクトで発生するリスクのMBTIを用いた事前予測}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442085　中村 真悟}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+
+\section{背景}
+欧米ではMBTI（Myers-Briggs Type Indicator）という自己理解メソッドがある．MBTIとはカール・グスタフ・ユングの心理学的類型論の指標（内向：I-外向：E，感覚：S-直感：N，思考：T-感情：F）に判断的態度：J-知覚的態度：Pの指標を加えて，4指標16タイプとして性格を分類する．主にキャリアカウンセリングやチームリーダー開発などに使用されている．
+
+このMBTIを使い，プロジェクトの開始時点からメンバの性格を理解し，メンバの相互作用が原因となって起こる事象を予測したい．MBTIの性質上，理想のタイプに近づくこともできる．現状を把握し，理想のプロジェクトメンバの関係を目指すこともできる．以上のことから本研究ではMBTIを用いて，グループワークでの事象とメンバの性格との相関関係について研究する．
+
+\section{目的}
+本研究の目的は，グループメンバのMBTIの16タイプの相互作用がプロジェクトにどのような影響をもたらしているのかを調べ，MBTIのタイプからメンバ間で発生しやすいリスクを予測することである．
+
+\section{手法}
+以下の手法で研究する．
+\begin{itemize}
+\item 数人のグループを作り，グループワークを行ってもらう
+\item グループワークでは課題に取り組んでもらう
+\item 課題提出時にMBTIの性格検査\cite{mbti}と失敗マンダラ\cite{110009915588}に基づいた事象についてのアンケートを行う
+\item メンバの性格とアンケートの結果から，事象とMBTIのタイプにどのような関連があるのかを調査する
+\end{itemize}
+\section{想定される成果物}
+MBTIを用いることで，プロジェクト開始時から使用できるメンバ間のリスク予測方法．並びに，自己理解メソッドの利点を生かしたMBTIを元にしたリスク対処方法．
+
+\section{進捗状況}
+プログラミング言語とプログラミングの講義にてグループワークから，いくつかのグループの性格検査と事象のアンケートのデータを取ることが出来た．
+
+現在，データマイニング指導教員である矢吹太郎准教授にグループ分けの方法，グループワークの提案をし，手法と課題について話し合っている．
+
+\section{今後の計画}
+データマイニング入門でグループワークを行い，MBTIの性格検査と事象のアンケートを実施する．PM実験でも同様に性格検査とアンケートを実施する．
+
+
+\nocite{110003745117}\nocite{ylab2015s}
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
