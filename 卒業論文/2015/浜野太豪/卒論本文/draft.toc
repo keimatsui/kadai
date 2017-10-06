@@ -1,0 +1,101 @@
+\contentsline {chapter}{\numberline {第1章}序論}{3}{chapter.1}
+\contentsline {chapter}{\numberline {第2章}目的}{4}{chapter.2}
+\contentsline {chapter}{\numberline {第3章}利用するサービスの解説}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}RedPen}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Github}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Git}{7}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}リポジトリ}{7}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}リモートリポジトリ}{7}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}commit}{7}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}clone}{8}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Origin}{8}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Push}{8}{subsection.3.2.7}
+\contentsline {subsection}{\numberline {3.2.8}branch}{8}{subsection.3.2.8}
+\contentsline {subsection}{\numberline {3.2.9}pull}{8}{subsection.3.2.9}
+\contentsline {subsection}{\numberline {3.2.10}Pull Request}{8}{subsection.3.2.10}
+\contentsline {subsection}{\numberline {3.2.11}Revert}{8}{subsection.3.2.11}
+\contentsline {subsection}{\numberline {3.2.12}タグ}{8}{subsection.3.2.12}
+\contentsline {subsection}{\numberline {3.2.13}Label}{8}{subsection.3.2.13}
+\contentsline {subsection}{\numberline {3.2.14}Merge}{8}{subsection.3.2.14}
+\contentsline {subsection}{\numberline {3.2.15}Fork}{9}{subsection.3.2.15}
+\contentsline {subsection}{\numberline {3.2.16}Issue}{9}{subsection.3.2.16}
+\contentsline {subsection}{\numberline {3.2.17}デプロイ}{9}{subsection.3.2.17}
+\contentsline {subsection}{\numberline {3.2.18}リリース}{9}{subsection.3.2.18}
+\contentsline {subsection}{\numberline {3.2.19}Watch}{9}{subsection.3.2.19}
+\contentsline {subsection}{\numberline {3.2.20}Star}{9}{subsection.3.2.20}
+\contentsline {subsection}{\numberline {3.2.21}Fork}{9}{subsection.3.2.21}
+\contentsline {subsection}{\numberline {3.2.22}人数}{9}{subsection.3.2.22}
+\contentsline {subsection}{\numberline {3.2.23}MileStone}{9}{subsection.3.2.23}
+\contentsline {subsection}{\numberline {3.2.24}Wiki}{9}{subsection.3.2.24}
+\contentsline {section}{\numberline {3.3}Wercker}{10}{section.3.3}
+\contentsline {section}{\numberline {3.4}Docker}{12}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}DockerHubのアカウント登録}{13}{subsection.3.4.1}
+\contentsline {chapter}{\numberline {第4章}開発環境構築ツールの解説}{14}{chapter.4}
+\contentsline {section}{\numberline {4.1}Chocolatey}{14}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}パッケージとは}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}choco list [packageName]}{15}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}choco list -lo [packageName] }{15}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}cinst [packageName]}{15}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}cuninst [packageName]}{15}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}cup}{15}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.7}cup [packageName]}{15}{subsection.4.1.7}
+\contentsline {subsection}{\numberline {4.1.8}cup all}{15}{subsection.4.1.8}
+\contentsline {section}{\numberline {4.2}DockerToolBox}{16}{section.4.2}
+\contentsline {section}{\numberline {4.3}Oracle VM VirtualBox}{17}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}ホストPC}{17}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}ホストOS}{17}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}ゲストPC（仮想マシン）}{17}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}ゲストOS}{17}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {第5章}開発環境の導入}{18}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}パッケージのインストール}{21}{subsection.5.0.1}
+\contentsline {section}{\numberline {5.1}Dockerのインストール}{22}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Docker Toolboxのダウンロードとインストール}{23}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Dockerで「Hello world」}{31}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}ベースイメージの取得}{32}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Dockerfile作成}{33}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}DockerfileからDockerイメージの作成}{34}{subsection.5.1.5}
+\contentsline {subsection}{\numberline {5.1.6}DockerHubログイン}{35}{subsection.5.1.6}
+\contentsline {subsection}{\numberline {5.1.7}DockerHubにイメージをpush}{36}{subsection.5.1.7}
+\contentsline {chapter}{\numberline {第6章}自動化環境の構築}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}GitHubの設定}{37}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}GitHubのリポジトリ}{37}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}SentenceLength}{39}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}InvalidExpression}{39}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}InvalidWord}{39}{subsection.6.1.4}
+\contentsline {subsection}{\numberline {6.1.5}SpaceBeginningOfSentence}{39}{subsection.6.1.5}
+\contentsline {subsection}{\numberline {6.1.6}CommaNumber}{40}{subsection.6.1.6}
+\contentsline {subsection}{\numberline {6.1.7}WordNumber}{40}{subsection.6.1.7}
+\contentsline {subsection}{\numberline {6.1.8}SuggestExpression}{40}{subsection.6.1.8}
+\contentsline {subsection}{\numberline {6.1.9}InvalidSymbol}{40}{subsection.6.1.9}
+\contentsline {subsection}{\numberline {6.1.10}SymbolWithSpace}{40}{subsection.6.1.10}
+\contentsline {subsection}{\numberline {6.1.11}KatakanaEndHyphen}{40}{subsection.6.1.11}
+\contentsline {subsection}{\numberline {6.1.12}KatakanaSpellCheck}{40}{subsection.6.1.12}
+\contentsline {subsection}{\numberline {6.1.13}SectionLength}{41}{subsection.6.1.13}
+\contentsline {subsection}{\numberline {6.1.14}ParagraphNumber}{41}{subsection.6.1.14}
+\contentsline {subsection}{\numberline {6.1.15}ParagraphStartWith}{41}{subsection.6.1.15}
+\contentsline {subsection}{\numberline {6.1.16}SpaceBetweenAlphabeticalWord}{41}{subsection.6.1.16}
+\contentsline {subsection}{\numberline {6.1.17}DoubledWord}{41}{subsection.6.1.17}
+\contentsline {subsection}{\numberline {6.1.18}SuccessiveWord}{41}{subsection.6.1.18}
+\contentsline {subsection}{\numberline {6.1.19}DuplicatedSection}{41}{subsection.6.1.19}
+\contentsline {subsection}{\numberline {6.1.20}JapaneseStyle}{41}{subsection.6.1.20}
+\contentsline {subsection}{\numberline {6.1.21}DoubleNegative}{41}{subsection.6.1.21}
+\contentsline {subsection}{\numberline {6.1.22}FrequentSentenceStart}{42}{subsection.6.1.22}
+\contentsline {subsection}{\numberline {6.1.23}ParenthesizedSentence}{42}{subsection.6.1.23}
+\contentsline {subsection}{\numberline {6.1.24}JavaScript}{42}{subsection.6.1.24}
+\contentsline {subsection}{\numberline {6.1.25}DoubledJoshi}{42}{subsection.6.1.25}
+\contentsline {subsection}{\numberline {6.1.26}HankakuKana}{42}{subsection.6.1.26}
+\contentsline {subsection}{\numberline {6.1.27}Okurigana}{42}{subsection.6.1.27}
+\contentsline {subsection}{\numberline {6.1.28}VoidSection}{42}{subsection.6.1.28}
+\contentsline {subsection}{\numberline {6.1.29}GappedSection}{42}{subsection.6.1.29}
+\contentsline {subsection}{\numberline {6.1.30}LongKanjiChain}{42}{subsection.6.1.30}
+\contentsline {subsection}{\numberline {6.1.31}SectionLevel}{43}{subsection.6.1.31}
+\contentsline {subsection}{\numberline {6.1.32}JapaneseAmbiguousNounConjunction}{43}{subsection.6.1.32}
+\contentsline {subsection}{\numberline {6.1.33}JapaneseAnchorExpression}{43}{subsection.6.1.33}
+\contentsline {subsection}{\numberline {6.1.34}SuccessiveSentence}{43}{subsection.6.1.34}
+\contentsline {subsection}{\numberline {6.1.35}DoubledConjunctiveParticleGa}{43}{subsection.6.1.35}
+\contentsline {section}{\numberline {6.2}Werckerの設定}{44}{section.6.2}
+\contentsline {chapter}{\numberline {第7章}GitHubに文書提出}{48}{chapter.7}
+\contentsline {chapter}{\numberline {第8章}結果}{59}{chapter.8}
+\contentsline {chapter}{\numberline {第9章}考察}{61}{chapter.9}
+\contentsline {chapter}{\numberline {第10章}結論}{62}{chapter.10}
+\contentsline {chapter}{参考文献}{63}{chapter*.3}

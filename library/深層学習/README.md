@@ -33,6 +33,8 @@ bash ~yabuki/Anaconda3-4.2.0-Linux-x86_64.sh
 
 #### 環境変数
 
+開発のために必要な環境変数を`.bash_protile`に追記する。この設定は一度だけ行えばよい。変更する場合は、`nano .bash_profile`などとして、ファイルを編集する。
+
 ```
 cat << "EOF" >> .bash_profile
 export CUDA_HOME=/usr/local/cuda
@@ -55,7 +57,7 @@ EOF
 #### GPUの確認
 
 ```
-nvidia-swi
+nvidia-smi
 ```
 
 ### 深層学習用ライブラリ
