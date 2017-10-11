@@ -1,0 +1,61 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 機械学習を用いた文書検査法の提案と評価}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442069　須山武弘}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{背景}
+人間とロボットの対話や，音声認識でのデバイス操作，機械翻訳などが増えており，コンピュータが自然言語を理解し，処理，出力することが要求されている．この際，言語を理解させ，人間とコンピュータの意思疎通を可能とさせる手段が自然言語処理である．
+
+自然言語とは，人間がコミュニケーションを取る際，自然に発している言語のことである．自然に発している言語が故に，プログラム言語や数学的表現と違い，発言者自身の文化や曖昧さが含まれている．この曖昧な表現や発言者の文化を含んだ言語を直接コンピュータに認識させる事はできず，認識をさせるには自然言語処理が必要である．
+
+自然言語処理とは，自然言語に含まれる発言者自身の文化や，曖昧さを含め，言葉の意味をコンピュータに処理させる一連の技術である．コンピュータと人間の意思疎通の必要性向上により，高度な自然言語の理解をする必要があるため，言語処理技術の向上が研究されている\cite{001}．
+
+本研究で用いるIBM Watsonは，認知した情報に基づいて理解，推論し，学習するコグニティブ・コンピューティングのプラットフォームである\cite{003}．13種類のAPIがあり，自然言語処理，画像処理，音声認識，データ分析など多岐にわたる分野で使用できるプラットフォームである．APIが公開されており，多くの企業で質問応答システムや，自然言語のデータ化などのシステム構築がなされている\cite{002}．
+
+\section{目的}
+機械学習を用いた文書検査ツールを実装するため，自然言語処理に長けたプラットフォームであるIBM Watsonを使用する．この文書検査ツールにおいて，RedPenなどの文書検査ツールより正確な文書の検査結果が得られるかを検証する．
+
+\section{手法}
+本研究は，IBM WatsonAPIを用い，文書検査ツールを実装する．実装した文書検査ツールで文書検査を行う．次に，出力結果の有用性について検証，考察する．さらに，改善が必要な場合には改善を行い，検証，考察する．
+
+その後，他の文書検査ツールを用い，出力結果の違いを検証，考察する．
+
+\section{想定される成果物}
+文書検査ツールを実装し，その有用性や，他の文書検査ツールの出力結果の違いなどを検証し，考察する．その結果を踏まえて機械学習における文書検査の有用性の評価や改善をまとめたものを成果物とする予定である．
+
+\section{進捗状況}
+IBM WatsonAPIの1つであるNatural Language Classifier（NLC）を用い，入力した文の分類を認識させた．現在，IBM Watsonの他のAPIを用いて文書の間違いを検査できるようにするように実装している．
+
+\section{今後の計画}
+研究室内の文書データを用い，正確に文書の検査ができるかを試し，論文を執筆する．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
