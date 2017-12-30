@@ -2,16 +2,14 @@
 
 ## 準備
 
-矢吹研仮想マシンを使う。
+[研究室公式仮想マシン](https://github.com/yabukilab/machine)を使う。
 
 ### Anaconda（Python開発環境）
 
-これには少し時間がかかる。
+これには少し時間がかかる。（計算機環境の構築時に実行している場合は飛ばしてよい。）
 
 ```
-wget -q https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
-bash /vagrant/Anaconda3-5.0.1-Linux-x86_64.sh -b -p /home/ubuntu/anaconda3
-echo 'export PATH="$HOME/anaconda3/bin:$PATH"' >> /home/ubuntu/.bash_profile
+sudo bash /vagrant/setup-python.sh
 source ~/.bash_profile
 ```
 
@@ -61,9 +59,12 @@ print(tmp)
 
 ベクトルの計算
 
+パリ→「東京→日本」，女→「男→父」，数学→「物理学→ノーベル賞」
+
 ```
 print(model.most_similar(positive=['日本', 'パリ'], negative=['東京']))
 print(model.most_similar(positive=['父', '女'], negative=['男']))
+print(model.most_similar(positive=['ノーベル賞', '数学'], negative=['物理学']))
 ```
 
 「本日は晴天なり。」というテキストを，単語のベクトルの平均で表現する。
