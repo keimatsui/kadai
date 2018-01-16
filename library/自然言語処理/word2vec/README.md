@@ -2,16 +2,7 @@
 
 ## 準備
 
-[研究室公式仮想マシン](https://github.com/yabukilab/machine)を使う。
-
-### Anaconda（Python開発環境）
-
-これには少し時間がかかる。（計算機環境の構築時に実行している場合は飛ばしてよい。）
-
-```
-sudo bash /vagrant/setup-python.sh
-source ~/.bash_profile
-```
+[研究室公式仮想マシン](https://github.com/yabukilab/machine)にPythonをインストールしてから先に進む。
 
 ### MeCab（形態素解析ツール）
 

@@ -18,6 +18,7 @@ def sentenceToVector(sentence):
       i += 1
     except:
       pass
+    if i == 0: return vec
     return np.divide(vec, i)
 
 for line in sys.stdin:
