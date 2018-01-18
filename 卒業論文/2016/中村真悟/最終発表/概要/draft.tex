@@ -1,0 +1,90 @@
+%卒論概要テンプレート ver. 4.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{11mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont プロジェクトで発生するリスクのMBTI を用いた事前予測}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442085　中村 真悟}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}\label{序論}
+MBTI（Myers-Briggs Type Indicator）という自己理解メソッドがある．主に相談場面や教育現場，企業の組織編制，人事政策などに利用されている\cite{110001230195}．
+
+このMBTIを使い，プロジェクトの開始時点からメンバの性格を理解し，メンバの相互作用が原因となって起こる事象を予測できるのではないかと考える．したがって本研究ではMBTIを用いて，グループワークでの事象とメンバの性格との相関関係について研究する．
+
+\section{目的}
+
+本研究の目的は，グループメンバのMBTIの相互作用がプロジェクトにどのような影響を及ぼしているのかを調べ，MBTIのタイプからメンバ間で発生しやすいリスクを予測することである．
+\section{手法}
+
+以下の手法で研究する．
+\begin{enumerate}
+\item グループワークで課題に取り組んでもらう
+\item グループワーク後に，性格検査\cite{MBTI}と失敗マンダラ\cite{110009915588}に基づいた事象についてのアンケートを行う
+\item メンバの性格とアンケートの結果から仮説を立てる
+\item 被験者にMBTIの性格検査を行う
+\item 仮説に基づき数人のグループを作り，グループワークを行ってもらう
+\item 課題提出時にアンケートを行う
+\item タイプと事象についての仮説を実証する
+\end{enumerate}
+\section{結果}　
+
+調和平均の計算結果は表\ref{調和平均算出結果}の通りである．
+
+39グループの性格検査とアンケートの結果をトレーニングデータ30件とテストデータ9件の2つに分けた．トレーニングデータをアソシエーション分析を行い，95件のアソシエーションルールを抽出した．
+
+アソシエーションルールの正当性を実証するため，テストデータと比較し調和平均を求めた．アソシエーションルールは確信度0.8を越えるとF値が最も良くなった．
+
+\renewcommand{\arraystretch}{0.75}
+\begin{table}[htbp]
+\centering
+\caption{確信度0.8を越えたルールの調和平均}\label{調和平均算出結果}
+\begin{tabular}{l|r}
+\hline
+精度 & 0.25\\
+再現率 & 0.863636364\\
+調和平均 & 0.387755102\\
+\hline
+\end{tabular}
+\end{table}
+\renewcommand{\arraystretch}{0.75}
+
+
+\section{考察}
+今回の結果からMBTIの相互作用がプロジェクトに規則性のあるリスクを及ぼしていると考える．
+
+しかし，データが少なかったため，有効性が実証されたルールも少ない．
+
+データを取る対象を増やし，より多くのデータを集めれば結果が変わる可能性がある．
+
+\section{結論}
+本研究では，グループワークからメンバのMBTI，発生した事象をアンケートを用いて集め，相関関係を調べた．その結果，MBTIのタイプと発生する事象に相互作用していることがわかった．
+
+今後もデータを集めていけば，より多くのルールが見つかり，リスクが最も少ない組み合わせの提案につながることが期待される．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
