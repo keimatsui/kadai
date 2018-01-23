@@ -1,0 +1,68 @@
+%中間審査概要テンプレート ver. 3.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{10mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 顔認証を用いた出席管理システムの提案}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442045　川辺明俊}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{背景}
+
+私の研究テーマは，大学の出席システムを，機械学習という技術を利用して，顔認識という点からより良くするというものである．
+
+現在，大学での出席システムでは，主にICカードを機器に通したり，出欠表，出席カードといった用紙に記入や昔からある点呼といったものがある．千葉工業大学では2016年から，iPadを使い無線で，出席を自動的に確認することのできるシステムが導入された．これによって従来からあったICカードを使ったシステムが廃止された．このシステムの利点は，ICカードを利用する場合に発生していた，各教室の入口付近に1，2個ある読み取り機器に，学生が長い列をなし，渋滞するといった問題の解消である．しかし，このシステムにも回線が重くなると，出席を認識できなくなるなどの欠点がある．
+
+本研究では画像処理を，OpenCV行う．OpenCVとは，コンピューターで画像や動画を処理するのに必要な，さまざま機能が実装されており，BSDライセンスで配布されていることから学術用途だけでなく商用目的でも利用できるものである\cite{a}．この研究手法にはいくつかの選択肢があり，多くの画像認識の場面で用いられ，人間の認知とよく似た学習が期待される，畳み込みニューラルネットワークなどのディープラーニングのなどがあった．だが，私はOpenCVの画像処理技術で，本研究は成功できると判断を下した．判断材料の一つとして，ニコンの細胞培養観察装置「BioStation CT」がある．この研究で行われているタスクは，大量の画像の処理を行うという点で本研究と類似しているが，ディープラーニングなしでも処理できることがわかっている．このことから，大量のデータさえ用意できれば，OpenCVのだけでも十分に顔の特徴を掴み，ラベル分けし学習させた顔を判定させることが出来るのではないかと考えた．
+
+\section{目的}
+現在，在籍している千葉工業大学で使用している出席システムの，背景で述べたような不満点を，画像処理を使用し，改善することである．
+\section{手法}
+研究方法は以下のとおりである．
+
+\begin{enumerate}
+\item 講義に出席している学生の写真を集め，OpenCV で顔だけを一人ひとり切り出し，画像を保存する．
+\item 保存した画像を各学生ごとに保存し，学習データとする．
+\item 学習データ用に保存したデータを，一人ひとりの名前でラベル分けし，各ディレクトリに分ける．
+\item ラベル分けした学習データを，OpenCV を使用して機械学習させる．
+\item 機械学習させたモデルを使用し，他に用意した画像から，顔を判定し実際に活用できるものか判断する．
+\end{enumerate}
+
+\section{想定される成果物}
+想定される成果物は以下のとおりである．
+
+\begin{itemize}
+\item 研究のために作成したデータセット
+\item 顔を判定させるシステム
+\end{itemize}
+
+\section{進捗状況}
+OpenCVを使用し，個人一人を対象とした顔写真の取り込みを行い，顔の判定をさせた．
+\section{今後の計画}
+OpenCVを使用し，複数人の顔の判別をする．
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
