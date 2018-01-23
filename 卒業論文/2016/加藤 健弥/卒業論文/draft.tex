@@ -32,34 +32,38 @@
 \section{序論}\label{序論}
 スマートフォンなどの普及により，手軽にインターネットへの接続が可能になった．そのため，TwitterやFacebookなどの様々なSNS（ソーシャルネットワークサービス）が注目されるようになった．近年ではMastodonという新たなSNSの利用者が増えてきている．
 
-Mastodonとは2016年に公開されたフリーソフトウェアであり，サーバを立てることが出来れば誰でもMastodonを自由に運用することが可能である．そのため，TwitterやFacebookのような利用者が一つのサーバにログインする中央集権型のサービスに対してMastodonでは管理者も設置場所も異なるサーバで運用できる．したがって利用者は自分自身でサーバを選びアカウントを作成してログインする．Mastodonではこのサーバのことを「インスタンス」と呼び，その中で利用者がつぶやきを投稿することを「トゥート」と呼ぶ\cite{Mastodon}．
+Mastodonとは2016年に公開されたオープンソースソフトウェアであり，誰でも自由にサーバを立てて運用できる．そのため，TwitterやFacebookのような利用者が一つのサーバにログインする中央集権型のサービスに対してMastodonの利用者は管理者も設置場所も異なるサーバにあるインスタンスにログインする分散型のサービスである．
+
+インスタンスとは，Mastodonを運用しているそれぞれのサーバのことである．そのため，利用者は別のインスタンスの利用者とはつながっていない．しかしインスタンス同士が連合という形で結びつくことができるため，別のインスタンスであっても連合であれば利用者同士でつながることができる\cite{Mastodon}．
+
+
 
 
 \section{目的}
 
-TwitterとMastodonのインスタンスをつぶやきを定量的に分析する．その結果からTwitterとは違い，Mastodonではインスタンスごとに話題が異なっているかを調査する．
+TwitterとMastodonで，投稿される話題に違いがあるかを，つぶやきを定量的に分析することによって調査する．
 
 \section{手法}
 
-Twitter API，Mastodon APIを使用し，Twitterと30のMastodonのインスタンスから１つのインスタンスごとに無作為に100のつぶやきを集める．それにWord2vecを使用し，集めたつぶやきをベクトル化する．その結果をTwitterとMastodonの各インスタンス同士で主成分分析する．
+Twitter API，Mastodon APIを使用し，Twitterと30のMastodonのインスタンスから１つのインスタンスごとに無作為に100のつぶやきを集める．その集めたつぶやきをWord2vecによってベクトル化する．その結果をTwitterとMastodonの各インスタンス同士で主成分分析する．
 
 
 \section{結果}
 
-Twitterと30のMastodonのインスタンスを対象に調査した．図\ref{mstdn}はTwitterと話題が自由なインスタンスであるmstdn.jpのつぶやきをベクトル化し，主成分分析をした結果である．図\ref{ika}はTwitterとスプラトゥーンの話題が中心のインスタンスであるika.queloud.netのつぶやきをベクトル化し，主成分分析した結果である．
+Twitterと30のMastodonのインスタンスを対象に調査した．図\ref{mstdn}はTwitterと話題が自由なインスタンスであるmstdn.jpの100のつぶやきをベクトル化し，主成分分析をした結果である．図\ref{ika}はTwitterとスプラトゥーンの話題が中心のインスタンスであるika.queloud.netの100のつぶやきをベクトル化し，主成分分析した結果である．
 \vspace{-1.5zh}
 \begin{figure}[h]
 \begin{tabular}{cc}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\includegraphics[width=30mm,clip]{mstdn.pdf}
+\includegraphics[width=50mm,clip]{mstdn.pdf}
 \caption{話題が自由なインスタンス}
 \label{mstdn}
 \end{center}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\includegraphics[width=30mm,clip]{ika.pdf}
+\includegraphics[width=50mm,clip]{ika.pdf}
 \caption{スプラトゥーンが話題の中心のインスタンス}
 \label{ika}
 \end{center} 
@@ -69,13 +73,12 @@ Twitterと30のMastodonのインスタンスを対象に調査した．図\ref{m
 \vspace{-2.5zh}
 \section{考察}
 
-Twitterは話題が幅広いのでつぶやきごとにばらけ，Mastodonのインスタンスは話題が設定されているのでつぶやきがまとまると考えていた．しかし分析した結果，TwitterとMastodonのインスタンスでは違いがみられなかった．そこでTwitterとMastodonのインスタンスのつぶやきを自分の目で確認したが，Twitterは異なる話題，Mastodonのインスタンスでは共通の話題と感じた．しかし私はMastodonのインスタンスで設定されている話題を知っていたため，そのインスタンスが共通の話題であると感じたと考えた．コンピュータもそういったことがわかっているならば研究の結果も変わったと考える．
-
+主成分分析の結果を可視化したバイプロットでは，話題が幅広いTwitterのつぶやきは拡散し，話題が限定されているMastodonのつぶやきは局所化することが予想されたのだが，分析結果は図のように，両者に明確な違いは見られなかった．このことは，Word2vecと主成分分析という方法では，人間が簡単に理解しているような，話題の違いを検出できないことを示唆している．
 
 \section{結論}
 
-TwitterとMastodonの各インスタンスのつぶやきを定量的に分析した．人間の目でみて共通の話題をしていると感じたインスタンスであってもコンピュータが判別することへの精度は低いとわかった．
-今後はMastodonのインスタンスに設定されている話題をコンピュータに勉強させているならば精度の高い判別ができると期待される．
+本研究で用いたWord2vecと主成分分析という手法で話題の広さの違いを識別することは困難だということが分かった．つぶやき単体ではなく，大量のつぶやきをまとめてベクトル化する手法を試みることが今後の課題であろう．
+
 
 \bibliographystyle{junsrt}
 \bibliography{biblio}%「biblio.bib」というファイルが必要．
