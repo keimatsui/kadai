@@ -188,9 +188,6 @@ myData <- read.csv('vectors.csv', head = F)
 
 myResult <- prcomp(myData[, -1])#主成分分析（1列目はラベルだから除外する）
 
-#描画用ラベル（1から因子数まで）
-(myLabels = 1:length(levels(myData[, 1])))
-
 library(ggbiplot)
 #1列目でグループ（色）分け
-ggbiplot(myResult, var.axes = F, groups = myData[, 1], labels = myLabels)
+ggbiplot(myResult, var.axes = F, groups = myData[, 1])
