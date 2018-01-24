@@ -1,0 +1,69 @@
+%卒論概要テンプレート ver. 4.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{11mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont 顔画像を用いた性別予測とSNS上での行動予測}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442045　川辺明俊}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}
+
+ネットリテラシー とは，情報ネットワークを正しく利用することができる能力のことである．リテラシーとは，もともとは識字能力のことで，文字や言語に対する能力の意味である．それに「ネット」と付け加えることで，インターネットを使いこなす基本的な能力を指す言葉として「ネットリテラシー」が定着した\cite{a}．このネットリテラシーが不足していると，インターネットを使用する際に，不正サイトでクレジットカード番号を盗まれたり，コンピューターウイルスの感染により，個人や会社などの情報を流出されたり，ネット上にある嘘の情報に騙されてしまう．実際に，熊本地震でライオンが動物園から脱走したと，デマ情報を流しTwitter上で拡散した男性は，偽計業務妨害容疑で逮捕された．
+
+Twitterとは，インターネット上で「ツイート」と呼ばれる140文字以内のメッセージや，画像，動画，URLを投稿できる情報サービスである．日本では，現在（2017年10月）利用者が4,500万人にもなるソーシャル・ネットワーキング・サービス（SNS）と見られている．
+
+Twitterでは日々，大量の情報がツイートされる．もちろんデマ情報などの，ネットリテラシーを問われるような，情報も錯綜している．そこで私は，Twitterのデマ情報に騙され，ネットリテラシーが不足している人の情報を解析し，分析できるのではないかと考えた．
+
+\section{目的}
+
+Twitterのデマ情報を信じ，情報を拡散してしまうのに男女間で差は生まれるのかを調べる．
+
+\section{手法}
+
+研究方法は以下のとおりである．
+
+\begin{enumerate}
+\item 機械学習で男女の性別を，判定できるようにwikipediaのプロフィール画像をもとに，Neural Network Consoleを使用し，男女の顔画像を判別するための学習済みモデルを作成する．
+\item デマ情報のツイートをリツイートした人のプロフィール画像を集める．
+\item 集めたプロフィール画像を，始めに作成した学習済みモデルを使用し，機械学習で性別を判定させる．
+\item 男女の数を集計し，どのぐらい差が生じるか調べ，考察する．
+\end{enumerate}
+
+\section{結果}
+
+本研究の結果として，Neural Network Consoleを使用し，男性と女性の判別をした場合，80％程度の精度しか出なかった．デマ情報を拡散するTwitterのユーザーと，正確な情報を拡散するユーザーには関わらず，男性と女性では差あるのかは，分がからなかった．
+
+\section{考察}
+
+Twitterユーザーのプロフィール画像は，自分の顔画像を使用していることはとても少なく，データが不足してしまうことが分かった．そして，写真から男性と女性を学習させた学習済みモデルで，画像認識を使用した場合，機械学習の性能が低いため，性別を判別するのは，難しいと考えた．
+
+\section{結論}
+
+本研究ではネットリテラシーの不足している人には，どのような特徴があるのかを調べた．だが，Twitterでは，プロフィール画像で自分の写真を使用しているのはわずかであり，機械学習を使用した画像認識では，性別を判別するのは難しいことだと分かった．
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
