@@ -51,26 +51,26 @@ Twitter API，Mastodon APIを使用し，Twitterと30のMastodonのインスタ�
 \section{結果}
 
 Twitterと30のMastodonのインスタンスを対象に調査した．図\ref{mstdn}はTwitterと話題が自由なインスタンスであるmstdn.jpの100のつぶやきをベクトル化し，主成分分析をした結果である．図\ref{ika}はTwitterとスプラトゥーンの話題が中心のインスタンスであるika.queloud.netの100のつぶやきをベクトル化し，主成分分析した結果である．
-\vspace{-1.5zh}
+\vspace{-1.0zh}
 \begin{figure}[h]
 \begin{tabular}{cc}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\includegraphics[width=50mm,clip]{mstdn.pdf}
+\includegraphics[width=40mm,clip]{mstdn.pdf}
 \caption{話題が自由なインスタンス}
 \label{mstdn}
 \end{center}
 \end{minipage}
 \begin{minipage}{0.5\hsize}
 \begin{center}
-\includegraphics[width=50mm,clip]{ika.pdf}
+\includegraphics[width=40mm,clip]{ika.pdf}
 \caption{スプラトゥーンが話題の中心のインスタンス}
 \label{ika}
 \end{center} 
 \end{minipage}
 \end{tabular}
 \end{figure}
-\vspace{-2.5zh}
+\vspace{-1.0zh}
 \section{考察}
 
 主成分分析の結果を可視化したバイプロットでは，話題が幅広いTwitterのつぶやきは拡散し，話題が限定されているMastodonのつぶやきは局所化することが予想されたのだが，分析結果は図のように，両者に明確な違いは見られなかった．このことは，Word2vecと主成分分析という方法では，人間が簡単に理解しているような，話題の違いを検出できないことを示唆している．
