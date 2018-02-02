@@ -1,0 +1,69 @@
+%卒論概要テンプレート ver. 4.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{11mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont プロジェクトで発生するリスクのMBTI を用いた事前予測}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442085　中村 真悟}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}\label{序論}
+MBTI（Myers-Briggs Type Indicator）という自己理解メソッドがある．MBTIとはカール・グスタフ・ユングの心理学的類型論の指標（内向：I-外向：E，感覚：S-直感：N，思考：T-感情：F）に判断的態度：J-知覚的態度：Pの指標を加えて，4指標16タイプとして性格を分類する．主に相談場面や教育現場，企業の組織編制，人事政策などに利用されている\cite{110001230195}．
+
+\section{目的}
+
+本研究の目的は，メンバのMBTIのタイプの相互作用がプロジェクトのリスクにどう影響を及ぼしているのかを調べ，メンバ間で発生しやすいリスクを予測することである．
+\section{手法}
+
+以下の手法で研究する．
+\begin{enumerate}
+\item グループワークで課題に取り組んでもらう．
+\item グループワーク後に，性格検査と発生したリスクについてのアンケートを行う．
+\item 集めた回答結果をトレーニング用とテスト用にデータを分ける．
+\item トレーニング用データをアソシエーション分析し，確信度が一定の値（閾値）を超えたルールを採用する．
+\item テストデータを使い，ルールの精度と再現率（後述）を求める．
+\item 精度と再現率の調和平均（F値）を求め，値が最も高くなるルール抽出の閾値を求める．
+\end{enumerate}
+
+採用されたルールをテストデータで検証する．テストデータ中に存在するMBTIタイプの組み合わせにルールが適合したら，そのルールに対応するリスクが発生すると予測する．発生が予測されたリスクのうち，実際に発生したものの割合を精度，実際に発生したリスクのうち，予測できたものの割合を再現率とする．
+
+\section{結果}
+講義のグループワークで性格検査とアンケートを実施した．
+集めた39グループのデータを，トレーニングデータとテストデータに分け，トレーニングデータからルールを抽出した．
+抽出されたルールはたとえば，「MBTIのタイプESFJとESFPのメンバがいるとリスク20が発生する（発生率0.2，確信度1）」というものである。
+
+ルールを採用する基準とする確信度の閾値を0.8にしたときに，F値が最高値0.388となった（精度は0.25，再現率は0.864）．
+\section{考察}
+今回の結果から，特定のMBTIのタイプが揃うとリスクが発生するルールがあると考えられる．より多くのデータを集めれば，メンバのMBTIのタイプがわかった時点でリスクを予測することが出来ると考える．
+
+\section{結論}
+本研究では，グループワークからメンバのMBTI，発生したリスクをアンケートを用いて集め，どのようなリスクがあるか調べた．その結果，特定のMBTIのタイプが揃うとリスクが発生するルールがあることがわかった．
+
+今後もデータを集めていけば，より多くの閾値を越えたルールが増えるだろう，そして，リスクが最も少ないグループ分けの方法の提案につながることが期待される．
+\nocite{MBTI}
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
