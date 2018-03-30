@@ -1,0 +1,74 @@
+%卒論概要テンプレート ver. 4.0
+
+\documentclass[uplatex,twocolumn,dvipdfmx]{jsarticle}
+\usepackage[top=22mm,bottom=22mm,left=22mm,right=22mm]{geometry}
+\setlength{\columnsep}{11mm}
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage[expert,deluxe]{otf}
+\usepackage[dvipdfmx,hiresbb]{graphicx}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{secdot}
+
+
+
+
+
+%タイトルと学生番号，名前だけ編集すること
+\title{\vspace{-5mm}\fontsize{14pt}{0pt}\selectfont Word2vecを用いた文章構造の解析手法}
+\author{\normalsize プロジェクトマネジメントコース　矢吹研究室　1442069　氏名　須山 武弘}
+\date{}
+\pagestyle{empty}
+\begin{document}
+\fontsize{10.5pt}{\baselineskip}\selectfont
+\maketitle
+
+
+
+
+
+%以下が本文
+\section{序論}\label{序論}
+レポートや論文を書く際には，読みやすく，論理的な文章を書くことが大切である．論理的文章を書くための書き方として，世界で標準的なパラグラフ・ライティング（Paragraph writing）がある\cite{02}．パラグラフ・ライティングは，英語文章の一般的スタイルであり，序論，本論，結論の3部構成となっている．序論でトピックとなる文が示され，本論は序論に続く支持文となり，最後に結論で文章をまとめる．冒頭にトピックとなる文章を示すと伝えたいことが明確になり，速読が可能となったり，内容の理解が深まるなど多数のメリットがある．
+
+言語を定量的に表すツールとして，Word2vecがある．Word2vecは，単語をベクトルへ変換することができるため，文章の話題の方向性を解析し，文章作成の補助ができるのではないかと仮説を立て，本研究に取り組んだ\cite{01}．
+
+\section{目的}
+Word2vecを用いて文字列である文章をベクトルへ変換し，定量的に文章構造を解析することでパラグラフ・ライティングができているかを調査する．
+
+\section{手法}
+
+文章が論理的でパラグラフ・ライティングの原則に沿って書かれているか確かめ，実際にWord2vecによる文章解析ができるかを検証する．
+
+矢吹研究室で過去に書かれた文章データや，新聞記事などの文章データを解析対象とし，以下の手順で研究を進めた．
+\begin{enumerate}
+ \item MeCabを使い，文章の形態素解析をした．
+ \item 日本語 Wikipedia エンティティベクトルのコーパスを使用し，Word2vecによって文章をベクトルへ変換した．
+ \item データ解析ツールを使用し，多数の文章で主成分分析を行い，比較，考察をした．
+\end{enumerate}
+
+\section{結果}
+私が3年次に課題研究の概要として書いた文書の二段落（6文章）を分析した結果が図\ref{分析結果}である．
+\begin{figure}[h]
+\centering
+\includegraphics[width=5cm]{02.pdf}
+\caption{課題研究概要の分析結果}\label{分析結果}
+\end{figure}
+
+\section{考察}
+
+同段落内の文章は同じ話題でなければならないため，文章のベクトルも同じ方向性である必要がある．
+
+図\ref{分析結果}では，一文章ごとの数値がグラフにプロットされている．このことから，文章の方向性が同じならば，タグAとタグBに対応する点がそれぞれ別々に集まることが期待される．
+
+本研究での分析結果は，同段落内の文章にもかかわらず，それぞれのタグに対応する点が散らばって分布している．従って，解析対象文章の話題の方向性はバラバラであったと考えられる．
+
+\section{結論}
+
+今回の研究から，Word2vecを用いてベクトルへ変換した文章を定量的に検証することで，個人の主観による添削だけでなく，定量的な文章の添削を行うことが期待される．
+
+\bibliographystyle{junsrt}
+\bibliography{biblio}%「biblio.bib」というファイルが必要．
+
+\end{document}
