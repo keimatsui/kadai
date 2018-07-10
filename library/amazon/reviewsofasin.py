@@ -28,9 +28,9 @@ def getReviews(nextPageUrl):
         vote = 0 if tmp is None else int(tmp.text.replace('人のお客様がこれが役に立ったと考えています', ''))
         print('"{}","{}",{},{},{},"{}","{}","{}","{}","{}"'.format(asin, reviewUrl, rating, vote, date, badge, authorUrl, authorName, title, body))
     
-    nextPage = soup.select('.a-last a')
-    if len(nextPage) != 0:
-        return nextPage[0].get('href')
+    nextPage = soup.select_one('.a-last a')
+    if nextPage is not None:
+        return nextPage.get('href')
     else:
         return None
 

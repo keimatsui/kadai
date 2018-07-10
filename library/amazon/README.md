@@ -84,18 +84,18 @@ tmp.text
 
 レビューが複数ページにわたっているときは、次のページを読まなければならない。
 
-インスペクターで見ると、次のページは`class="a-last"`という要素の中のa要素のhref属性に書かれていることがわかる。これを次のように取り出す。
+インスペクターで見ると、次のページは`class="a-last"`という要素の中のa要素のhref属性に書かれていることがわかる。これまで同様`find`で取り出してもいいが、CSSセレクタを使う方法も試してみよう。
 
 ```python
-nextPage = soup.select('.a-last a')
+nextPage = soup.select_one('.a-last a')
 ```
 
-`select`の結果はリストだから、その要素があるかどうかを調べれば、次のページがあるかどうかがわかる。
+`select_one`の結果がNoneでなければ、href属性を取り出す。
 
 ```python
 nextPageUrl = None
-if len(nextPage) != 0:
-    nextPageUrl = nextPage[0].get('href')
+if nextPage is not None:
+    nextPageUrl = nextPage.get('href')
 ```
 
 nextPageUrlがNoneでない限り、`nextPageUrl`を読み込んで処理する作業を繰り返せば良い。（詳細はreviewsofasin.pyを参照）
