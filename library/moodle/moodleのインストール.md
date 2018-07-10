@@ -1,10 +1,10 @@
 TODO:研究室公式仮想マシンに移植すること
 
-#Moodleのインストール
+# Moodleのインストール
 
 いろいろカスタマイズしたりする可能性があるから、`sudo apt-get install moodle`ではなく、ソースを使ってインストールする。
 
-##前提（ApacheとMySQLとPHPのインストール）
+## 前提（ApacheとMySQLとPHPのインストール）
 
 ```
 sudo apt-get install apache2 mysql-server mysql-client php5
@@ -14,14 +14,14 @@ sudo apt-get install apache2 mysql-server mysql-client php5
 
 矢吹の教科書のHello WorldでPHPの動作確認をする。
 
-##ウェブアプリのインストールの原則
+## ウェブアプリのインストールの原則
 
 1. データベースの準備
 1. データベースのアクセス権の設定
 1. ウェブアプリのファイルの展開
 1. データベースのアクセス権のデータベースへの登録
 
-##Moodleのインストール
+## Moodleのインストール
 
 ```
 mysql -uroot -ppass
@@ -71,7 +71,7 @@ sudo apt-get install php5-gd php5-xmlrpc php5-intl
 sudo service apache2 restart
 ```
 
-##自分で勉強すること
+## 自分で勉強すること
 
 * SQLの`CREATE DATABASE`や`GRANT`
 * `grep`
