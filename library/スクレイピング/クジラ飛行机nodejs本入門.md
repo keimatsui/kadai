@@ -1,8 +1,8 @@
 # JS+Node.jsによるWebクローラー
 
-クジラ飛行机『JS+Node.jsによるWebクローラー／ネットエージェント』（ソシム, 2015）を、CentOS向けに書かれているが，Ubuntuでも試せる。
+クジラ飛行机『JS+Node.jsによるWebクローラー／ネットエージェント』（ソシム, 2015）を、CentOSとUbuntuで試す。
 
-CentOSとUbuntuの両方で、この本の内容を試す方法を記す。
+この本はNode.jsを使っているため、（Pythonをメインで使う）矢吹研では、特別な理由がない限り、読まなくていい。
 
 [計算機環境の構築](https://github.com/yabukilab/main/blob/master/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%92%B0%E5%A2%83%E3%81%AE%E6%A7%8B%E7%AF%89.md)のUbuntu（Vagrant上）で試すため，作業フォルダを`/vagrant`にしている。他の環境で試す場合は作業フォルダを確認すること。
 

@@ -6,6 +6,7 @@ import sys
 from bs4 import BeautifulSoup
 
 amazon = 'https://www.amazon.co.jp'
+reviewCounter = 0#面倒だからグローバル
 
 def getReviews(nextPageUrl):
     sys.stderr.write(nextPageUrl + '\n')
@@ -27,6 +28,8 @@ def getReviews(nextPageUrl):
         tmp = review.find(attrs={'data-hook':'helpful-vote-statement'})
         vote = 0 if tmp is None else int(tmp.text.replace('人のお客様がこれが役に立ったと考えています', ''))
         print('"{}","{}",{},{},{},"{}","{}","{}","{}","{}"'.format(asin, reviewUrl, rating, vote, date, badge, authorUrl, authorName, title, body))
+        global reviewCounter
+        reviewCounter += 1
     
     nextPage = soup.select_one('.a-last a')
     if nextPage is not None:
@@ -39,5 +42,7 @@ for line in sys.stdin:
     nextPageUrl = '{}/product-reviews/{}/pageNumber=1'.format(amazon, asin)
     nextPageUrl = getReviews(nextPageUrl)
     while nextPageUrl is not None:
-        time.sleep(3)
+        time.sleep(5)
         nextPageUrl = getReviews(amazon + nextPageUrl)
+    sys.stderr.write('{} reviews\n'.format(reviewCounter))
+    reviewCounter = 0
